@@ -160,7 +160,7 @@ def run_prediction(train, test):
   forest = RandomForestClassifier(n_estimators=100)
   forest = forest.fit(train[0::,1::], train[0::,0] )
 
-  return forest.predict(test).astype(int)
+  return forest.predict(test).astype(int), forest
 
 def write_predictions(ids, predictions):
   with open('prediction.csv', 'wt') as predictions_file:
@@ -170,7 +170,7 @@ def write_predictions(ids, predictions):
     predictions_file.close()
 
 def predict(train, test):
-  predictions = run_prediction(train.values, test.values)
+  predictions, forest = run_prediction(train.values, test.values)
   write_predictions(passenger_ids, predictions)
 
 def cross_validate(data):
@@ -185,6 +185,7 @@ def cross_validate(data):
   precs = []
   recs = []
   f1s = []
+  importances = []
 
   print('Starting %d-fold cross-validation with fold size %d...' % (folds, fold_size))
 
@@ -196,7 +197,7 @@ def cross_validate(data):
     train = pd.concat([data[:i * fold_size:], data[(i+1) * fold_size:]])
 
     # print('- running prediction of fold %d...' % i)
-    predictions = run_prediction(train.values, test.values)
+    predictions, forest = run_prediction(train.values, test.values)
     tp = np.sum([(x == y == 1) for x, y in zip(predictions, answers)])
     fp = np.sum([(x == 1 and y == 0) for x, y in zip(predictions, answers)])
     fn = np.sum([(x == 0 and y == 1) for x, y in zip(predictions, answers)])
@@ -219,14 +220,15 @@ def cross_validate(data):
     precs.append(prec)
     recs.append(rec)
     f1s.append(f1)
+    importances.append(forest.feature_importances_)
 
   print('... finished running cros-validation!')
   print(SEPARATOR)
 
-  return (tps, fps, fns, tns, accs, precs, recs, f1s)
+  return (tps, fps, fns, tns, accs, precs, recs, f1s, importances)
 
 def evaluate_cross_validation_results(results):
-  tps, fps, fns, tns, accs, precs, recs, f1s = results
+  tps, fps, fns, tns, accs, precs, recs, f1s, importances = results
   print('Cross-validation results')
   print(SEPARATOR)
   print('TP:\tmin=%f\tmean=%f\tmax=%f' % (min(tps), sum(tps)/len(tps), max(tps)))
@@ -237,6 +239,12 @@ def evaluate_cross_validation_results(results):
   print('PREC:\tmin=%f\tmean=%f\tmax=%f' % (min(precs), sum(precs)/len(precs), max(precs)))
   print('REC:\tmin=%f\tmean=%f\tmax=%f' % (min(recs), sum(recs)/len(recs), max(recs)))
   print('F1:\tmin=%f\tmean=%f\tmax=%f' % (min(f1s), sum(f1s)/len(f1s), max(f1s)))
+  print(SEPARATOR)
+  for i in range(len(importances[0])):
+    imp = []
+    for j in importances:
+      imp.append(j[i])
+    print('IMP(%d):\tmin=%f\tmean=%f\tmax=%f' % (i, min(imp), sum(imp)/len(imp), max(imp)))
   print(SEPARATOR)
 
 train_df, test_df = load_data()
