@@ -62,6 +62,9 @@ def prepare_data(df, age_bins):
   print('- Preparing families...')
   df['FamilySize'] = df.SibSp + df.Parch
 
+  print('- Preparing family groups...')
+  df['FamilyGroup'] = df.FamilySize.map(lambda s: 0 if s == 0 else 2 if s > 3 else 1)
+
   print('- Preparing titles...')
   df['Title'] = df.Name.map(lambda n: re.sub('(.*, )|(\\..*)', '', n))
   df.loc[(df.Title == 'Mlle'), 'Title'] = 'Miss'
@@ -139,6 +142,11 @@ def print_stats(df):
   for family in df.FamilySize.unique():
     counts = len(df[df.FamilySize == family])
     print('%d familylings: %d times, rate: %f' % (family, counts, len(df[(df.FamilySize == family) & (df.Survived == 1)]) / counts))
+
+  print('- Unique groups: %s' % df.FamilyGroup.unique())
+  for family in df.FamilyGroup.unique():
+    counts = len(df[df.FamilyGroup == family])
+    print('family group %d: %d times, rate: %f' % (family, counts, len(df[(df.FamilyGroup == family) & (df.Survived == 1)]) / counts))
 
   print('- Unique titles: %s' % df.Title.unique())
   for title in df.Title.unique():
