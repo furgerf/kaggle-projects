@@ -240,11 +240,16 @@ def evaluate_cross_validation_results(results):
   print('REC:\tmin=%f\tmean=%f\tmax=%f' % (min(recs), sum(recs)/len(recs), max(recs)))
   print('F1:\tmin=%f\tmean=%f\tmax=%f' % (min(f1s), sum(f1s)/len(f1s), max(f1s)))
   print(SEPARATOR)
+  mean_importance_ranking = []
   for i in range(len(importances[0])):
     imp = []
     for j in importances:
       imp.append(j[i])
-    print('IMP(%d):\tmin=%f\tmean=%f\tmax=%f' % (i, min(imp), sum(imp)/len(imp), max(imp)))
+    mean = sum(imp)/len(imp)
+    print('IMP(%d):\tmin=%f\tmean=%f\tmax=%f' % (i, min(imp), mean, max(imp)))
+    mean_importance_ranking.append((mean, i))
+  mean_importance_ranking.sort()
+  print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%d: %f' % (x[1], x[0]), mean_importance_ranking))))
   print(SEPARATOR)
 
 train_df, test_df = load_data()
