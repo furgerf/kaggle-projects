@@ -82,7 +82,7 @@ def prepare_data(df, age_bins):
   df = df.drop(['PassengerId', 'Name', 'Ticket', 'Cabin', 'Sex'], axis=1)
 
   print('  also dropping fare, age...')
-  df = df.drop(['Fare', 'Age'], axis=1)
+  df = df.drop(['Fare', 'Age', 'Parch', 'FamilyGroup', 'SibSp', 'Embarked'], axis=1)
 
   print('... done preparing data!')
 
@@ -262,7 +262,7 @@ passenger_ids = test_df.PassengerId.values
 train = prepare_data(train_df, age_bins)
 test = prepare_data(test_df, age_bins)
 
-print_stats(train)
+# print_stats(train)
 evaluate_cross_validation_results(cross_validate(train))
 # predict(train, test)
 
