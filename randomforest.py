@@ -140,6 +140,11 @@ def print_stats(df):
     counts = len(df[df.FamilySize == family])
     print('%d familylings: %d times, rate: %f' % (family, counts, len(df[(df.FamilySize == family) & (df.Survived == 1)]) / counts))
 
+  print('- Unique titles: %s' % df.Title.unique())
+  for title in df.Title.unique():
+    counts = len(df[df.Title == title])
+    print('title %d: %d times, rate: %f' % (title, counts, len(df[(df.Title == title) & (df.Survived == 1)]) / counts))
+
   print('... done printing statistics!')
   print(SEPARATOR)
 
@@ -182,7 +187,7 @@ def cross_validate(data):
 
     train = pd.concat([data[:i * fold_size:], data[(i+1) * fold_size:]])
 
-    print('- running prediction of fold %d...' % i)
+    # print('- running prediction of fold %d...' % i)
     predictions = run_prediction(train.values, test.values)
     tp = np.sum([(x == y == 1) for x, y in zip(predictions, answers)])
     fp = np.sum([(x == 1 and y == 0) for x, y in zip(predictions, answers)])
@@ -191,12 +196,12 @@ def cross_validate(data):
     if len(predictions) != fold_size or tp + fp + fn + tn != fold_size:
       raise Error('Unexpected number of prediction results!!')
 
-    print('    TP:  %f,\tFP:   %f,\tFN:  %f,\tTN: %f' % (tp/fold_size, fp/fold_size, fn/fold_size, tn/fold_size))
+    # print('    TP:  %f,\tFP:   %f,\tFN:  %f,\tTN: %f' % (tp/fold_size, fp/fold_size, fn/fold_size, tn/fold_size))
     acc = (tp + tn) / fold_size
     prec = tp / (tp + fp)
     rec = tp / (tp + fn)
     f1 = 2 * tp / (2 * tp + fp + fn)
-    print('    acc: %f,\tprec: %f,\trec: %f,\tf1: %f' % (acc, prec, rec, f1))
+    # print('    acc: %f,\tprec: %f,\trec: %f,\tf1: %f' % (acc, prec, rec, f1))
 
     tps.append(tp/fold_size)
     fps.append(fp/fold_size)
