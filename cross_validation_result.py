@@ -1,9 +1,24 @@
 import numpy as np
 
 class CrossValidationResult():
+  """
+  Container for the results of a cross validation. Works only for binary classification.
+
+  This could be generalized further if need be.
+  """
+
   SEPARATOR = '-' * 80
 
   def __init__(self, folds, fold_size, feature_labels):
+    """
+    Creates a new CrossValidationResult instance.
+
+    Args:
+      folds (int): Number of folds to expect.
+      fold_size (int): Number of examples in a fold.
+      feature_labels (list(str)): The ordered list of feature descriptors. Has no significance for
+        the calculations but is useful when describing the feature importance.
+    """
     self.folds = folds
     self.fold_size = fold_size
     self.feature_labels = feature_labels
@@ -18,7 +33,28 @@ class CrossValidationResult():
     self.f1_scores = []
     self.feature_importances = []
 
+  @staticmethod
+  def mean(data):
+    """
+    Calculates the mean value of the provided data.
+
+    Args:
+      data (list): Data over which to calculate the mean.
+
+    Returns:
+      float: Mean value of the data.
+    """
+    return sum(data) / len(data)
+
   def add_fold_predictions(self, predictions, answers, feature_importances):
+    """
+    Adds the results of a fold prediction to the results.
+
+    Args:
+      predictions (list): Predictions that were made in this fold.
+      answers (list): Correct answers to the predictions.
+      feature_importances (list): Importance of the different features in the model.
+    """
     tp = np.sum([(x == y == 1) for x, y in zip(predictions, answers)])
     fp = np.sum([(x == 1 and y == 0) for x, y in zip(predictions, answers)])
     fn = np.sum([(x == 0 and y == 1) for x, y in zip(predictions, answers)])
@@ -68,14 +104,15 @@ class CrossValidationResult():
     print(CrossValidationResult.SEPARATOR)
 
     mean_importance_ranking = []
+    max_attribute_name_length = max(map(lambda s: len(s), self.feature_labels))
     for i in range(len(self.feature_importances[0])):
       imp = []
       for j in self.feature_importances:
         imp.append(j[i])
       mean = sum(imp)/len(imp)
-      print('IMP(%d):\tmin=%f\tmean=%f\tmax=%f' % (i, min(imp), mean, max(imp)))
+      # print('IMP(%d):\tmin=%f\tmean=%f\tmax=%f' % (i, min(imp), mean, max(imp)))
       mean_importance_ranking.append((mean, i))
     mean_importance_ranking.sort()
-    print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%s: %f' % (self.feature_labels[x[1]].ljust(16), x[0]), mean_importance_ranking))))
+    print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%s: %f' % (self.feature_labels[x[1]].ljust(max_attribute_name_length + 1), x[0]), mean_importance_ranking))))
     print(CrossValidationResult.SEPARATOR)
 

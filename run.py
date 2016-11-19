@@ -29,7 +29,7 @@ train = TitanicKaggle.numericalize_data(train[features])
 test = TitanicKaggle.numericalize_data(test[features])
 
 # predict
-results = titanic.cross_validate(train, predictor, folds=3)
+results = titanic.cross_validate(train, predictor, folds=5)
 results.print_results()
 
 titanic.predict_test_data(train, predictor, test, ids, header)
