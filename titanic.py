@@ -138,7 +138,7 @@ titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100))
 titanic.initialize()
 
 # analyze
-titanic.print_head()
+titanic.print_sample()
 titanic.print_stats()
 
 # prepare for prediction
@@ -151,11 +151,12 @@ predictor = train[survived]
 ids = test[passenger_id]
 
 features = ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
-train = titanic.integerize_data(train[features])
-test = titanic.integerize_data(test[features])
+train = Kaggle.integerize_data(train[features])
+test = Kaggle.integerize_data(test[features])
 
 # predict
 results = titanic.cross_validate(train, predictor)
-titanic.evaluate_cross_validation_results(results)
+Kaggle.evaluate_cross_validation_results(results)
+
 titanic.predict_test_data(train, predictor, test, ids, header)
 

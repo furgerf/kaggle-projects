@@ -14,9 +14,9 @@ class Kaggle():
     print('')
     print('')
     print('')
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
     print('Created new Kaggle instance')
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
 
   def _load_data(self):
     train_df = pd.read_csv(self.train_file, header=0)
@@ -24,7 +24,8 @@ class Kaggle():
     print('Loaded training and test data')
     return train_df, test_df
 
-  def _merge_data(self, data):
+  @staticmethod
+  def _merge_data(data):
     train_df, test_df = data
     train_df['Train'] = True
     test_df['Train'] = False
@@ -46,18 +47,20 @@ class Kaggle():
     print('Dropping columns %s' % columns)
     self.df = self.df.drop(columns, axis=1)
 
+
   def initialize(self):
     """
     Initializes the Kaggle by loading the data from the training and test CSV files and storing them
     in a combined DataFrame. Then, the feature engineering steps are carried out, which depend on
     the Kaggle implementation.
     """
-    self.df = self._merge_data(self._load_data())
+    self.df = Kaggle._merge_data(self._load_data())
     self._engineer_features()
     print('Initialized Kaggle instance')
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
 
-  def integerize_data(self, data):
+  @staticmethod
+  def integerize_data(data):
     for header in data:
       type = data[header].dtype
       if type != 'int64' and type != 'float64':
@@ -80,12 +83,6 @@ class Kaggle():
       predictions_file.close()
 
     print('Predicted test data and written results to %s' % self.prediction_file)
-
-  def print_head(self):
-    print('Sample rows:')
-    print(self.SEPARATOR)
-    print(self.df.head(5))
-    print(self.SEPARATOR)
 
   def cross_validate(self, data, predictor, folds=10):
     fold_size = int(len(data)/folds)
@@ -141,14 +138,15 @@ class Kaggle():
       importances.append(forest.feature_importances_)
 
     print('\n... finished running cros-validation!')
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
 
     return (tps, fps, fns, tns, accs, precs, recs, f1s, importances, features)
 
-  def evaluate_cross_validation_results(self, results):
+  @staticmethod
+  def evaluate_cross_validation_results(results):
     tps, fps, fns, tns, accs, precs, recs, f1s, importances, features = results
     print('Cross-validation results') # TODO: Add stdev
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
     print('TP:\tmin=%f\tmean=%f\tmax=%f' % (min(tps), sum(tps)/len(tps), max(tps)))
     print('FP:\tmin=%f\tmean=%f\tmax=%f' % (min(fps), sum(fps)/len(fps), max(fps)))
     print('FN:\tmin=%f\tmean=%f\tmax=%f' % (min(fns), sum(fns)/len(fns), max(fns)))
@@ -157,7 +155,7 @@ class Kaggle():
     print('PREC:\tmin=%f\tmean=%f\tmax=%f' % (min(precs), sum(precs)/len(precs), max(precs)))
     print('REC:\tmin=%f\tmean=%f\tmax=%f' % (min(recs), sum(recs)/len(recs), max(recs)))
     print('F1:\tmin=%f\tmean=%f\tmax=%f' % (min(f1s), sum(f1s)/len(f1s), max(f1s)))
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
     mean_importance_ranking = []
     for i in range(len(importances[0])):
       imp = []
@@ -168,5 +166,11 @@ class Kaggle():
       mean_importance_ranking.append((mean, i))
     mean_importance_ranking.sort()
     print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%s: %f' % (features[x[1]].ljust(16), x[0]), mean_importance_ranking))))
-    print(self.SEPARATOR)
+    print(Kaggle.SEPARATOR)
+
+  def print_sample(self):
+    print('Sample rows (head/tail):')
+    print(Kaggle.SEPARATOR)
+    print(pd.concat([self.df.head(3), self.df.tail(3)]))
+    print(Kaggle.SEPARATOR)
 
