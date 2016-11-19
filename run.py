@@ -1,14 +1,17 @@
 #!/usr/bin/python
 
+from datetime import datetime
 from sklearn.ensemble import RandomForestClassifier
 
 from cross_validation_result import CrossValidationResult
 from titanic import TitanicKaggle
 
 # set up
+start_time = datetime.utcnow()
 print('')
 print('')
 print('')
+print('Evaluation start time: %s' % start_time)
 titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100, random_state=123))
 titanic.initialize()
 
@@ -64,4 +67,9 @@ for i, features in enumerate(features_sets):
 print(TitanicKaggle.SEPARATOR)
 
 # titanic.predict_test_data(train, predictor, test, ids, header)
+
+end_time = datetime.utcnow()
+duration = end_time - start_time
+print('Evaluation end time: %s' % end_time)
+print('Total evaluation duration: %s' % duration)
 

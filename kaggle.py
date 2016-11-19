@@ -163,7 +163,7 @@ class Kaggle():
     print('Predicted test data and written results to %s' % self.prediction_file)
     print(Kaggle.SEPARATOR)
 
-  def cross_validate(self, data, predictor, folds=10):
+  def cross_validate(self, data, predictor, silent=False, folds=10):
     """
     Runs a cross-validation of the training data.
 
@@ -171,6 +171,7 @@ class Kaggle():
       data (DataFrame): Features of the training set.
       predictor (Series): Matching labels of the training set.
       folds (int): Number of folds to use. Defaults to 10.
+      silent (boolean): Suppresses all output if set to True. Defaults to False.
 
     Returns:
       CrossValidationResult: Results of the the cross validation.
@@ -179,11 +180,14 @@ class Kaggle():
     features = data.columns
     result = CrossValidationResult(folds, fold_size, features)
 
-    print('Starting %d-fold cross-validation with fold size %d based on features:\n%s' % (folds, fold_size, ', '.join(features)))
+    if not silent:
+      print('Starting %d-fold cross-validation with fold size %d based on features:\n%s' % (folds, fold_size, ', '.join(features)))
 
-    print('Running fold', end=' ', flush=True)
+    if not silent:
+      print('Running fold', end=' ', flush=True)
     for i in range(folds):
-      print(str(i), end='... ', flush=True)
+      if not silent:
+        print(str(i), end='... ', flush=True)
 
       # prepare training set
       train = pd.concat([data[:i * fold_size:], data[(i+1) * fold_size:]])
@@ -196,8 +200,9 @@ class Kaggle():
       predictions, classifier = self._predict(train.values, labels.values, test.values)
       result.add_fold_predictions(predictions, answers, classifier.feature_importances_)
 
-    print('\n... finished running cros-validation!')
-    print(Kaggle.SEPARATOR)
+    if not silent:
+      print('\n... finished running cross-validation!')
+      print(Kaggle.SEPARATOR)
 
     return result
 
