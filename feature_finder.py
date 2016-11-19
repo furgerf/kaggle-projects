@@ -1,4 +1,4 @@
-from titanic import TitanicKaggle
+from titanic_kaggle import TitanicKaggle
 from cross_validation_result import CrossValidationResult
 
 class FeatureFinder():

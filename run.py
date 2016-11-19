@@ -4,7 +4,7 @@ from datetime import datetime
 from sklearn.ensemble import RandomForestClassifier
 
 from cross_validation_result import CrossValidationResult
-from titanic import TitanicKaggle
+from titanic_kaggle import TitanicKaggle
 
 def experiment():
   # set up experiment titanic instance
