@@ -78,6 +78,12 @@ class CrossValidationResult():
     self.f1_scores.append(f1_score)
     self.feature_importances.append(feature_importances)
 
+  def print_short_results(self):
+    """
+    Prints only few statistics of the cross validation results.
+    """
+    print('Means in %d-fold CV:\tACC=%f,\tF1=%f' % (self.folds, CrossValidationResult.mean(self.accuracies), CrossValidationResult.mean(self.f1_scores)))
+
   def print_results(self):
     """
     Prints statistics of the cross validation results.
