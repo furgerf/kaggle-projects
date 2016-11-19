@@ -17,14 +17,12 @@ def experiment():
 
   # prepare data for prediction
   train, test = titanic.split_data()
-  survived = 'Survived'
-  predictor = train[survived]
+  training_predictors = train[titanic.PREDICTOR_COLUMN_NAME]
 
-  features = ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
-  prepared_train_data = TitanicKaggle.numericalize_data(train[features])
-  prepared_test_data = TitanicKaggle.numericalize_data(test[features])
+  prepared_train_data = TitanicKaggle.numericalize_data(train[TitanicKaggle.ALL_FEATURES])
+  prepared_test_data = TitanicKaggle.numericalize_data(test[TitanicKaggle.ALL_FEATURES])
 
-  titanic.cross_validate(prepared_train_data, predictor).print_results()
+  titanic.cross_validate(prepared_train_data, training_predictors).print_results()
 
 def predict_test_data():
   # set up experiment titanic instance
@@ -33,19 +31,16 @@ def predict_test_data():
 
   # prepare data for prediction
   train, test = titanic.split_data()
-  survived = 'Survived'
-  passenger_id = 'PassengerId'
-  predictor = train[survived]
-  ids = test[passenger_id]
+  training_predictors = train[titanic.PREDICTOR_COLUMN_NAME]
+  ids = test[titanic.ID_COLUMN_NAME]
 
-  survived = 'Survived'
-  header = [passenger_id, survived]
+  header = [titanic.ID_COLUMN_NAME, titanic.PREDICTOR_COLUMN_NAME]
 
-  features = ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
-  prepared_train_data = TitanicKaggle.numericalize_data(train[features])
-  prepared_test_data = TitanicKaggle.numericalize_data(test[features])
+  TitanicKaggle.ALL_FEATURES = ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+  prepared_train_data = TitanicKaggle.numericalize_data(train[TitanicKaggle.ALL_FEATURES])
+  prepared_test_data = TitanicKaggle.numericalize_data(test[TitanicKaggle.ALL_FEATURES])
 
-  titanic.predict_test_data(prepared_train_data, predictor, prepared_test_data, ids, header)
+  titanic.predict_test_data(prepared_train_data, training_predictors, prepared_test_data, ids, header)
 
 
 # set up

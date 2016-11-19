@@ -9,6 +9,10 @@ class TitanicKaggle(Kaggle):
   Solver for the Titanic kaggle problem.
   """
 
+  PREDICTOR_COLUMN_NAME = 'Survived'
+  ID_COLUMN_NAME = 'PassengerId'
+  ALL_FEATURES = ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+
   def __init__(self, classifier_creator):
     """
     Creates a new `TitanicKaggle` instance.
