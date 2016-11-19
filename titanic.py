@@ -8,8 +8,9 @@ import re
 from kaggle import Kaggle
 
 class TitanicKaggle(Kaggle):
-  def __init__(self, classifier):
-    Kaggle.__init__(self, 'data/train.csv', 'data/test.csv', 'prediction.csv', classifier) # TODO: determine base class dynamically
+  def __init__(self, classifier_creator):
+    # TODO: determine base class dynamically
+    Kaggle.__init__(self, 'data/train.csv', 'data/test.csv', 'prediction.csv', classifier_creator)
 
   def _engineer_features(self):
     print('Preparing data...')
@@ -133,7 +134,7 @@ class TitanicKaggle(Kaggle):
 
 
 # set up
-titanic = TitanicKaggle(RandomForestClassifier(n_estimators=100))
+titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100))
 titanic.initialize()
 
 # analyze

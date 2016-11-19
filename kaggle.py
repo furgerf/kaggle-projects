@@ -5,11 +5,11 @@ import pandas as pd
 class Kaggle():
   SEPARATOR = '-' * 80
 
-  def __init__(self, train_file, test_file, prediction_file, classifier):
+  def __init__(self, train_file, test_file, prediction_file, classifier_creator):
     self.train_file = train_file
     self.test_file = test_file
     self.prediction_file = prediction_file
-    self.unfitted_classifier = classifier
+    self.classifier_creator = classifier_creator
 
     print('')
     print('')
@@ -34,6 +34,7 @@ class Kaggle():
     train = self.df.loc[(self.df.Train == True)].drop('Train', axis=1)
     test = self.df.loc[(self.df.Train == False)].drop('Train', axis=1)
     return train, test
+
 
   def _engineer_features(self):
     raise NotImplementedError('Feature engineering must be implemented in the derived class')
@@ -64,8 +65,9 @@ class Kaggle():
         raise NotImplementedError()
     return data
 
+
   def _predict(self, train, predictor, test):
-    fitted_classifier = self.unfitted_classifier.fit(train, predictor)
+    fitted_classifier = self.classifier_creator().fit(train, predictor)
     return fitted_classifier.predict(test).astype(int), fitted_classifier
 
   def predict_test_data(self, train, predictor, test, ids, header):
