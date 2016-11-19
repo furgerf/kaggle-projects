@@ -2,6 +2,8 @@ import csv as csv
 import numpy as np
 import pandas as pd
 
+from cross_validation_result import CrossValidationResult
+
 class Kaggle():
   """
   Base class of all Kaggle problems. TODO: Figure out how to describe properties in comments.
@@ -171,24 +173,15 @@ class Kaggle():
       folds (int): Number of folds to use. Defaults to 10.
 
     Returns:
-      tuple(float): Results of the the cross validation. TODO: Gather results in single object.
+      CrossValidationResult: Results of the the cross validation.
     """
     fold_size = int(len(data)/folds)
     features = data.columns
-
-    tps = []
-    fps = []
-    fns = []
-    tns = []
-    accs = []
-    precs = []
-    recs = []
-    f1s = []
-    importances = []
+    result = CrossValidationResult(folds, fold_size, features)
 
     print('Starting %d-fold cross-validation with fold size %d based on features:\n%s' % (folds, fold_size, ', '.join(features)))
 
-    print('Fold', end=' ', flush=True)
+    print('Running fold', end=' ', flush=True)
     for i in range(folds):
       print(str(i), end='... ', flush=True)
 
@@ -200,67 +193,13 @@ class Kaggle():
       test = data[i*fold_size:(i+1)*fold_size]
       answers = predictor[i*fold_size:(i+1)*fold_size]
 
-      predictions, forest = self._predict(train.values, labels.values, test.values)
-      tp = np.sum([(x == y == 1) for x, y in zip(predictions, answers)])
-      fp = np.sum([(x == 1 and y == 0) for x, y in zip(predictions, answers)])
-      fn = np.sum([(x == 0 and y == 1) for x, y in zip(predictions, answers)])
-      tn = np.sum([(x == y == 0) for x, y in zip(predictions, answers)])
-      if len(predictions) != fold_size or tp + fp + fn + tn != fold_size:
-        raise Error('Unexpected number of prediction results!!')
-
-      # print('    TP:  %f,\tFP:   %f,\tFN:  %f,\tTN: %f' % (tp/fold_size, fp/fold_size, fn/fold_size, tn/fold_size))
-      acc = (tp + tn) / fold_size
-      prec = tp / (tp + fp)
-      rec = tp / (tp + fn)
-      f1 = 2 * tp / (2 * tp + fp + fn)
-      # print('    acc: %f,\tprec: %f,\trec: %f,\tf1: %f' % (acc, prec, rec, f1))
-
-      tps.append(tp/fold_size)
-      fps.append(fp/fold_size)
-      fns.append(fn/fold_size)
-      tns.append(tn/fold_size)
-      accs.append(acc)
-      precs.append(prec)
-      recs.append(rec)
-      f1s.append(f1)
-      importances.append(forest.feature_importances_)
+      predictions, classifier = self._predict(train.values, labels.values, test.values)
+      result.add_fold_predictions(predictions, answers, classifier.feature_importances_)
 
     print('\n... finished running cros-validation!')
     print(Kaggle.SEPARATOR)
 
-    return (tps, fps, fns, tns, accs, precs, recs, f1s, importances, features)
-
-  @staticmethod
-  def evaluate_cross_validation_results(results):
-    """
-    Prints statistics of the provided cross validation results.
-
-    Args:
-      tuple(float): Results of the cross validation to evaluate.
-    """
-    tps, fps, fns, tns, accs, precs, recs, f1s, importances, features = results
-    print('Cross-validation results') # TODO: Add stdev
-    print(Kaggle.SEPARATOR)
-    print('TP:\tmin=%f\tmean=%f\tmax=%f' % (min(tps), sum(tps)/len(tps), max(tps)))
-    print('FP:\tmin=%f\tmean=%f\tmax=%f' % (min(fps), sum(fps)/len(fps), max(fps)))
-    print('FN:\tmin=%f\tmean=%f\tmax=%f' % (min(fns), sum(fns)/len(fns), max(fns)))
-    print('TN:\tmin=%f\tmean=%f\tmax=%f' % (min(tns), sum(tns)/len(tns), max(tns)))
-    print('ACC:\tmin=%f\tmean=%f\tmax=%f' % (min(accs), sum(accs)/len(accs), max(accs)))
-    print('PREC:\tmin=%f\tmean=%f\tmax=%f' % (min(precs), sum(precs)/len(precs), max(precs)))
-    print('REC:\tmin=%f\tmean=%f\tmax=%f' % (min(recs), sum(recs)/len(recs), max(recs)))
-    print('F1:\tmin=%f\tmean=%f\tmax=%f' % (min(f1s), sum(f1s)/len(f1s), max(f1s)))
-    print(Kaggle.SEPARATOR)
-    mean_importance_ranking = []
-    for i in range(len(importances[0])):
-      imp = []
-      for j in importances:
-        imp.append(j[i])
-      mean = sum(imp)/len(imp)
-      print('IMP(%d):\tmin=%f\tmean=%f\tmax=%f' % (i, min(imp), mean, max(imp)))
-      mean_importance_ranking.append((mean, i))
-    mean_importance_ranking.sort()
-    print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%s: %f' % (features[x[1]].ljust(16), x[0]), mean_importance_ranking))))
-    print(Kaggle.SEPARATOR)
+    return result
 
   def print_sample_data(self):
     """
