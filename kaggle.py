@@ -11,6 +11,11 @@ class Kaggle():
 
   SEPARATOR = '-' * 80
 
+  # NOTE: Derived classes must assign:
+  # PREDICTOR_COLUMN_NAME
+  # ID_COLUMN_NAME
+  # ALL_FEATURES
+
   def __init__(self, train_file, test_file, prediction_file, classifier_creator):
     """
     Creates a new `Kaggle` instance.
