@@ -8,9 +8,23 @@ import re
 from kaggle import Kaggle
 
 class TitanicKaggle(Kaggle):
+  """
+  Solver for the Titanic kaggle problem.
+  """
+
   def __init__(self, classifier_creator):
+    """
+    Creates a new `TitanicKaggle` instance.
+
+    Args:
+      classifier_creator (func): Function that creates a new instance of the desired classifier.
+    """
     # TODO: determine base class dynamically
     Kaggle.__init__(self, 'data/train.csv', 'data/test.csv', 'prediction.csv', classifier_creator)
+
+    print(Kaggle.SEPARATOR)
+    print('Created new TitanicKaggle instance')
+    print(Kaggle.SEPARATOR)
 
   def _engineer_features(self):
     print('Preparing data...')
@@ -70,7 +84,7 @@ class TitanicKaggle(Kaggle):
     print('... done preparing data!')
     print(self.SEPARATOR)
 
-  def print_stats(self):
+  def analyze_data(self):
     print('Calculating some statistics...')
     total_passengers = len(self.df.index)
     survivor_count = len (self.df[self.df.Survived == 1])
@@ -134,12 +148,15 @@ class TitanicKaggle(Kaggle):
 
 
 # set up
-titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100))
+print('')
+print('')
+print('')
+titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100, random_state=123))
 titanic.initialize()
 
 # analyze
-titanic.print_sample()
-titanic.print_stats()
+titanic.print_sample_data()
+titanic.analyze_data()
 
 # prepare for prediction
 train, test = titanic.split_data()
@@ -151,8 +168,8 @@ predictor = train[survived]
 ids = test[passenger_id]
 
 features = ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
-train = Kaggle.integerize_data(train[features])
-test = Kaggle.integerize_data(test[features])
+train = Kaggle.numericalize_data(train[features])
+test = Kaggle.numericalize_data(test[features])
 
 # predict
 results = titanic.cross_validate(train, predictor)

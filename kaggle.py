@@ -3,22 +3,34 @@ import numpy as np
 import pandas as pd
 
 class Kaggle():
+  """
+  Base class of all Kaggle problems. TODO: Figure out how to describe properties in comments.
+  """
+
   SEPARATOR = '-' * 80
 
   def __init__(self, train_file, test_file, prediction_file, classifier_creator):
+    """
+    Creates a new `Kaggle` instance.
+
+    Args:
+      train_file (str): Path to the file containing the training data.
+      test_file (str):  Path to the file containing the test data.
+      prediction_file (str): Path to the file where the predictions should be written to.
+      classifier_creator (func): Function that creates a new instance of the desired classifier.
+    """
     self.train_file = train_file
     self.test_file = test_file
     self.prediction_file = prediction_file
     self.classifier_creator = classifier_creator
 
-    print('')
-    print('')
-    print('')
-    print(Kaggle.SEPARATOR)
-    print('Created new Kaggle instance')
-    print(Kaggle.SEPARATOR)
-
   def _load_data(self):
+    """
+    Loads the data from the instance's `train` and `test` files.
+
+    Returns:
+      tuple(DataFrame): Training and test data.
+    """
     train_df = pd.read_csv(self.train_file, header=0)
     test_df = pd.read_csv(self.test_file, header=0)
     print('Loaded training and test data')
@@ -26,23 +38,57 @@ class Kaggle():
 
   @staticmethod
   def _merge_data(data):
+    """
+    Merges the supplied training- and test-data into a single DataFrame with an additional column
+    "Train". TODO: Figure out how to specify the expanded tuple parameters directly.
+
+    Args:
+      data (tuple(DataFrame)): A tuple containing the training and test DataFrames.
+
+    Returns:
+      DataFrame: The combined training- and test-data.
+    """
     train_df, test_df = data
     train_df['Train'] = True
     test_df['Train'] = False
     return pd.concat([train_df, test_df])
 
   def split_data(self):
+    """
+    Splits the instance's DataFrame into training and test DataFrames according to the "Train"
+    column.
+
+    Returns:
+      tuple(DataFrame): A tuple containing the training and test DataFrames.
+    """
     train = self.df.loc[(self.df.Train == True)].drop('Train', axis=1)
     test = self.df.loc[(self.df.Train == False)].drop('Train', axis=1)
     return train, test
 
 
+  def analyze_data(self):
+    """
+    Derived classes must implement this method where the the instance's DataFrame is analyzed and
+    statistics are printed.
+    """
+    raise NotImplementedError('Feature engineering must be implemented in the derived class')
+
   def _engineer_features(self):
+    """
+    Derived classes must implement this method where the additional features are engineered on the
+    instance's DataFrame.
+    """
     raise NotImplementedError('Feature engineering must be implemented in the derived class')
 
   def remove_columns(self, columns):
     """
-    Removes the specified additional columns from `self.df`.
+    Removes the specified columns from the instance's DataFrame.
+
+    Args:
+      list(str): List of column indices that should be removed.
+
+    Returns:
+      None: Only the instance data is modified.
     """
     print('Dropping columns %s' % columns)
     self.df = self.df.drop(columns, axis=1)
@@ -60,7 +106,16 @@ class Kaggle():
     print(Kaggle.SEPARATOR)
 
   @staticmethod
-  def integerize_data(data):
+  def numericalize_data(data):
+    """
+    Converts non-numeric columns to numeric columns by assigning each label an integer.
+
+    Args:
+      data (DataFrame): Data that should only contain numeric columns.
+
+    Returns:
+      DataFrame: Numericalized data.
+    """
     for header in data:
       type = data[header].dtype
       if type != 'int64' and type != 'float64':
@@ -70,21 +125,54 @@ class Kaggle():
 
 
   def _predict(self, train, predictor, test):
+    """
+    Runs a prediction.
+
+    Args:
+      train (DataFrame): Features of the trainig set.
+      predictor (Series): Labels of the training set.
+      test (DataFrame): Features of the test set.
+
+    Returns:
+      tuple(DataFrame, Classifier): The predicted labels and the fitted classifier.
+    """
     fitted_classifier = self.classifier_creator().fit(train, predictor)
     return fitted_classifier.predict(test).astype(int), fitted_classifier
 
   def predict_test_data(self, train, predictor, test, ids, header):
-    predictions, fitted_classifier = self._predict(train, predictor, test)
+    """
+    Runs a prediction on the supplied test data and stores the predicted labels together with the
+    ids as CSV in the instance's `prediction_file`.
 
-    with open(self.prediction_file, 'wt') as predictions_file:
-      open_file_object = csv.writer(predictions_file)
+    Args:
+      train (DataFrame): Features of the trainig set.
+      predictor (DataFrame): Labels of the training set.
+      test (DataFrame): Features of the test set.
+      ids (Series): Ids of the test examples, to be mapped with the predictions.
+      header (str): Name of the two columns, for the header row of the CSV file.
+    """
+    predictions, fitted_classifier = self._predict(train, predictor, test)
+    with open(self.prediction_file, 'wt') as file:
+      open_file_object = csv.writer(file)
       open_file_object.writerow(header)
       open_file_object.writerows(zip(ids, predictions))
-      predictions_file.close()
+      file.close()
 
     print('Predicted test data and written results to %s' % self.prediction_file)
+    print(Kaggle.SEPARATOR)
 
   def cross_validate(self, data, predictor, folds=10):
+    """
+    Runs a cross-validation of the training data.
+
+    Args:
+      data (DataFrame): Features of the training set.
+      predictor (Series): Matching labels of the training set.
+      folds (int): Number of folds to use. Defaults to 10.
+
+    Returns:
+      tuple(float): Results of the the cross validation. TODO: Gather results in single object.
+    """
     fold_size = int(len(data)/folds)
     features = data.columns
 
@@ -144,6 +232,12 @@ class Kaggle():
 
   @staticmethod
   def evaluate_cross_validation_results(results):
+    """
+    Prints statistics of the provided cross validation results.
+
+    Args:
+      tuple(float): Results of the cross validation to evaluate.
+    """
     tps, fps, fns, tns, accs, precs, recs, f1s, importances, features = results
     print('Cross-validation results') # TODO: Add stdev
     print(Kaggle.SEPARATOR)
@@ -168,7 +262,10 @@ class Kaggle():
     print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%s: %f' % (features[x[1]].ljust(16), x[0]), mean_importance_ranking))))
     print(Kaggle.SEPARATOR)
 
-  def print_sample(self):
+  def print_sample_data(self):
+    """
+    Prints a few sample rows from the head and tail of the current instance DataFrame.
+    """
     print('Sample rows (head/tail):')
     print(Kaggle.SEPARATOR)
     print(pd.concat([self.df.head(3), self.df.tail(3)]))
