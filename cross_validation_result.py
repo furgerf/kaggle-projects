@@ -1,8 +1,8 @@
 import numpy as np
 
-from kaggle import Kaggle
-
 class CrossValidationResult():
+  SEPARATOR = '-' * 80
+
   def __init__(self, folds, fold_size, feature_labels):
     self.folds = folds
     self.fold_size = fold_size
@@ -47,7 +47,7 @@ class CrossValidationResult():
     Prints statistics of the cross validation results.
     """
     print('Cross-validation results') # TODO: Add stdev
-    print(Kaggle.SEPARATOR)
+    print(CrossValidationResult.SEPARATOR)
     print('TP:\tmin=%f\tmean=%f\tmax=%f' % (min(self.true_positives),
       sum(self.true_positives)/len(self.true_positives), max(self.true_positives)))
     print('FP:\tmin=%f\tmean=%f\tmax=%f' % (min(self.false_positives),
@@ -65,7 +65,7 @@ class CrossValidationResult():
       sum(self.recalls)/len(self.recalls), max(self.recalls)))
     print('F1:\tmin=%f\tmean=%f\tmax=%f' % (min(self.f1_scores),
       sum(self.f1_scores)/len(self.f1_scores), max(self.f1_scores)))
-    print(Kaggle.SEPARATOR)
+    print(CrossValidationResult.SEPARATOR)
 
     mean_importance_ranking = []
     for i in range(len(self.feature_importances[0])):
@@ -77,5 +77,5 @@ class CrossValidationResult():
       mean_importance_ranking.append((mean, i))
     mean_importance_ranking.sort()
     print('Mean importance ranking: \n%s' % '\n'.join(list(map(lambda x: '%s: %f' % (self.feature_labels[x[1]].ljust(16), x[0]), mean_importance_ranking))))
-    print(Kaggle.SEPARATOR)
+    print(CrossValidationResult.SEPARATOR)
 
