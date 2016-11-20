@@ -36,7 +36,7 @@ def predict_test_data():
   titanic.initialize()
 
   # prepare data for prediction
-  features = ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+  features = ['Parch', 'Pclass', 'Sex', 'AgeGroup', 'FamilyGroup', 'Title']
   train, predictors, test, ids = titanic.get_prepared_data(features)
 
   titanic.predict_test_data(train, predictors, test, ids)
@@ -67,8 +67,8 @@ print(TitanicKaggle.SEPARATOR)
 
 
 experiment()
-predict_test_data()
-find_features()
+# predict_test_data()
+# find_features()
 
 end_time = datetime.utcnow()
 duration = end_time - start_time

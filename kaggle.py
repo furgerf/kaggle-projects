@@ -154,6 +154,9 @@ class Kaggle():
           print('Numericalizing row %s (%s)' % (header, type))
         entries = list(enumerate(np.unique(data[header])))
         entries_dict = {name: i for i, name in entries}
+        # TODO: Sort by key
+        if not silent:
+          print('-> Using the following map: %s)' % entries_dict)
         data[header] = data[header].map(entries_dict)
 
     return data
