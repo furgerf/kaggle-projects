@@ -17,13 +17,10 @@ def experiment():
   titanic.analyze_data()
 
   # prepare data for prediction
-  train, test = titanic.split_data()
-  training_predictors = train[titanic.PREDICTOR_COLUMN_NAME]
+  train, predictors, test, ids = titanic.get_prepared_data(TitanicKaggle.ALL_FEATURES)
 
-  prepared_train_data = TitanicKaggle.numericalize_data(train[TitanicKaggle.ALL_FEATURES])
-  prepared_test_data = TitanicKaggle.numericalize_data(test[TitanicKaggle.ALL_FEATURES])
+  titanic.cross_validate(train, predictors).print_results()
 
-  titanic.cross_validate(prepared_train_data, training_predictors).print_results()
 
 def predict_test_data():
   # set up experiment titanic instance
@@ -31,17 +28,11 @@ def predict_test_data():
   titanic.initialize()
 
   # prepare data for prediction
-  train, test = titanic.split_data()
-  training_predictors = train[titanic.PREDICTOR_COLUMN_NAME]
-  ids = test[titanic.ID_COLUMN_NAME]
-
-  header = [titanic.ID_COLUMN_NAME, titanic.PREDICTOR_COLUMN_NAME]
-
   features = ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
-  prepared_train_data = TitanicKaggle.numericalize_data(train[features])
-  prepared_test_data = TitanicKaggle.numericalize_data(test[features])
+  train, predictors, test, ids = titanic.get_prepared_data(features)
 
-  titanic.predict_test_data(prepared_train_data, training_predictors, prepared_test_data, ids, header)
+  titanic.predict_test_data(train, predictors, test, ids)
+
 
 def find_features():
   random_seeds = [7, 42, 123, 6340, 43627]
@@ -64,7 +55,7 @@ print(TitanicKaggle.SEPARATOR)
 
 
 experiment()
-# predict_test_data()
+predict_test_data()
 # find_features()
 
 end_time = datetime.utcnow()

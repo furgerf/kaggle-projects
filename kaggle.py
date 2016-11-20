@@ -11,10 +11,12 @@ class Kaggle():
 
   SEPARATOR = '-' * 80
 
+  _TRAIN_COLUMN_NAME = 'Train'
+
   # NOTE: Derived classes must assign:
-  # PREDICTOR_COLUMN_NAME
-  # ID_COLUMN_NAME
-  # ALL_FEATURES
+  PREDICTOR_COLUMN_NAME = None
+  ID_COLUMN_NAME = None
+  ALL_FEATURES = None
 
   def __init__(self, train_file, test_file, prediction_file, classifier_creator):
     """
@@ -31,6 +33,7 @@ class Kaggle():
     self.prediction_file = prediction_file
     self.classifier_creator = classifier_creator
 
+
   def _load_data(self):
     """
     Loads the data from the instance's `train` and `test` files.
@@ -42,6 +45,7 @@ class Kaggle():
     test_df = pd.read_csv(self.test_file, header=0)
     print('Loaded training and test data')
     return train_df, test_df
+
 
   @staticmethod
   def _merge_data(data):
@@ -56,20 +60,25 @@ class Kaggle():
       DataFrame: The combined training- and test-data.
     """
     train_df, test_df = data
-    train_df['Train'] = True
-    test_df['Train'] = False
+    train_df[Kaggle._TRAIN_COLUMN_NAME] = True
+    test_df[Kaggle._TRAIN_COLUMN_NAME] = False
     return pd.concat([train_df, test_df])
 
-  def split_data(self):
+
+  @staticmethod
+  def split_data(data):
     """
-    Splits the instance's DataFrame into training and test DataFrames according to the "Train"
-    column.
+    Splits the provided data into training and test DataFrames according to the _TRAIN_COLUMN_NAME
+    column and removes said column.
+
+    Args:
+      data (DataFrame): The data that should be split
 
     Returns:
       tuple(DataFrame): A tuple containing the training and test DataFrames.
     """
-    train = self.df.loc[(self.df.Train == True)].drop('Train', axis=1)
-    test = self.df.loc[(self.df.Train == False)].drop('Train', axis=1)
+    train = data.loc[(data[Kaggle._TRAIN_COLUMN_NAME] == True)].drop(Kaggle._TRAIN_COLUMN_NAME, axis=1)
+    test = data.loc[(data[Kaggle._TRAIN_COLUMN_NAME] == False)].drop(Kaggle._TRAIN_COLUMN_NAME, axis=1)
     return train, test
 
 
@@ -80,6 +89,7 @@ class Kaggle():
     """
     raise NotImplementedError('Feature engineering must be implemented in the derived class')
 
+
   def _engineer_features(self):
     """
     Derived classes must implement this method where the additional features are engineered on the
@@ -87,6 +97,8 @@ class Kaggle():
     """
     raise NotImplementedError('Feature engineering must be implemented in the derived class')
 
+
+  '''
   def remove_columns(self, columns):
     """
     Removes the specified columns from the instance's DataFrame.
@@ -99,6 +111,7 @@ class Kaggle():
     """
     print('Dropping columns %s' % columns)
     self.df = self.df.drop(columns, axis=1)
+  '''
 
 
   def initialize(self):
@@ -112,6 +125,7 @@ class Kaggle():
     print('Initialized Kaggle instance')
     print(Kaggle.SEPARATOR)
 
+
   @staticmethod
   def numericalize_data(data):
     """
@@ -124,11 +138,57 @@ class Kaggle():
       DataFrame: Numericalized data.
     """
     for header in data:
+      if header == Kaggle._TRAIN_COLUMN_NAME:
+        print('Skipping numericalization of column `%s`' % header)
+        continue
+
       type = data[header].dtype
       if type != 'int64' and type != 'float64':
-        print('Integerizing row %s (%s)' % (header, type))
-        raise NotImplementedError()
+        print('Numericalizing row %s (%s)' % (header, type))
+        entries = list(enumerate(np.unique(data[header])))
+        entries_dict = {name: i for i, name in entries}
+        data[header] = data[header].map(entries_dict)
+
     return data
+
+
+  def get_prepared_data(self, features):
+    """
+    Prepares the instance's data for prediction with the given features.
+
+    Args:
+      features (list(str)): List of the features that should be used for the model.
+
+    Returns:
+      tuple: training data, training data labels, test data, test data ids.
+    """
+    print('Preparing data for prediction with features: %s' % features)
+    # initially, we also need the predictor, id, and train columns
+    additional_features = [self.PREDICTOR_COLUMN_NAME, self.ID_COLUMN_NAME, Kaggle._TRAIN_COLUMN_NAME]
+    all_relevant_features = features + additional_features
+
+    # select all relevant rows
+    data = self.df[all_relevant_features]
+
+    # TODO check for null entries
+    """
+    if data.isnull():
+      raise ValueError('Data must not contain `null` entries!')
+    """
+
+    # numericalize data
+    data = Kaggle.numericalize_data(data)
+
+    # split into training and test data
+    train_data, test_data = Kaggle.split_data(data)
+
+    # prepare results - select relevant rows
+    train = train_data[features]
+    predictor = train_data[self.PREDICTOR_COLUMN_NAME]
+    test = test_data[features]
+    ids = test_data[self.ID_COLUMN_NAME]
+
+    return train, predictor, test, ids
 
 
   def _predict(self, train, predictor, test):
@@ -146,7 +206,8 @@ class Kaggle():
     fitted_classifier = self.classifier_creator().fit(train, predictor)
     return fitted_classifier.predict(test).astype(int), fitted_classifier
 
-  def predict_test_data(self, train, predictor, test, ids, header):
+
+  def predict_test_data(self, train, predictor, test, ids):
     """
     Runs a prediction on the supplied test data and stores the predicted labels together with the
     ids as CSV in the instance's `prediction_file`.
@@ -156,9 +217,9 @@ class Kaggle():
       predictor (DataFrame): Labels of the training set.
       test (DataFrame): Features of the test set.
       ids (Series): Ids of the test examples, to be mapped with the predictions.
-      header (str): Name of the two columns, for the header row of the CSV file.
     """
-    predictions, fitted_classifier = self._predict(train, predictor, test)
+    header = [self.ID_COLUMN_NAME, self.PREDICTOR_COLUMN_NAME]
+    predictions = self._predict(train, predictor, test)
     with open(self.prediction_file, 'wt') as file:
       open_file_object = csv.writer(file)
       open_file_object.writerow(header)
@@ -167,6 +228,7 @@ class Kaggle():
 
     print('Predicted test data and written results to %s' % self.prediction_file)
     print(Kaggle.SEPARATOR)
+
 
   def cross_validate(self, data, predictor, silent=False, folds=10):
     """
@@ -210,6 +272,7 @@ class Kaggle():
       print(Kaggle.SEPARATOR)
 
     return result
+
 
   def print_sample_data(self):
     """
