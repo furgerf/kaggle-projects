@@ -8,6 +8,10 @@ from titanic_kaggle import TitanicKaggle
 from feature_finder import FeatureFinder
 
 def experiment():
+  print(TitanicKaggle.SEPARATOR)
+  print('EXPERIMENTING')
+  print(TitanicKaggle.SEPARATOR)
+
   # set up experiment titanic instance
   titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=123))
   titanic.initialize()
@@ -23,6 +27,10 @@ def experiment():
 
 
 def predict_test_data():
+  print(TitanicKaggle.SEPARATOR)
+  print('PREDICTING TEST DATA')
+  print(TitanicKaggle.SEPARATOR)
+
   # set up experiment titanic instance
   titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=123))
   titanic.initialize()
@@ -35,8 +43,12 @@ def predict_test_data():
 
 
 def find_features():
+  print(TitanicKaggle.SEPARATOR)
+  print('FINDING FEATURES')
+  print(TitanicKaggle.SEPARATOR)
+
   random_seeds = [7, 42, 123, 6340, 43627]
-  titanics = list(map(lambda seed: TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=seed)), random_seeds))
+  titanics = list(map(lambda seed: TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=seed), silent=True), random_seeds))
   for titanic in titanics:
     titanic.initialize()
   finder = FeatureFinder(titanics)
@@ -56,7 +68,7 @@ print(TitanicKaggle.SEPARATOR)
 
 experiment()
 predict_test_data()
-# find_features()
+find_features()
 
 end_time = datetime.utcnow()
 duration = end_time - start_time

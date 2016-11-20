@@ -18,7 +18,7 @@ class Kaggle():
   ID_COLUMN_NAME = None
   ALL_FEATURES = None
 
-  def __init__(self, train_file, test_file, prediction_file, classifier_creator):
+  def __init__(self, train_file, test_file, prediction_file, classifier_creator, silent=False):
     """
     Creates a new `Kaggle` instance.
 
@@ -27,11 +27,13 @@ class Kaggle():
       test_file (str):  Path to the file containing the test data.
       prediction_file (str): Path to the file where the predictions should be written to.
       classifier_creator (func): Function that creates a new instance of the desired classifier.
+      silent (boolean): Suppresses all output if set to True. Defaults to False.
     """
     self.train_file = train_file
     self.test_file = test_file
     self.prediction_file = prediction_file
     self.classifier_creator = classifier_creator
+    self.silent = silent
 
 
   def _load_data(self):
@@ -43,7 +45,8 @@ class Kaggle():
     """
     train_df = pd.read_csv(self.train_file, header=0)
     test_df = pd.read_csv(self.test_file, header=0)
-    print('Loaded training and test data')
+    if not self.silent:
+      print('Loaded training and test data')
     return train_df, test_df
 
 
@@ -122,8 +125,9 @@ class Kaggle():
     """
     self.df = Kaggle._merge_data(self._load_data())
     self._engineer_features()
-    print('Initialized Kaggle instance')
-    print(Kaggle.SEPARATOR)
+    if not self.silent:
+      print('Initialized Kaggle instance')
+      print(Kaggle.SEPARATOR)
 
 
   @staticmethod
@@ -133,18 +137,21 @@ class Kaggle():
 
     Args:
       data (DataFrame): Data that should only contain numeric columns.
+      silent (boolean): Suppresses all output if set to True. Defaults to False.
 
     Returns:
       DataFrame: Numericalized data.
     """
     for header in data:
       if header == Kaggle._TRAIN_COLUMN_NAME:
-        print('Skipping numericalization of column `%s`' % header)
+        if not silent:
+          print('Skipping numericalization of column `%s`' % header)
         continue
 
       type = data[header].dtype
       if type != 'int64' and type != 'float64':
-        print('Numericalizing row %s (%s)' % (header, type))
+        if not silent:
+          print('Numericalizing row %s (%s)' % (header, type))
         entries = list(enumerate(np.unique(data[header])))
         entries_dict = {name: i for i, name in entries}
         data[header] = data[header].map(entries_dict)
@@ -162,7 +169,8 @@ class Kaggle():
     Returns:
       tuple: training data, training data labels, test data, test data ids.
     """
-    print('Preparing data for prediction with features: %s' % features)
+    if not self.silent:
+      print('Preparing data for prediction with features: %s' % features)
     # initially, we also need the predictor, id, and train columns
     additional_features = [self.PREDICTOR_COLUMN_NAME, self.ID_COLUMN_NAME, Kaggle._TRAIN_COLUMN_NAME]
     all_relevant_features = features + additional_features
@@ -226,11 +234,12 @@ class Kaggle():
       open_file_object.writerows(zip(ids, predictions))
       file.close()
 
-    print('Predicted test data and written results to %s' % self.prediction_file)
-    print(Kaggle.SEPARATOR)
+    if not self.silent:
+      print('Predicted test data and written results to %s' % self.prediction_file)
+      print(Kaggle.SEPARATOR)
 
 
-  def cross_validate(self, data, predictor, silent=False, folds=10):
+  def cross_validate(self, data, predictor, folds=10):
     """
     Runs a cross-validation of the training data.
 
@@ -238,7 +247,6 @@ class Kaggle():
       data (DataFrame): Features of the training set.
       predictor (Series): Matching labels of the training set.
       folds (int): Number of folds to use. Defaults to 10.
-      silent (boolean): Suppresses all output if set to True. Defaults to False.
 
     Returns:
       CrossValidationResult: Results of the the cross validation.
@@ -247,13 +255,13 @@ class Kaggle():
     features = data.columns
     result = CrossValidationResult(folds, fold_size, features)
 
-    if not silent:
+    if not self.silent:
       print('Starting %d-fold cross-validation with fold size %d based on features:\n%s' % (folds, fold_size, ', '.join(features)))
 
-    if not silent:
+    if not self.silent:
       print('Running fold', end=' ', flush=True)
     for i in range(folds):
-      if not silent:
+      if not self.silent:
         print(str(i), end='... ', flush=True)
 
       # prepare training set
@@ -267,7 +275,7 @@ class Kaggle():
       predictions, classifier = self._predict(train.values, labels.values, test.values)
       result.add_fold_predictions(predictions, answers, classifier.feature_importances_)
 
-    if not silent:
+    if not self.silent:
       print('\n... finished running cross-validation!')
       print(Kaggle.SEPARATOR)
 
