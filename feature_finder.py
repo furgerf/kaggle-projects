@@ -9,6 +9,7 @@ class FeatureFinder():
 
     self._generate_feature_sets(self.kaggles[0].ALL_FEATURES)
 
+
   def _generate_feature_sets(self, all_features):
     # TODO: Improve...
     feature_sets = []
@@ -36,6 +37,7 @@ class FeatureFinder():
     self.feature_sets = np.unique(feature_sets)
     print('Generated %d different feature sets' % len(self.feature_sets))
 
+
   def run_predictions(self):
     results = {}
     for i, features in enumerate(self.feature_sets):
@@ -45,11 +47,9 @@ class FeatureFinder():
       f1_scores = []
 
       for kaggle in self.kaggles:
-        train_data, test_data = kaggle.split_data()
-        train_predictors = train_data[kaggle.PREDICTOR_COLUMN_NAME]
-        train_data = Kaggle.numericalize_data(train_data[features])
+        train, predictors, test, ids = kaggle.get_prepared_data(features)
 
-        cv_result = kaggle.cross_validate(train_data, train_predictors, silent=True, folds=10)
+        cv_result = kaggle.cross_validate(train, predictors, folds=10)
 
         accuracies.extend(cv_result.accuracies)
         f1_scores.extend(cv_result.f1_scores)
@@ -62,6 +62,7 @@ class FeatureFinder():
       results[overall_score] = (features, mean_accuracy, mean_f1_score)
 
     return results
+
 
   @staticmethod
   def evaluate_feature_finder_results(results):

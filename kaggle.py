@@ -127,7 +127,7 @@ class Kaggle():
 
 
   @staticmethod
-  def numericalize_data(data):
+  def _numericalize_data(data, silent=False):
     """
     Converts non-numeric columns to numeric columns by assigning each label an integer.
 
@@ -177,7 +177,7 @@ class Kaggle():
     """
 
     # numericalize data
-    data = Kaggle.numericalize_data(data)
+    data = Kaggle._numericalize_data(data, silent=self.silent)
 
     # split into training and test data
     train_data, test_data = Kaggle.split_data(data)
