@@ -9,7 +9,7 @@ from feature_finder import FeatureFinder
 
 def experiment():
   # set up experiment titanic instance
-  titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100, random_state=123))
+  titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=123))
   titanic.initialize()
 
   # analyze
@@ -27,7 +27,7 @@ def experiment():
 
 def predict_test_data():
   # set up experiment titanic instance
-  titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100, random_state=123))
+  titanic = TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=123))
   titanic.initialize()
 
   # prepare data for prediction
@@ -37,14 +37,15 @@ def predict_test_data():
 
   header = [titanic.ID_COLUMN_NAME, titanic.PREDICTOR_COLUMN_NAME]
 
-  prepared_train_data = TitanicKaggle.numericalize_data(train[TitanicKaggle.ALL_FEATURES])
-  prepared_test_data = TitanicKaggle.numericalize_data(test[TitanicKaggle.ALL_FEATURES])
+  features = ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+  prepared_train_data = TitanicKaggle.numericalize_data(train[features])
+  prepared_test_data = TitanicKaggle.numericalize_data(test[features])
 
   titanic.predict_test_data(prepared_train_data, training_predictors, prepared_test_data, ids, header)
 
 def find_features():
   random_seeds = [7, 42, 123, 6340, 43627]
-  titanics = list(map(lambda seed: TitanicKaggle(lambda: RandomForestClassifier(n_estimators=100, random_state=seed)), random_seeds))
+  titanics = list(map(lambda seed: TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=seed)), random_seeds))
   for titanic in titanics:
     titanic.initialize()
   finder = FeatureFinder(titanics)
@@ -62,9 +63,9 @@ print('Evaluation start time: %s' % start_time)
 print(TitanicKaggle.SEPARATOR)
 
 
-# experiment()
+experiment()
 # predict_test_data()
-find_features()
+# find_features()
 
 end_time = datetime.utcnow()
 duration = end_time - start_time

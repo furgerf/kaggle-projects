@@ -28,6 +28,11 @@ class FeatureFinder():
           very_very_new_feature_set.remove(very_new_feature_set[k])
           feature_sets.append(very_very_new_feature_set)
 
+          for l in range(len(all_features) - 3):
+            very_very_very_new_feature_set = very_very_new_feature_set.copy()
+            very_very_very_new_feature_set.remove(very_very_new_feature_set[l])
+            feature_sets.append(very_very_very_new_feature_set)
+
     self.feature_sets = np.unique(feature_sets)
     print('Generated %d different feature sets' % len(self.feature_sets))
 

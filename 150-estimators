@@ -1,0 +1,882 @@
+
+
+
+--------------------------------------------------------------------------------
+Evaluation start time: 2016-11-19 20:46:13.370288
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Created new TitanicKaggle instance
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Created new TitanicKaggle instance
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Created new TitanicKaggle instance
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Created new TitanicKaggle instance
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Created new TitanicKaggle instance
+--------------------------------------------------------------------------------
+Loaded training and test data
+Preparing data...
+- Converting gender...
+- Converting ports...
+  using most common port "S" for null-entries
+- Preparing fares...
+  calculating class-based mean fares
+  filling fares with means
+- Preparing ages...
+  calculating gender- and class-based median ages
+  filling missing ages with medians
+- Preparing families...
+- Preparing family groups...
+- Preparing titles...
+... done preparing data!
+--------------------------------------------------------------------------------
+Initialized Kaggle instance
+--------------------------------------------------------------------------------
+Loaded training and test data
+Preparing data...
+- Converting gender...
+- Converting ports...
+  using most common port "S" for null-entries
+- Preparing fares...
+  calculating class-based mean fares
+  filling fares with means
+- Preparing ages...
+  calculating gender- and class-based median ages
+  filling missing ages with medians
+- Preparing families...
+- Preparing family groups...
+- Preparing titles...
+... done preparing data!
+--------------------------------------------------------------------------------
+Initialized Kaggle instance
+--------------------------------------------------------------------------------
+Loaded training and test data
+Preparing data...
+- Converting gender...
+- Converting ports...
+  using most common port "S" for null-entries
+- Preparing fares...
+  calculating class-based mean fares
+  filling fares with means
+- Preparing ages...
+  calculating gender- and class-based median ages
+  filling missing ages with medians
+- Preparing families...
+- Preparing family groups...
+- Preparing titles...
+... done preparing data!
+--------------------------------------------------------------------------------
+Initialized Kaggle instance
+--------------------------------------------------------------------------------
+Loaded training and test data
+Preparing data...
+- Converting gender...
+- Converting ports...
+  using most common port "S" for null-entries
+- Preparing fares...
+  calculating class-based mean fares
+  filling fares with means
+- Preparing ages...
+  calculating gender- and class-based median ages
+  filling missing ages with medians
+- Preparing families...
+- Preparing family groups...
+- Preparing titles...
+... done preparing data!
+--------------------------------------------------------------------------------
+Initialized Kaggle instance
+--------------------------------------------------------------------------------
+Loaded training and test data
+Preparing data...
+- Converting gender...
+- Converting ports...
+  using most common port "S" for null-entries
+- Preparing fares...
+  calculating class-based mean fares
+  filling fares with means
+- Preparing ages...
+  calculating gender- and class-based median ages
+  filling missing ages with medians
+- Preparing families...
+- Preparing family groups...
+- Preparing titles...
+... done preparing data!
+--------------------------------------------------------------------------------
+Initialized Kaggle instance
+--------------------------------------------------------------------------------
+Generated 256 different feature sets
+Processing feature set 1/256
+Processing feature set 2/256
+Processing feature set 3/256
+Processing feature set 4/256
+Processing feature set 5/256
+Processing feature set 6/256
+Processing feature set 7/256
+Processing feature set 8/256
+Processing feature set 9/256
+Processing feature set 10/256
+Processing feature set 11/256
+Processing feature set 12/256
+Processing feature set 13/256
+Processing feature set 14/256
+Processing feature set 15/256
+Processing feature set 16/256
+Processing feature set 17/256
+Processing feature set 18/256
+Processing feature set 19/256
+Processing feature set 20/256
+Processing feature set 21/256
+Processing feature set 22/256
+Processing feature set 23/256
+Processing feature set 24/256
+Processing feature set 25/256
+Processing feature set 26/256
+Processing feature set 27/256
+Processing feature set 28/256
+Processing feature set 29/256
+Processing feature set 30/256
+Processing feature set 31/256
+Processing feature set 32/256
+Processing feature set 33/256
+Processing feature set 34/256
+Processing feature set 35/256
+Processing feature set 36/256
+Processing feature set 37/256
+Processing feature set 38/256
+Processing feature set 39/256
+Processing feature set 40/256
+Processing feature set 41/256
+Processing feature set 42/256
+Processing feature set 43/256
+Processing feature set 44/256
+Processing feature set 45/256
+Processing feature set 46/256
+Processing feature set 47/256
+Processing feature set 48/256
+Processing feature set 49/256
+Processing feature set 50/256
+Processing feature set 51/256
+Processing feature set 52/256
+Processing feature set 53/256
+Processing feature set 54/256
+Processing feature set 55/256
+Processing feature set 56/256
+Processing feature set 57/256
+Processing feature set 58/256
+Processing feature set 59/256
+Processing feature set 60/256
+Processing feature set 61/256
+Processing feature set 62/256
+Processing feature set 63/256
+Processing feature set 64/256
+Processing feature set 65/256
+Processing feature set 66/256
+Processing feature set 67/256
+Processing feature set 68/256
+Processing feature set 69/256
+Processing feature set 70/256
+Processing feature set 71/256
+Processing feature set 72/256
+Processing feature set 73/256
+Processing feature set 74/256
+Processing feature set 75/256
+Processing feature set 76/256
+Processing feature set 77/256
+Processing feature set 78/256
+Processing feature set 79/256
+Processing feature set 80/256
+Processing feature set 81/256
+Processing feature set 82/256
+Processing feature set 83/256
+Processing feature set 84/256
+Processing feature set 85/256
+Processing feature set 86/256
+Processing feature set 87/256
+Processing feature set 88/256
+Processing feature set 89/256
+Processing feature set 90/256
+Processing feature set 91/256
+Processing feature set 92/256
+Processing feature set 93/256
+Processing feature set 94/256
+Processing feature set 95/256
+Processing feature set 96/256
+Processing feature set 97/256
+Processing feature set 98/256
+Processing feature set 99/256
+Processing feature set 100/256
+Processing feature set 101/256
+Processing feature set 102/256
+Processing feature set 103/256
+Processing feature set 104/256
+Processing feature set 105/256
+Processing feature set 106/256
+Processing feature set 107/256
+Processing feature set 108/256
+Processing feature set 109/256
+Processing feature set 110/256
+Processing feature set 111/256
+Processing feature set 112/256
+Processing feature set 113/256
+Processing feature set 114/256
+Processing feature set 115/256
+Processing feature set 116/256
+Processing feature set 117/256
+Processing feature set 118/256
+Processing feature set 119/256
+Processing feature set 120/256
+Processing feature set 121/256
+Processing feature set 122/256
+Processing feature set 123/256
+Processing feature set 124/256
+Processing feature set 125/256
+Processing feature set 126/256
+Processing feature set 127/256
+Processing feature set 128/256
+Processing feature set 129/256
+Processing feature set 130/256
+Processing feature set 131/256
+Processing feature set 132/256
+Processing feature set 133/256
+Processing feature set 134/256
+Processing feature set 135/256
+Processing feature set 136/256
+Processing feature set 137/256
+Processing feature set 138/256
+Processing feature set 139/256
+Processing feature set 140/256
+Processing feature set 141/256
+Processing feature set 142/256
+Processing feature set 143/256
+Processing feature set 144/256
+Processing feature set 145/256
+Processing feature set 146/256
+Processing feature set 147/256
+Processing feature set 148/256
+Processing feature set 149/256
+Processing feature set 150/256
+Processing feature set 151/256
+Processing feature set 152/256
+Processing feature set 153/256
+Processing feature set 154/256
+Processing feature set 155/256
+Processing feature set 156/256
+Processing feature set 157/256
+Processing feature set 158/256
+Processing feature set 159/256
+Processing feature set 160/256
+Processing feature set 161/256
+Processing feature set 162/256
+Processing feature set 163/256
+Processing feature set 164/256
+Processing feature set 165/256
+Processing feature set 166/256
+Processing feature set 167/256
+Processing feature set 168/256
+Processing feature set 169/256
+Processing feature set 170/256
+Processing feature set 171/256
+Processing feature set 172/256
+Processing feature set 173/256
+Processing feature set 174/256
+Processing feature set 175/256
+Processing feature set 176/256
+Processing feature set 177/256
+Processing feature set 178/256
+Processing feature set 179/256
+Processing feature set 180/256
+Processing feature set 181/256
+Processing feature set 182/256
+Processing feature set 183/256
+Processing feature set 184/256
+Processing feature set 185/256
+Processing feature set 186/256
+Processing feature set 187/256
+Processing feature set 188/256
+Processing feature set 189/256
+Processing feature set 190/256
+Processing feature set 191/256
+Processing feature set 192/256
+Processing feature set 193/256
+Processing feature set 194/256
+Processing feature set 195/256
+Processing feature set 196/256
+Processing feature set 197/256
+Processing feature set 198/256
+Processing feature set 199/256
+Processing feature set 200/256
+Processing feature set 201/256
+Processing feature set 202/256
+Processing feature set 203/256
+Processing feature set 204/256
+Processing feature set 205/256
+Processing feature set 206/256
+Processing feature set 207/256
+Processing feature set 208/256
+Processing feature set 209/256
+Processing feature set 210/256
+Processing feature set 211/256
+Processing feature set 212/256
+Processing feature set 213/256
+Processing feature set 214/256
+Processing feature set 215/256
+Processing feature set 216/256
+Processing feature set 217/256
+Processing feature set 218/256
+Processing feature set 219/256
+Processing feature set 220/256
+Processing feature set 221/256
+Processing feature set 222/256
+Processing feature set 223/256
+Processing feature set 224/256
+Processing feature set 225/256
+Processing feature set 226/256
+Processing feature set 227/256
+Processing feature set 228/256
+Processing feature set 229/256
+Processing feature set 230/256
+Processing feature set 231/256
+Processing feature set 232/256
+Processing feature set 233/256
+Processing feature set 234/256
+Processing feature set 235/256
+Processing feature set 236/256
+Processing feature set 237/256
+Processing feature set 238/256
+Processing feature set 239/256
+Processing feature set 240/256
+Processing feature set 241/256
+Processing feature set 242/256
+Processing feature set 243/256
+Processing feature set 244/256
+Processing feature set 245/256
+Processing feature set 246/256
+Processing feature set 247/256
+Processing feature set 248/256
+Processing feature set 249/256
+Processing feature set 250/256
+Processing feature set 251/256
+Processing feature set 252/256
+Processing feature set 253/256
+Processing feature set 254/256
+Processing feature set 255/256
+Processing feature set 256/256
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.666292	F1=0.447433
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.667865	F1=0.450062
+Features: ['Embarked', 'Parch', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.667865	F1=0.450516
+Features: ['Parch', 'SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.671910	F1=0.446943
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.668090	F1=0.454505
+Features: ['Embarked', 'SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.670787	F1=0.458107
+Features: ['Embarked', 'Parch', 'SibSp', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.687640	F1=0.476820
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'FamilyGroup']
+AVG:	ACC=0.682472	F1=0.511476
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.682921	F1=0.513524
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'FamilySize']
+AVG:	ACC=0.683146	F1=0.513802
+Features: ['Embarked', 'Parch', 'Pclass', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.684045	F1=0.514261
+Features: ['Embarked', 'SibSp', 'Pclass', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.684494	F1=0.514128
+Features: ['Embarked', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.680899	F1=0.520013
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.686292	F1=0.528656
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.685618	F1=0.530380
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.687865	F1=0.531928
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.688764	F1=0.532933
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.688090	F1=0.533665
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.688090	F1=0.534057
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.688989	F1=0.535341
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.690562	F1=0.536669
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup']
+AVG:	ACC=0.692135	F1=0.538077
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.695506	F1=0.550392
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.698427	F1=0.548106
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.698652	F1=0.549072
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.699775	F1=0.549546
+Features: ['SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.700899	F1=0.552383
+Features: ['Parch', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.701124	F1=0.553007
+Features: ['Parch', 'SibSp', 'Pclass', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.711236	F1=0.578072
+Features: ['Embarked', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.774157	F1=0.662850
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize']
+AVG:	ACC=0.779326	F1=0.684965
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'FamilyGroup']
+AVG:	ACC=0.779551	F1=0.685166
+Features: ['Parch', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.780225	F1=0.685551
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.780674	F1=0.686151
+Features: ['SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.781348	F1=0.687120
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup']
+AVG:	ACC=0.782472	F1=0.686802
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.781348	F1=0.689436
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'FamilySize']
+AVG:	ACC=0.789438	F1=0.687965
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize']
+AVG:	ACC=0.789438	F1=0.688633
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.790337	F1=0.688722
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'FamilyGroup']
+AVG:	ACC=0.790787	F1=0.690006
+Features: ['Embarked', 'SibSp', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.782697	F1=0.699001
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'FamilySize']
+AVG:	ACC=0.791910	F1=0.690622
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.792135	F1=0.690890
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'FamilyGroup']
+AVG:	ACC=0.783146	F1=0.700235
+Features: ['Embarked', 'Parch', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.783371	F1=0.700392
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'FamilySize']
+AVG:	ACC=0.783596	F1=0.700358
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.783596	F1=0.700552
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.792360	F1=0.691833
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender']
+AVG:	ACC=0.792809	F1=0.691791
+Features: ['Embarked', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.787640	F1=0.700231
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.788315	F1=0.700901
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'Title']
+AVG:	ACC=0.788764	F1=0.702342
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'FamilyGroup']
+AVG:	ACC=0.801798	F1=0.693419
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.789888	F1=0.706045
+Features: ['Parch', 'SibSp', 'Gender', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.791685	F1=0.705485
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.790112	F1=0.707139
+Features: ['Embarked', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.791461	F1=0.706085
+Features: ['Embarked', 'SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.790787	F1=0.707285
+Features: ['Embarked', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.791910	F1=0.706717
+Features: ['Embarked', 'SibSp', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.791461	F1=0.708058
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.791461	F1=0.708493
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.791236	F1=0.708729
+Features: ['Embarked', 'Parch', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.793258	F1=0.708704
+Features: ['Embarked', 'Parch', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.791910	F1=0.710703
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.792809	F1=0.710007
+Features: ['Embarked', 'Parch', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.792809	F1=0.711335
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.793034	F1=0.711158
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.793258	F1=0.711376
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.795056	F1=0.709768
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.794382	F1=0.711278
+Features: ['Embarked', 'Parch', 'SibSp', 'AgeGroup', 'Title']
+AVG:	ACC=0.794382	F1=0.712578
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.794831	F1=0.712652
+Features: ['Embarked', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.802022	F1=0.706028
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.795056	F1=0.713245
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.794607	F1=0.713852
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.794607	F1=0.713909
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.796180	F1=0.714472
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.797528	F1=0.713417
+Features: ['Embarked', 'SibSp', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.797528	F1=0.713448
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.796180	F1=0.714957
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'AgeGroup']
+AVG:	ACC=0.795955	F1=0.716552
+Features: ['Embarked', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.797978	F1=0.715105
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'FamilyGroup']
+AVG:	ACC=0.804270	F1=0.709061
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.798202	F1=0.715585
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.798652	F1=0.715273
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.797753	F1=0.717591
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.797978	F1=0.717953
+Features: ['Embarked', 'Parch', 'Pclass', 'FamilySize', 'Title']
+AVG:	ACC=0.807191	F1=0.710697
+Features: ['Parch', 'SibSp', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.802247	F1=0.716916
+Features: ['Embarked', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.807191	F1=0.712987
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.800000	F1=0.720196
+Features: ['Embarked', 'Parch', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.799326	F1=0.720996
+Features: ['Parch', 'SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.798652	F1=0.721706
+Features: ['Embarked', 'Parch', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.807865	F1=0.713241
+Features: ['SibSp', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.799101	F1=0.722202
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'Title']
+AVG:	ACC=0.810562	F1=0.710880
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'FamilySize', 'Title']
+AVG:	ACC=0.808539	F1=0.713390
+Features: ['Parch', 'SibSp', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.799551	F1=0.722966
+Features: ['Embarked', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.800449	F1=0.722150
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.800000	F1=0.722949
+Features: ['Embarked', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.808315	F1=0.715192
+Features: ['SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.800674	F1=0.723439
+Features: ['Embarked', 'SibSp', 'Pclass', 'FamilySize', 'Title']
+AVG:	ACC=0.808989	F1=0.715491
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Title']
+AVG:	ACC=0.809438	F1=0.715154
+Features: ['Parch', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.800449	F1=0.724291
+Features: ['Parch', 'SibSp', 'Pclass', 'FamilyGroup', 'Title']
+AVG:	ACC=0.804045	F1=0.721084
+Features: ['Embarked', 'SibSp', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.809663	F1=0.716478
+Features: ['Parch', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.804494	F1=0.721932
+Features: ['Parch', 'SibSp', 'Pclass', 'FamilySize', 'Title']
+AVG:	ACC=0.804494	F1=0.722028
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.802022	F1=0.724793
+Features: ['SibSp', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.804494	F1=0.722416
+Features: ['Embarked', 'SibSp', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.804944	F1=0.722041
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.810337	F1=0.716682
+Features: ['SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.801573	F1=0.725541
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'FamilyGroup', 'Title']
+AVG:	ACC=0.810337	F1=0.716807
+Features: ['Embarked', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.803146	F1=0.724956
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.802247	F1=0.726926
+Features: ['Embarked', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.805393	F1=0.724313
+Features: ['Parch', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.802921	F1=0.726870
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.803371	F1=0.726690
+Features: ['Embarked', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.804270	F1=0.726962
+Features: ['SibSp', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.805169	F1=0.726290
+Features: ['Parch', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.803596	F1=0.728784
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.804494	F1=0.728603
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.803596	F1=0.729873
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'Title']
+AVG:	ACC=0.808090	F1=0.725828
+Features: ['Parch', 'SibSp', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.804045	F1=0.729936
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.808989	F1=0.725752
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.804719	F1=0.730175
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.807416	F1=0.728265
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.808989	F1=0.727286
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.806067	F1=0.730244
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814157	F1=0.722194
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.806292	F1=0.730399
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.814607	F1=0.722188
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.806067	F1=0.731209
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'Title']
+AVG:	ACC=0.806966	F1=0.730818
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.810562	F1=0.727295
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.806292	F1=0.732499
+Features: ['Embarked', 'SibSp', 'Pclass', 'FamilyGroup', 'Title']
+AVG:	ACC=0.815730	F1=0.723740
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.815281	F1=0.724261
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.806292	F1=0.733423
+Features: ['Embarked', 'Parch', 'Pclass', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814382	F1=0.725497
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.815730	F1=0.724567
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.810562	F1=0.729923
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.807865	F1=0.732677
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.808090	F1=0.733317
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'Title']
+AVG:	ACC=0.816180	F1=0.725228
+Features: ['Embarked', 'Parch', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.807640	F1=0.733813
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.808090	F1=0.733467
+Features: ['Embarked', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.808764	F1=0.732816
+Features: ['Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.810112	F1=0.731822
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.808315	F1=0.733729
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.816629	F1=0.726109
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.816629	F1=0.726324
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.808315	F1=0.734661
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.808989	F1=0.734177
+Features: ['Parch', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.811910	F1=0.732017
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.809213	F1=0.735282
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.810112	F1=0.734401
+Features: ['SibSp', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.811910	F1=0.732874
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.811910	F1=0.733239
+Features: ['SibSp', 'Pclass', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.812584	F1=0.732812
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.809438	F1=0.736370
+Features: ['Parch', 'Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.812360	F1=0.733810
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.809438	F1=0.736904
+Features: ['Embarked', 'Parch', 'SibSp', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.810112	F1=0.737144
+Features: ['Pclass', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.812584	F1=0.734973
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.818202	F1=0.729451
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.809888	F1=0.737829
+Features: ['Parch', 'SibSp', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.811236	F1=0.737279
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.811011	F1=0.737976
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.811910	F1=0.737282
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.813483	F1=0.737369
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.813034	F1=0.738289
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.813258	F1=0.738818
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.811685	F1=0.740439
+Features: ['Embarked', 'SibSp', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.813034	F1=0.739309
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.813483	F1=0.739364
+Features: ['Embarked', 'Parch', 'SibSp', 'FamilySize', 'Title']
+AVG:	ACC=0.812809	F1=0.740293
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.813708	F1=0.739769
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.813708	F1=0.739863
+Features: ['Embarked', 'Parch', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.820000	F1=0.733622
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.814157	F1=0.739781
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.814382	F1=0.739992
+Features: ['Embarked', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.822022	F1=0.732844
+Features: ['Embarked', 'Parch', 'SibSp', 'FamilyGroup', 'Title']
+AVG:	ACC=0.813483	F1=0.742068
+Features: ['Embarked', 'SibSp', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.814382	F1=0.741430
+Features: ['Embarked', 'SibSp', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814382	F1=0.741891
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814157	F1=0.742714
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814382	F1=0.742511
+Features: ['Embarked', 'Parch', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814382	F1=0.742527
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.823146	F1=0.734601
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.814831	F1=0.743056
+Features: ['SibSp', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814607	F1=0.743593
+Features: ['Parch', 'SibSp', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.814607	F1=0.743748
+Features: ['Embarked', 'Parch', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.815056	F1=0.743389
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.814157	F1=0.744358
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.817753	F1=0.740902
+Features: ['Parch', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.814831	F1=0.744139
+Features: ['Embarked', 'Gender', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.815056	F1=0.744194
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.814831	F1=0.744572
+Features: ['Parch', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.815955	F1=0.744268
+Features: ['Parch', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.817978	F1=0.742378
+Features: ['Embarked', 'SibSp', 'Pclass', 'AgeGroup', 'Title']
+AVG:	ACC=0.818652	F1=0.741832
+Features: ['Embarked', 'Parch', 'Gender', 'FamilySize', 'Title']
+AVG:	ACC=0.816180	F1=0.744473
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'Title']
+AVG:	ACC=0.825169	F1=0.735538
+Features: ['Parch', 'SibSp', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.815730	F1=0.745680
+Features: ['Parch', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.815730	F1=0.746732
+Features: ['SibSp', 'Pclass', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.820449	F1=0.742031
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup']
+AVG:	ACC=0.819775	F1=0.742947
+Features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup']
+AVG:	ACC=0.818876	F1=0.744422
+Features: ['SibSp', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.816180	F1=0.747428
+Features: ['Embarked', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.818876	F1=0.745551
+Features: ['Parch', 'SibSp', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.816180	F1=0.748690
+Features: ['Embarked', 'Parch', 'SibSp', 'Gender', 'Title']
+AVG:	ACC=0.817978	F1=0.747688
+Features: ['Embarked', 'SibSp', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.822022	F1=0.750596
+Features: ['Embarked', 'Parch', 'Gender', 'FamilyGroup', 'Title']
+AVG:	ACC=0.826517	F1=0.757048
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup']
+AVG:	ACC=0.826966	F1=0.758096
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.826292	F1=0.760372
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.826966	F1=0.760508
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.826742	F1=0.761691
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.827416	F1=0.762854
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.827191	F1=0.763113
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.830337	F1=0.760169
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.828315	F1=0.762735
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.828989	F1=0.763083
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.828764	F1=0.764148
+Features: ['Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.829663	F1=0.763406
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.828764	F1=0.764308
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.829213	F1=0.764374
+Features: ['Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.829438	F1=0.764191
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.829438	F1=0.764226
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.829438	F1=0.764331
+Features: ['Parch', 'SibSp', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.830112	F1=0.764156
+Features: ['Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.832360	F1=0.762096
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.829888	F1=0.764942
+Features: ['Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.830787	F1=0.764202
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup']
+AVG:	ACC=0.829663	F1=0.765584
+Features: ['SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.831685	F1=0.763708
+Features: ['Parch', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.830112	F1=0.766568
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.830112	F1=0.766754
+Features: ['SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.830337	F1=0.766629
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.830337	F1=0.767064
+Features: ['Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'FamilyGroup']
+AVG:	ACC=0.830562	F1=0.767376
+Features: ['Parch', 'Pclass', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+AVG:	ACC=0.831236	F1=0.768028
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.831461	F1=0.768156
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize']
+AVG:	ACC=0.831685	F1=0.767932
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.832360	F1=0.767738
+Features: ['Parch', 'SibSp', 'Pclass', 'AgeGroup', 'Title']
+AVG:	ACC=0.832809	F1=0.768429
+Features: ['SibSp', 'Pclass', 'Gender', 'AgeGroup', 'Title']
+AVG:	ACC=0.835506	F1=0.766056
+Features: ['SibSp', 'Pclass', 'AgeGroup', 'FamilySize', 'Title']
+AVG:	ACC=0.832584	F1=0.769410
+Features: ['Parch', 'Pclass', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.834157	F1=0.773240
+Features: ['Parch', 'Pclass', 'Gender', 'AgeGroup', 'FamilyGroup', 'Title']
+AVG:	ACC=0.834831	F1=0.772735
+--------------------------------------------------------------------------------
+Evaluation end time: 2016-11-20 07:16:59.321956
+Total evaluation duration: 10:30:45.951668
+--------------------------------------------------------------------------------
