@@ -230,7 +230,7 @@ class Kaggle():
       ids (Series): Ids of the test examples, to be mapped with the predictions.
     """
     header = [self.ID_COLUMN_NAME, self.PREDICTOR_COLUMN_NAME]
-    predictions = self._predict(train, predictor, test)
+    predictions, classifier = self._predict(train, predictor, test)
     with open(self.prediction_file, 'wt') as file:
       open_file_object = csv.writer(file)
       open_file_object.writerow(header)
