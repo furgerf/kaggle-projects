@@ -90,23 +90,23 @@ class CrossValidationResult():
     """
     print('Cross-validation results') # TODO: Add stdev
     print(CrossValidationResult.SEPARATOR)
-    print('TP:\tmin=%f\tmean=%f\tmax=%f' % (min(self.true_positives),
-      sum(self.true_positives)/len(self.true_positives), max(self.true_positives)))
-    print('FP:\tmin=%f\tmean=%f\tmax=%f' % (min(self.false_positives),
-      sum(self.false_positives)/len(self.false_positives), max(self.false_positives)))
-    print('FN:\tmin=%f\tmean=%f\tmax=%f' % (min(self.false_negatives),
-      sum(self.false_negatives)/len(self.false_negatives), max(self.false_negatives)))
-    print('TN:\tmin=%f\tmean=%f\tmax=%f' % (min(self.true_negatives),
-      sum(self.true_negatives)/len(self.true_negatives), max(self.true_negatives)))
+    print('TP:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.true_positives),
+      sum(self.true_positives)/len(self.true_positives), max(self.true_positives), np.std(self.true_positives)))
+    print('FP:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.false_positives),
+      sum(self.false_positives)/len(self.false_positives), max(self.false_positives), np.std(self.false_positives)))
+    print('FN:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.false_negatives),
+      sum(self.false_negatives)/len(self.false_negatives), max(self.false_negatives), np.std(self.false_negatives)))
+    print('TN:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.true_negatives),
+      sum(self.true_negatives)/len(self.true_negatives), max(self.true_negatives), np.std(self.true_negatives)))
 
-    print('ACC:\tmin=%f\tmean=%f\tmax=%f' % (min(self.accuracies),
-      sum(self.accuracies)/len(self.accuracies), max(self.accuracies)))
-    print('PREC:\tmin=%f\tmean=%f\tmax=%f' % (min(self.precisions),
-      sum(self.precisions)/len(self.precisions), max(self.precisions)))
-    print('REC:\tmin=%f\tmean=%f\tmax=%f' % (min(self.recalls),
-      sum(self.recalls)/len(self.recalls), max(self.recalls)))
-    print('F1:\tmin=%f\tmean=%f\tmax=%f' % (min(self.f1_scores),
-      sum(self.f1_scores)/len(self.f1_scores), max(self.f1_scores)))
+    print('ACC:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.accuracies),
+      sum(self.accuracies)/len(self.accuracies), max(self.accuracies), np.std(self.accuracies)))
+    print('PREC:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.precisions),
+      sum(self.precisions)/len(self.precisions), max(self.precisions), np.std(self.precisions)))
+    print('REC:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.recalls),
+      sum(self.recalls)/len(self.recalls), max(self.recalls), np.std(self.recalls)))
+    print('F1:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.f1_scores),
+      sum(self.f1_scores)/len(self.f1_scores), max(self.f1_scores), np.std(self.f1_scores)))
     print(CrossValidationResult.SEPARATOR)
 
     mean_importance_ranking = []
