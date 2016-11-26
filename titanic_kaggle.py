@@ -21,8 +21,7 @@ class TitanicKaggle(Kaggle):
       classifier_creator (func): Function that creates a new instance of the desired classifier.
       silent (boolean): Suppresses all output if set to True. Defaults to False.
     """
-    # TODO: determine base class dynamically
-    Kaggle.__init__(self, 'data/train.csv', 'data/test.csv', 'prediction.csv', classifier_creator, silent=silent)
+    super(TitanicKaggle, self).__init__('data/train.csv', 'data/test.csv', 'prediction.csv', classifier_creator, silent=silent)
 
     if not self.silent:
       print(Kaggle.SEPARATOR)
