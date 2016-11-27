@@ -56,23 +56,28 @@ def find_features():
   FeatureFinder.evaluate_feature_finder_results(finder_results)
 
 
-# set up
-start_time = datetime.utcnow()
-print('')
-print('')
-print('')
-print(TitanicKaggle.SEPARATOR)
-print('Evaluation start time: %s' % start_time)
-print(TitanicKaggle.SEPARATOR)
+def main():
+  # set up
+  start_time = datetime.utcnow()
+  print('')
+  print('')
+  print('')
+  print(TitanicKaggle.SEPARATOR)
+  print('Evaluation start time: %s' % start_time)
+  print(TitanicKaggle.SEPARATOR)
 
 
-experiment()
-# predict_test_data()
-# find_features()
+  experiment()
+  # predict_test_data()
+  # find_features()
 
-end_time = datetime.utcnow()
-duration = end_time - start_time
-print('Evaluation end time: %s' % end_time)
-print('Total evaluation duration: %s' % duration)
-print(TitanicKaggle.SEPARATOR)
+  end_time = datetime.utcnow()
+  duration = end_time - start_time
+  print('Evaluation end time: %s' % end_time)
+  print('Total evaluation duration: %s' % duration)
+  print(TitanicKaggle.SEPARATOR)
+
+
+if __name__ == "__main__":
+  main()
 
