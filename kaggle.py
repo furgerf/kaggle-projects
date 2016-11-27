@@ -1,6 +1,7 @@
 import csv as csv
 import numpy as np
 import pandas as pd
+from sklearn import preprocessing
 
 from cross_validation_result import CrossValidationResult
 
@@ -54,7 +55,7 @@ class Kaggle():
   def _merge_data(data):
     """
     Merges the supplied training- and test-data into a single DataFrame with an additional column
-    "Train". TODO: Figure out how to specify the expanded tuple parameters directly.
+    "Train".
 
     Args:
       data (tuple(DataFrame)): A tuple containing the training and test DataFrames.
@@ -140,8 +141,9 @@ class Kaggle():
       silent (boolean): Suppresses all output if set to True. Defaults to False.
 
     Returns:
-      DataFrame: Numericalized data.
+      tuple(DataFrame, list): Numericalized data; list of tuples with removed columns and added columns.
     """
+    column_modifications = []
     for header in data:
       if header == Kaggle._TRAIN_COLUMN_NAME:
         if not silent:
@@ -152,14 +154,25 @@ class Kaggle():
       if type != 'int64' and type != 'float64':
         if not silent:
           print('Numericalizing row %s (%s)' % (header, type))
-        entries = list(enumerate(np.unique(data[header])))
-        entries_dict = {name: i for i, name in entries}
-        # TODO: Sort by key
-        if not silent:
-          print('-> Using the following map: %s)' % entries_dict)
-        data[header] = data[header].map(entries_dict)
 
-    return data
+        label_encoder = preprocessing.LabelEncoder()
+        label_encoder.fit(data[header])
+        if not silent:
+          print('Classes: %s' % label_encoder.classes_)
+        encoded_labels = label_encoder.transform(data[header]).reshape(-1, 1)
+
+        one_hot_encoder = preprocessing.OneHotEncoder()
+        one_hot_encoder.fit(encoded_labels)
+        one_hot_labels = one_hot_encoder.transform(encoded_labels).toarray()
+        data = data.drop(header, axis=1)
+        new_columns = []
+        for value in range(one_hot_encoder.n_values_[0]):
+          new_header = '%s-%d' % (header, value)
+          data[new_header] = one_hot_labels[:, value]
+          new_columns.append(new_header)
+        column_modifications.append((header, new_columns))
+
+    return data, column_modifications
 
 
   def get_prepared_data(self, features):
@@ -188,7 +201,17 @@ class Kaggle():
     """
 
     # numericalize data
-    data = Kaggle._numericalize_data(data, silent=self.silent)
+    data, column_modifications = Kaggle._numericalize_data(data, silent=self.silent)
+
+    # update feature list
+    for column in column_modifications:
+      removed_column, added_columns = column
+      if removed_column in features:
+        if not self.silent:
+          print('Replacing feature "%s" with features %s' % (removed_column, added_columns))
+
+        features.remove(removed_column)
+        features.extend(added_columns)
 
     # split into training and test data
     train_data, test_data = Kaggle.split_data(data)
