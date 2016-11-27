@@ -1,0 +1,1913 @@
+
+
+
+--------------------------------------------------------------------------------
+Evaluation start time: 2016-11-27 14:01:38.740111
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+FINDING FEATURES
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Created new TitanicKaggle instance
+--------------------------------------------------------------------------------
+Loaded training and test data
+Preparing data...
+- Filling missing ports...
+  using most common port "S" for null-entries
+- Filling missing fares...
+  calculating class-based mean fares
+  filling fares with means
+- Preparing ages...
+  calculating sex- and class-based median ages
+  filling missing ages with medians
+  distributing ages across 20 groups
+- Preparing families...
+- Preparing family groups...
+- Preparing titles...
+... done preparing data!
+--------------------------------------------------------------------------------
+Initialized Kaggle instance
+--------------------------------------------------------------------------------
+Preparing data for prediction with features: ['Embarked', 'Parch', 'SibSp', 'Pclass', 'Sex', 'AgeGroup', 'FamilySize', 'FamilyGroup', 'Title']
+Numericalizing row Embarked (object)
+Classes: ['C' 'Q' 'S']
+Numericalizing row Sex (object)
+Classes: ['female' 'male']
+Numericalizing row FamilyGroup (object)
+Classes: ['large famliy' 'singleton' 'small family']
+Numericalizing row Title (object)
+Classes: ['Master' 'Miss' 'Mr' 'Mrs' 'Rare title']
+Skipping numericalization of column `Train`
+Replacing feature "Embarked" with features ['Embarked-0', 'Embarked-1', 'Embarked-2']
+Replacing feature "Sex" with features ['Sex-0', 'Sex-1']
+Replacing feature "FamilyGroup" with features ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2']
+Replacing feature "Title" with features ['Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+--------------------------------------------------------------------------------
+Feature groups: {'FamilyGroup': ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2'], 'FamilySize': 'FamilySize', 'Title': ['Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4'], 'Pclass': 'Pclass', 'SibSp': 'SibSp', 'Parch': 'Parch', 'Sex': ['Sex-0', 'Sex-1'], 'AgeGroup': 'AgeGroup', 'Embarked': ['Embarked-0', 'Embarked-1', 'Embarked-2']}
+Combinations of 3 to 9 features
+9 feature groups (18 features) => 466 feature sets
+--------------------------------------------------------------------------------
+Processing feature set 1/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2']
+Mean score 0.455699191528
+--------------------------------------------------------------------------------
+Processing feature set 2/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize']
+Mean score 0.444105404637
+--------------------------------------------------------------------------------
+Processing feature set 3/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Mean score 0.454342006614
+--------------------------------------------------------------------------------
+Processing feature set 4/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.531437041296
+--------------------------------------------------------------------------------
+Processing feature set 5/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.739064724037
+--------------------------------------------------------------------------------
+Processing feature set 6/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.740973608024
+--------------------------------------------------------------------------------
+Processing feature set 7/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.734174268037
+--------------------------------------------------------------------------------
+Processing feature set 8/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.733241852352
+--------------------------------------------------------------------------------
+Processing feature set 9/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.530328435736
+--------------------------------------------------------------------------------
+Processing feature set 10/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.726364535468
+--------------------------------------------------------------------------------
+Processing feature set 11/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728172577832
+--------------------------------------------------------------------------------
+Processing feature set 12/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.719090786783
+--------------------------------------------------------------------------------
+Processing feature set 13/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.715898414453
+--------------------------------------------------------------------------------
+Processing feature set 14/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.711329829189
+--------------------------------------------------------------------------------
+Processing feature set 15/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.715573150971
+--------------------------------------------------------------------------------
+Processing feature set 16/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.458928969606
+--------------------------------------------------------------------------------
+Processing feature set 17/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.704723398623
+--------------------------------------------------------------------------------
+Processing feature set 18/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.707442302168
+--------------------------------------------------------------------------------
+Processing feature set 19/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Mean score 0.525060524097
+--------------------------------------------------------------------------------
+Processing feature set 20/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.731810243167
+--------------------------------------------------------------------------------
+Processing feature set 21/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.744758505528
+--------------------------------------------------------------------------------
+Processing feature set 22/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.735135136782
+--------------------------------------------------------------------------------
+Processing feature set 23/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.72535127923
+--------------------------------------------------------------------------------
+Processing feature set 24/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.533805532815
+--------------------------------------------------------------------------------
+Processing feature set 25/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.733425973621
+--------------------------------------------------------------------------------
+Processing feature set 26/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.720819040714
+--------------------------------------------------------------------------------
+Processing feature set 27/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.722802976263
+--------------------------------------------------------------------------------
+Processing feature set 28/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.718083041632
+--------------------------------------------------------------------------------
+Processing feature set 29/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.710715683269
+--------------------------------------------------------------------------------
+Processing feature set 30/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.705621464364
+--------------------------------------------------------------------------------
+Processing feature set 31/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Mean score 0.456511876693
+--------------------------------------------------------------------------------
+Processing feature set 32/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.702731628317
+--------------------------------------------------------------------------------
+Processing feature set 33/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.697758734586
+--------------------------------------------------------------------------------
+Processing feature set 34/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch']
+Mean score 0.449210886473
+--------------------------------------------------------------------------------
+Processing feature set 35/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Mean score 0.543472763153
+--------------------------------------------------------------------------------
+Processing feature set 36/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.738010806686
+--------------------------------------------------------------------------------
+Processing feature set 37/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.74147798943
+--------------------------------------------------------------------------------
+Processing feature set 38/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.733325470219
+--------------------------------------------------------------------------------
+Processing feature set 39/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.737314992819
+--------------------------------------------------------------------------------
+Processing feature set 40/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.534202132854
+--------------------------------------------------------------------------------
+Processing feature set 41/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729129199212
+--------------------------------------------------------------------------------
+Processing feature set 42/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731666310671
+--------------------------------------------------------------------------------
+Processing feature set 43/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.706747033564
+--------------------------------------------------------------------------------
+Processing feature set 44/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.713947296131
+--------------------------------------------------------------------------------
+Processing feature set 45/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.715656258544
+--------------------------------------------------------------------------------
+Processing feature set 46/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.704541652608
+--------------------------------------------------------------------------------
+Processing feature set 47/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Mean score 0.453596543232
+--------------------------------------------------------------------------------
+Processing feature set 48/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.707735751166
+--------------------------------------------------------------------------------
+Processing feature set 49/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.698218549425
+--------------------------------------------------------------------------------
+Processing feature set 50/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass']
+Mean score 0.545228832194
+--------------------------------------------------------------------------------
+Processing feature set 51/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.737562713778
+--------------------------------------------------------------------------------
+Processing feature set 52/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.742899731296
+--------------------------------------------------------------------------------
+Processing feature set 53/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.740163775061
+--------------------------------------------------------------------------------
+Processing feature set 54/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.730522321268
+--------------------------------------------------------------------------------
+Processing feature set 55/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Mean score 0.537407231608
+--------------------------------------------------------------------------------
+Processing feature set 56/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.735148845061
+--------------------------------------------------------------------------------
+Processing feature set 57/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.726726310627
+--------------------------------------------------------------------------------
+Processing feature set 58/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1']
+Mean score 0.732401106037
+--------------------------------------------------------------------------------
+Processing feature set 59/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.720537713174
+--------------------------------------------------------------------------------
+Processing feature set 60/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.712332216121
+--------------------------------------------------------------------------------
+Processing feature set 61/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.719861439128
+--------------------------------------------------------------------------------
+Processing feature set 62/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp']
+Mean score 0.470516627911
+--------------------------------------------------------------------------------
+Processing feature set 63/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.706865692578
+--------------------------------------------------------------------------------
+Processing feature set 64/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.712747154571
+--------------------------------------------------------------------------------
+Processing feature set 65/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize']
+Mean score 0.439528806627
+--------------------------------------------------------------------------------
+Processing feature set 66/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch']
+Mean score 0.455392646391
+--------------------------------------------------------------------------------
+Processing feature set 67/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.541315872101
+--------------------------------------------------------------------------------
+Processing feature set 68/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.742510252944
+--------------------------------------------------------------------------------
+Processing feature set 69/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.742959482987
+--------------------------------------------------------------------------------
+Processing feature set 70/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.732176338989
+--------------------------------------------------------------------------------
+Processing feature set 71/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729959369366
+--------------------------------------------------------------------------------
+Processing feature set 72/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.535985636419
+--------------------------------------------------------------------------------
+Processing feature set 73/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729743375228
+--------------------------------------------------------------------------------
+Processing feature set 74/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.724116454444
+--------------------------------------------------------------------------------
+Processing feature set 75/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.718359005609
+--------------------------------------------------------------------------------
+Processing feature set 76/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.715514207844
+--------------------------------------------------------------------------------
+Processing feature set 77/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.714864726165
+--------------------------------------------------------------------------------
+Processing feature set 78/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.716794471761
+--------------------------------------------------------------------------------
+Processing feature set 79/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.454115286107
+--------------------------------------------------------------------------------
+Processing feature set 80/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.707355046064
+--------------------------------------------------------------------------------
+Processing feature set 81/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.709830549144
+--------------------------------------------------------------------------------
+Processing feature set 82/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass']
+Mean score 0.532312006901
+--------------------------------------------------------------------------------
+Processing feature set 83/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.736078527771
+--------------------------------------------------------------------------------
+Processing feature set 84/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.748916258261
+--------------------------------------------------------------------------------
+Processing feature set 85/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.737003970966
+--------------------------------------------------------------------------------
+Processing feature set 86/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.72778524636
+--------------------------------------------------------------------------------
+Processing feature set 87/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.535481104276
+--------------------------------------------------------------------------------
+Processing feature set 88/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.730696133033
+--------------------------------------------------------------------------------
+Processing feature set 89/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.723307427718
+--------------------------------------------------------------------------------
+Processing feature set 90/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.725580326277
+--------------------------------------------------------------------------------
+Processing feature set 91/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.714271225694
+--------------------------------------------------------------------------------
+Processing feature set 92/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.713910839142
+--------------------------------------------------------------------------------
+Processing feature set 93/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.707262426468
+--------------------------------------------------------------------------------
+Processing feature set 94/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp']
+Mean score 0.455431061162
+--------------------------------------------------------------------------------
+Processing feature set 95/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.704265205165
+--------------------------------------------------------------------------------
+Processing feature set 96/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.701640574107
+--------------------------------------------------------------------------------
+Processing feature set 97/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch']
+Mean score 0.366424861186
+--------------------------------------------------------------------------------
+Processing feature set 98/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass']
+Mean score 0.524955916097
+--------------------------------------------------------------------------------
+Processing feature set 99/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.692679252603
+--------------------------------------------------------------------------------
+Processing feature set 100/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.744193666638
+--------------------------------------------------------------------------------
+Processing feature set 101/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.732109941487
+--------------------------------------------------------------------------------
+Processing feature set 102/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.710863985312
+--------------------------------------------------------------------------------
+Processing feature set 103/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.536908166881
+--------------------------------------------------------------------------------
+Processing feature set 104/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.727489997346
+--------------------------------------------------------------------------------
+Processing feature set 105/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.710136225142
+--------------------------------------------------------------------------------
+Processing feature set 106/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.678122452776
+--------------------------------------------------------------------------------
+Processing feature set 107/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.714178969427
+--------------------------------------------------------------------------------
+Processing feature set 108/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.720202128716
+--------------------------------------------------------------------------------
+Processing feature set 109/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.68480472441
+--------------------------------------------------------------------------------
+Processing feature set 110/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp']
+Mean score 0.453713456951
+--------------------------------------------------------------------------------
+Processing feature set 111/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.70927562844
+--------------------------------------------------------------------------------
+Processing feature set 112/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.680269746133
+--------------------------------------------------------------------------------
+Processing feature set 113/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass']
+Mean score 0.501705491976
+--------------------------------------------------------------------------------
+Processing feature set 114/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.7156189536
+--------------------------------------------------------------------------------
+Processing feature set 115/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.749525153891
+--------------------------------------------------------------------------------
+Processing feature set 116/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.745101521767
+--------------------------------------------------------------------------------
+Processing feature set 117/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728507275262
+--------------------------------------------------------------------------------
+Processing feature set 118/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp']
+Mean score 0.513967535667
+--------------------------------------------------------------------------------
+Processing feature set 119/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.737513358572
+--------------------------------------------------------------------------------
+Processing feature set 120/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728391102054
+--------------------------------------------------------------------------------
+Processing feature set 121/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1']
+Mean score 0.703346392667
+--------------------------------------------------------------------------------
+Processing feature set 122/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.731012753601
+--------------------------------------------------------------------------------
+Processing feature set 123/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.715235945755
+--------------------------------------------------------------------------------
+Processing feature set 124/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.696317077399
+--------------------------------------------------------------------------------
+Processing feature set 125/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'SibSp']
+Mean score 0.410142875263
+--------------------------------------------------------------------------------
+Processing feature set 126/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.708854250096
+--------------------------------------------------------------------------------
+Processing feature set 127/466: ['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.695065089881
+--------------------------------------------------------------------------------
+Processing feature set 128/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize']
+Mean score 0.411773147461
+--------------------------------------------------------------------------------
+Processing feature set 129/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Mean score 0.443694051476
+--------------------------------------------------------------------------------
+Processing feature set 130/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.561059090985
+--------------------------------------------------------------------------------
+Processing feature set 131/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.767855889446
+--------------------------------------------------------------------------------
+Processing feature set 132/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.764406470743
+--------------------------------------------------------------------------------
+Processing feature set 133/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.759138976936
+--------------------------------------------------------------------------------
+Processing feature set 134/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.763155663333
+--------------------------------------------------------------------------------
+Processing feature set 135/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.560780219526
+--------------------------------------------------------------------------------
+Processing feature set 136/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.761075697717
+--------------------------------------------------------------------------------
+Processing feature set 137/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.766888913177
+--------------------------------------------------------------------------------
+Processing feature set 138/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.74640747331
+--------------------------------------------------------------------------------
+Processing feature set 139/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.745217923471
+--------------------------------------------------------------------------------
+Processing feature set 140/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.724715984291
+--------------------------------------------------------------------------------
+Processing feature set 141/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.727216259753
+--------------------------------------------------------------------------------
+Processing feature set 142/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.448890265573
+--------------------------------------------------------------------------------
+Processing feature set 143/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722909965864
+--------------------------------------------------------------------------------
+Processing feature set 144/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.72729383647
+--------------------------------------------------------------------------------
+Processing feature set 145/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Mean score 0.550123618052
+--------------------------------------------------------------------------------
+Processing feature set 146/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.766698139677
+--------------------------------------------------------------------------------
+Processing feature set 147/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.76589352592
+--------------------------------------------------------------------------------
+Processing feature set 148/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.764108679261
+--------------------------------------------------------------------------------
+Processing feature set 149/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.759184281686
+--------------------------------------------------------------------------------
+Processing feature set 150/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.562059598702
+--------------------------------------------------------------------------------
+Processing feature set 151/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.76459074846
+--------------------------------------------------------------------------------
+Processing feature set 152/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.762167733974
+--------------------------------------------------------------------------------
+Processing feature set 153/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.751919525787
+--------------------------------------------------------------------------------
+Processing feature set 154/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.747270865241
+--------------------------------------------------------------------------------
+Processing feature set 155/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722389727157
+--------------------------------------------------------------------------------
+Processing feature set 156/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731051371547
+--------------------------------------------------------------------------------
+Processing feature set 157/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Mean score 0.447166071623
+--------------------------------------------------------------------------------
+Processing feature set 158/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.721576470994
+--------------------------------------------------------------------------------
+Processing feature set 159/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728922354853
+--------------------------------------------------------------------------------
+Processing feature set 160/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch']
+Mean score 0.446771588231
+--------------------------------------------------------------------------------
+Processing feature set 161/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Mean score 0.565957157949
+--------------------------------------------------------------------------------
+Processing feature set 162/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.769813893095
+--------------------------------------------------------------------------------
+Processing feature set 163/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.767157861106
+--------------------------------------------------------------------------------
+Processing feature set 164/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.762687789056
+--------------------------------------------------------------------------------
+Processing feature set 165/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.774149586345
+--------------------------------------------------------------------------------
+Processing feature set 166/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.561548082224
+--------------------------------------------------------------------------------
+Processing feature set 167/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.76575088982
+--------------------------------------------------------------------------------
+Processing feature set 168/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.774721147691
+--------------------------------------------------------------------------------
+Processing feature set 169/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.747486894521
+--------------------------------------------------------------------------------
+Processing feature set 170/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.745273382321
+--------------------------------------------------------------------------------
+Processing feature set 171/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729904107811
+--------------------------------------------------------------------------------
+Processing feature set 172/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.739873881315
+--------------------------------------------------------------------------------
+Processing feature set 173/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Mean score 0.444866686509
+--------------------------------------------------------------------------------
+Processing feature set 174/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729175094689
+--------------------------------------------------------------------------------
+Processing feature set 175/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.73939491163
+--------------------------------------------------------------------------------
+Processing feature set 176/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass']
+Mean score 0.551684552276
+--------------------------------------------------------------------------------
+Processing feature set 177/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.774357587656
+--------------------------------------------------------------------------------
+Processing feature set 178/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.763552484743
+--------------------------------------------------------------------------------
+Processing feature set 179/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.766282159595
+--------------------------------------------------------------------------------
+Processing feature set 180/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.763610102255
+--------------------------------------------------------------------------------
+Processing feature set 181/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Mean score 0.557923783282
+--------------------------------------------------------------------------------
+Processing feature set 182/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.766926738449
+--------------------------------------------------------------------------------
+Processing feature set 183/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.765326308666
+--------------------------------------------------------------------------------
+Processing feature set 184/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1']
+Mean score 0.761955750837
+--------------------------------------------------------------------------------
+Processing feature set 185/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.743513834266
+--------------------------------------------------------------------------------
+Processing feature set 186/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.727657633798
+--------------------------------------------------------------------------------
+Processing feature set 187/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.752254349223
+--------------------------------------------------------------------------------
+Processing feature set 188/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp']
+Mean score 0.465048488091
+--------------------------------------------------------------------------------
+Processing feature set 189/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.724662101194
+--------------------------------------------------------------------------------
+Processing feature set 190/466: ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.752038564773
+--------------------------------------------------------------------------------
+Processing feature set 191/466: ['AgeGroup', 'FamilySize', 'Parch']
+Mean score 0.443336337036
+--------------------------------------------------------------------------------
+Processing feature set 192/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.56148813227
+--------------------------------------------------------------------------------
+Processing feature set 193/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.76522603511
+--------------------------------------------------------------------------------
+Processing feature set 194/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.764205328667
+--------------------------------------------------------------------------------
+Processing feature set 195/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.759430799137
+--------------------------------------------------------------------------------
+Processing feature set 196/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.760024097909
+--------------------------------------------------------------------------------
+Processing feature set 197/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.559744192526
+--------------------------------------------------------------------------------
+Processing feature set 198/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.763568680611
+--------------------------------------------------------------------------------
+Processing feature set 199/466: ['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.765825751558
+--------------------------------------------------------------------------------
+Processing feature set 200/466: ['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.745306125548
+--------------------------------------------------------------------------------
+Processing feature set 201/466: ['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.742660272805
+--------------------------------------------------------------------------------
+Processing feature set 202/466: ['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.725514404796
+--------------------------------------------------------------------------------
+Processing feature set 203/466: ['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729997566692
+--------------------------------------------------------------------------------
+Processing feature set 204/466: ['AgeGroup', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.448426686398
+--------------------------------------------------------------------------------
+Processing feature set 205/466: ['AgeGroup', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.724715827709
+--------------------------------------------------------------------------------
+Processing feature set 206/466: ['AgeGroup', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.72872707278
+--------------------------------------------------------------------------------
+Processing feature set 207/466: ['AgeGroup', 'FamilySize', 'Pclass']
+Mean score 0.556491764676
+--------------------------------------------------------------------------------
+Processing feature set 208/466: ['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.766500539277
+--------------------------------------------------------------------------------
+Processing feature set 209/466: ['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.767213148655
+--------------------------------------------------------------------------------
+Processing feature set 210/466: ['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.765860572809
+--------------------------------------------------------------------------------
+Processing feature set 211/466: ['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.756462099589
+--------------------------------------------------------------------------------
+Processing feature set 212/466: ['AgeGroup', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.558930627122
+--------------------------------------------------------------------------------
+Processing feature set 213/466: ['AgeGroup', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.76673850546
+--------------------------------------------------------------------------------
+Processing feature set 214/466: ['AgeGroup', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.763147430241
+--------------------------------------------------------------------------------
+Processing feature set 215/466: ['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.750415396911
+--------------------------------------------------------------------------------
+Processing feature set 216/466: ['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.746079927834
+--------------------------------------------------------------------------------
+Processing feature set 217/466: ['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.727717456708
+--------------------------------------------------------------------------------
+Processing feature set 218/466: ['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.733305239312
+--------------------------------------------------------------------------------
+Processing feature set 219/466: ['AgeGroup', 'FamilySize', 'SibSp']
+Mean score 0.445341518605
+--------------------------------------------------------------------------------
+Processing feature set 220/466: ['AgeGroup', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.721427869943
+--------------------------------------------------------------------------------
+Processing feature set 221/466: ['AgeGroup', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731754526658
+--------------------------------------------------------------------------------
+Processing feature set 222/466: ['AgeGroup', 'Parch', 'Pclass']
+Mean score 0.529785999272
+--------------------------------------------------------------------------------
+Processing feature set 223/466: ['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.727426248339
+--------------------------------------------------------------------------------
+Processing feature set 224/466: ['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.763538088228
+--------------------------------------------------------------------------------
+Processing feature set 225/466: ['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.767388287606
+--------------------------------------------------------------------------------
+Processing feature set 226/466: ['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743165854885
+--------------------------------------------------------------------------------
+Processing feature set 227/466: ['AgeGroup', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.559524892125
+--------------------------------------------------------------------------------
+Processing feature set 228/466: ['AgeGroup', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.7698181599
+--------------------------------------------------------------------------------
+Processing feature set 229/466: ['AgeGroup', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.746041626764
+--------------------------------------------------------------------------------
+Processing feature set 230/466: ['AgeGroup', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.702648970531
+--------------------------------------------------------------------------------
+Processing feature set 231/466: ['AgeGroup', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.744628222279
+--------------------------------------------------------------------------------
+Processing feature set 232/466: ['AgeGroup', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.73086043478
+--------------------------------------------------------------------------------
+Processing feature set 233/466: ['AgeGroup', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.705837697696
+--------------------------------------------------------------------------------
+Processing feature set 234/466: ['AgeGroup', 'Parch', 'SibSp']
+Mean score 0.447501760124
+--------------------------------------------------------------------------------
+Processing feature set 235/466: ['AgeGroup', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731320676399
+--------------------------------------------------------------------------------
+Processing feature set 236/466: ['AgeGroup', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.708380228611
+--------------------------------------------------------------------------------
+Processing feature set 237/466: ['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.737672947077
+--------------------------------------------------------------------------------
+Processing feature set 238/466: ['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.759833242525
+--------------------------------------------------------------------------------
+Processing feature set 239/466: ['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.76855697824
+--------------------------------------------------------------------------------
+Processing feature set 240/466: ['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.734406816141
+--------------------------------------------------------------------------------
+Processing feature set 241/466: ['AgeGroup', 'Pclass', 'SibSp']
+Mean score 0.518541403789
+--------------------------------------------------------------------------------
+Processing feature set 242/466: ['AgeGroup', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.76867111738
+--------------------------------------------------------------------------------
+Processing feature set 243/466: ['AgeGroup', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.734918813598
+--------------------------------------------------------------------------------
+Processing feature set 244/466: ['AgeGroup', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.737837451349
+--------------------------------------------------------------------------------
+Processing feature set 245/466: ['AgeGroup', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.723119632409
+--------------------------------------------------------------------------------
+Processing feature set 246/466: ['AgeGroup', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.726385103641
+--------------------------------------------------------------------------------
+Processing feature set 247/466: ['AgeGroup', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.721738527341
+--------------------------------------------------------------------------------
+Processing feature set 248/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize']
+Mean score 0.441997522992
+--------------------------------------------------------------------------------
+Processing feature set 249/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Mean score 0.474592059293
+--------------------------------------------------------------------------------
+Processing feature set 250/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.514643749891
+--------------------------------------------------------------------------------
+Processing feature set 251/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.698928171403
+--------------------------------------------------------------------------------
+Processing feature set 252/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.699142065613
+--------------------------------------------------------------------------------
+Processing feature set 253/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.724476588576
+--------------------------------------------------------------------------------
+Processing feature set 254/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.720568077472
+--------------------------------------------------------------------------------
+Processing feature set 255/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.51364841245
+--------------------------------------------------------------------------------
+Processing feature set 256/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.719905772298
+--------------------------------------------------------------------------------
+Processing feature set 257/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.717673980658
+--------------------------------------------------------------------------------
+Processing feature set 258/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.707332732781
+--------------------------------------------------------------------------------
+Processing feature set 259/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.706928268808
+--------------------------------------------------------------------------------
+Processing feature set 260/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.750130760355
+--------------------------------------------------------------------------------
+Processing feature set 261/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.749088027766
+--------------------------------------------------------------------------------
+Processing feature set 262/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.474592059293
+--------------------------------------------------------------------------------
+Processing feature set 263/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743845847768
+--------------------------------------------------------------------------------
+Processing feature set 264/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.742619249803
+--------------------------------------------------------------------------------
+Processing feature set 265/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Mean score 0.519369648695
+--------------------------------------------------------------------------------
+Processing feature set 266/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.66933805907
+--------------------------------------------------------------------------------
+Processing feature set 267/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.69562652826
+--------------------------------------------------------------------------------
+Processing feature set 268/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.726144320642
+--------------------------------------------------------------------------------
+Processing feature set 269/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.716187498625
+--------------------------------------------------------------------------------
+Processing feature set 270/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.515541281406
+--------------------------------------------------------------------------------
+Processing feature set 271/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.721923944594
+--------------------------------------------------------------------------------
+Processing feature set 272/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.710326923283
+--------------------------------------------------------------------------------
+Processing feature set 273/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.71037674531
+--------------------------------------------------------------------------------
+Processing feature set 274/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.704782861977
+--------------------------------------------------------------------------------
+Processing feature set 275/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.746436663637
+--------------------------------------------------------------------------------
+Processing feature set 276/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.747071811439
+--------------------------------------------------------------------------------
+Processing feature set 277/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Mean score 0.473982480192
+--------------------------------------------------------------------------------
+Processing feature set 278/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.740207495244
+--------------------------------------------------------------------------------
+Processing feature set 279/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.740749586356
+--------------------------------------------------------------------------------
+Processing feature set 280/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch']
+Mean score 0.478486667821
+--------------------------------------------------------------------------------
+Processing feature set 281/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Mean score 0.532040994042
+--------------------------------------------------------------------------------
+Processing feature set 282/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.717052753458
+--------------------------------------------------------------------------------
+Processing feature set 283/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.701463674131
+--------------------------------------------------------------------------------
+Processing feature set 284/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722923229798
+--------------------------------------------------------------------------------
+Processing feature set 285/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.734976792966
+--------------------------------------------------------------------------------
+Processing feature set 286/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.51332220646
+--------------------------------------------------------------------------------
+Processing feature set 287/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722409893732
+--------------------------------------------------------------------------------
+Processing feature set 288/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729872150723
+--------------------------------------------------------------------------------
+Processing feature set 289/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.724900966244
+--------------------------------------------------------------------------------
+Processing feature set 290/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.706864799506
+--------------------------------------------------------------------------------
+Processing feature set 291/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.749277351296
+--------------------------------------------------------------------------------
+Processing feature set 292/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.759146950263
+--------------------------------------------------------------------------------
+Processing feature set 293/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Mean score 0.473386118442
+--------------------------------------------------------------------------------
+Processing feature set 294/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.744263275396
+--------------------------------------------------------------------------------
+Processing feature set 295/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.755252361174
+--------------------------------------------------------------------------------
+Processing feature set 296/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass']
+Mean score 0.538968081101
+--------------------------------------------------------------------------------
+Processing feature set 297/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.687929124451
+--------------------------------------------------------------------------------
+Processing feature set 298/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.700495440201
+--------------------------------------------------------------------------------
+Processing feature set 299/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729541716578
+--------------------------------------------------------------------------------
+Processing feature set 300/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.741512345036
+--------------------------------------------------------------------------------
+Processing feature set 301/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Mean score 0.52978854077
+--------------------------------------------------------------------------------
+Processing feature set 302/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722615477858
+--------------------------------------------------------------------------------
+Processing feature set 303/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.735231310421
+--------------------------------------------------------------------------------
+Processing feature set 304/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1']
+Mean score 0.720668675986
+--------------------------------------------------------------------------------
+Processing feature set 305/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.716124268652
+--------------------------------------------------------------------------------
+Processing feature set 306/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.755264887274
+--------------------------------------------------------------------------------
+Processing feature set 307/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.758366896042
+--------------------------------------------------------------------------------
+Processing feature set 308/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp']
+Mean score 0.505304589253
+--------------------------------------------------------------------------------
+Processing feature set 309/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.749744171288
+--------------------------------------------------------------------------------
+Processing feature set 310/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.754351833113
+--------------------------------------------------------------------------------
+Processing feature set 311/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch']
+Mean score 0.474432407624
+--------------------------------------------------------------------------------
+Processing feature set 312/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.514240401337
+--------------------------------------------------------------------------------
+Processing feature set 313/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.69883931105
+--------------------------------------------------------------------------------
+Processing feature set 314/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.69888835034
+--------------------------------------------------------------------------------
+Processing feature set 315/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.726393983006
+--------------------------------------------------------------------------------
+Processing feature set 316/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.717707030645
+--------------------------------------------------------------------------------
+Processing feature set 317/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.514452833984
+--------------------------------------------------------------------------------
+Processing feature set 318/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.721235946391
+--------------------------------------------------------------------------------
+Processing feature set 319/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.71362967892
+--------------------------------------------------------------------------------
+Processing feature set 320/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.70783491514
+--------------------------------------------------------------------------------
+Processing feature set 321/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.707179111612
+--------------------------------------------------------------------------------
+Processing feature set 322/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.749134369997
+--------------------------------------------------------------------------------
+Processing feature set 323/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.750892713816
+--------------------------------------------------------------------------------
+Processing feature set 324/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.474614098749
+--------------------------------------------------------------------------------
+Processing feature set 325/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.742648726954
+--------------------------------------------------------------------------------
+Processing feature set 326/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.742542821284
+--------------------------------------------------------------------------------
+Processing feature set 327/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass']
+Mean score 0.519369648695
+--------------------------------------------------------------------------------
+Processing feature set 328/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.671908310797
+--------------------------------------------------------------------------------
+Processing feature set 329/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.69556033554
+--------------------------------------------------------------------------------
+Processing feature set 330/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.726107020076
+--------------------------------------------------------------------------------
+Processing feature set 331/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.715873774326
+--------------------------------------------------------------------------------
+Processing feature set 332/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.513746497778
+--------------------------------------------------------------------------------
+Processing feature set 333/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.718766613783
+--------------------------------------------------------------------------------
+Processing feature set 334/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.708362107382
+--------------------------------------------------------------------------------
+Processing feature set 335/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.711476569666
+--------------------------------------------------------------------------------
+Processing feature set 336/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.704741610442
+--------------------------------------------------------------------------------
+Processing feature set 337/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.744456680758
+--------------------------------------------------------------------------------
+Processing feature set 338/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.748107874896
+--------------------------------------------------------------------------------
+Processing feature set 339/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp']
+Mean score 0.474592059293
+--------------------------------------------------------------------------------
+Processing feature set 340/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.737964179646
+--------------------------------------------------------------------------------
+Processing feature set 341/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.742237335613
+--------------------------------------------------------------------------------
+Processing feature set 342/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass']
+Mean score 0.587279955337
+--------------------------------------------------------------------------------
+Processing feature set 343/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.708942906761
+--------------------------------------------------------------------------------
+Processing feature set 344/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.699067849705
+--------------------------------------------------------------------------------
+Processing feature set 345/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.727607744301
+--------------------------------------------------------------------------------
+Processing feature set 346/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.718252157117
+--------------------------------------------------------------------------------
+Processing feature set 347/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.512292361166
+--------------------------------------------------------------------------------
+Processing feature set 348/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.7208125128
+--------------------------------------------------------------------------------
+Processing feature set 349/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.715674220155
+--------------------------------------------------------------------------------
+Processing feature set 350/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.70777778723
+--------------------------------------------------------------------------------
+Processing feature set 351/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.706291880157
+--------------------------------------------------------------------------------
+Processing feature set 352/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.749572406836
+--------------------------------------------------------------------------------
+Processing feature set 353/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.718011822949
+--------------------------------------------------------------------------------
+Processing feature set 354/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp']
+Mean score 0.473844867979
+--------------------------------------------------------------------------------
+Processing feature set 355/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743459579063
+--------------------------------------------------------------------------------
+Processing feature set 356/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.714199613019
+--------------------------------------------------------------------------------
+Processing feature set 357/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.702617096555
+--------------------------------------------------------------------------------
+Processing feature set 358/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.694306869965
+--------------------------------------------------------------------------------
+Processing feature set 359/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.742255111475
+--------------------------------------------------------------------------------
+Processing feature set 360/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.732959754602
+--------------------------------------------------------------------------------
+Processing feature set 361/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp']
+Mean score 0.529382913356
+--------------------------------------------------------------------------------
+Processing feature set 362/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.73603079931
+--------------------------------------------------------------------------------
+Processing feature set 363/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729205222477
+--------------------------------------------------------------------------------
+Processing feature set 364/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.705786569725
+--------------------------------------------------------------------------------
+Processing feature set 365/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.754222349946
+--------------------------------------------------------------------------------
+Processing feature set 366/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.734180699375
+--------------------------------------------------------------------------------
+Processing feature set 367/466: ['Embarked-0', 'Embarked-1', 'Embarked-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.74943279036
+--------------------------------------------------------------------------------
+Processing feature set 368/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Mean score 0.531371681328
+--------------------------------------------------------------------------------
+Processing feature set 369/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Mean score 0.588146967571
+--------------------------------------------------------------------------------
+Processing feature set 370/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.691715883284
+--------------------------------------------------------------------------------
+Processing feature set 371/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.693206145527
+--------------------------------------------------------------------------------
+Processing feature set 372/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729827144932
+--------------------------------------------------------------------------------
+Processing feature set 373/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.732488472971
+--------------------------------------------------------------------------------
+Processing feature set 374/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.586899645445
+--------------------------------------------------------------------------------
+Processing feature set 375/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722130959356
+--------------------------------------------------------------------------------
+Processing feature set 376/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722708491114
+--------------------------------------------------------------------------------
+Processing feature set 377/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.710588840239
+--------------------------------------------------------------------------------
+Processing feature set 378/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.710814134658
+--------------------------------------------------------------------------------
+Processing feature set 379/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.748364883675
+--------------------------------------------------------------------------------
+Processing feature set 380/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.748976933719
+--------------------------------------------------------------------------------
+Processing feature set 381/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Mean score 0.531509174718
+--------------------------------------------------------------------------------
+Processing feature set 382/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.741397766186
+--------------------------------------------------------------------------------
+Processing feature set 383/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743146827871
+--------------------------------------------------------------------------------
+Processing feature set 384/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Mean score 0.584549120174
+--------------------------------------------------------------------------------
+Processing feature set 385/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.704322613511
+--------------------------------------------------------------------------------
+Processing feature set 386/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.693010067095
+--------------------------------------------------------------------------------
+Processing feature set 387/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731372147659
+--------------------------------------------------------------------------------
+Processing feature set 388/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729328590838
+--------------------------------------------------------------------------------
+Processing feature set 389/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Mean score 0.591310966097
+--------------------------------------------------------------------------------
+Processing feature set 390/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.721586834973
+--------------------------------------------------------------------------------
+Processing feature set 391/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.72078792921
+--------------------------------------------------------------------------------
+Processing feature set 392/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Mean score 0.709129984999
+--------------------------------------------------------------------------------
+Processing feature set 393/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.709800228855
+--------------------------------------------------------------------------------
+Processing feature set 394/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.748099949592
+--------------------------------------------------------------------------------
+Processing feature set 395/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.752793730489
+--------------------------------------------------------------------------------
+Processing feature set 396/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Mean score 0.53170148241
+--------------------------------------------------------------------------------
+Processing feature set 397/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.73967590958
+--------------------------------------------------------------------------------
+Processing feature set 398/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.745336909
+--------------------------------------------------------------------------------
+Processing feature set 399/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Mean score 0.583212447026
+--------------------------------------------------------------------------------
+Processing feature set 400/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.711580291234
+--------------------------------------------------------------------------------
+Processing feature set 401/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.692160092697
+--------------------------------------------------------------------------------
+Processing feature set 402/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729234865714
+--------------------------------------------------------------------------------
+Processing feature set 403/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.744482590222
+--------------------------------------------------------------------------------
+Processing feature set 404/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.58950986268
+--------------------------------------------------------------------------------
+Processing feature set 405/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.720406782825
+--------------------------------------------------------------------------------
+Processing feature set 406/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.737050158478
+--------------------------------------------------------------------------------
+Processing feature set 407/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.72040850926
+--------------------------------------------------------------------------------
+Processing feature set 408/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.712572973726
+--------------------------------------------------------------------------------
+Processing feature set 409/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.74973232524
+--------------------------------------------------------------------------------
+Processing feature set 410/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.759072926103
+--------------------------------------------------------------------------------
+Processing feature set 411/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Mean score 0.532579445536
+--------------------------------------------------------------------------------
+Processing feature set 412/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743850179379
+--------------------------------------------------------------------------------
+Processing feature set 413/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.753676084986
+--------------------------------------------------------------------------------
+Processing feature set 414/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.722462406592
+--------------------------------------------------------------------------------
+Processing feature set 415/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.705275375494
+--------------------------------------------------------------------------------
+Processing feature set 416/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.73943931813
+--------------------------------------------------------------------------------
+Processing feature set 417/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.760404218045
+--------------------------------------------------------------------------------
+Processing feature set 418/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Mean score 0.595499915533
+--------------------------------------------------------------------------------
+Processing feature set 419/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.730812869288
+--------------------------------------------------------------------------------
+Processing feature set 420/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.753073800939
+--------------------------------------------------------------------------------
+Processing feature set 421/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.715760402063
+--------------------------------------------------------------------------------
+Processing feature set 422/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.754405142574
+--------------------------------------------------------------------------------
+Processing feature set 423/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.759029551115
+--------------------------------------------------------------------------------
+Processing feature set 424/466: ['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.746691186966
+--------------------------------------------------------------------------------
+Processing feature set 425/466: ['FamilySize', 'Parch', 'Pclass']
+Mean score 0.588564661728
+--------------------------------------------------------------------------------
+Processing feature set 426/466: ['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.691758205559
+--------------------------------------------------------------------------------
+Processing feature set 427/466: ['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.691782219666
+--------------------------------------------------------------------------------
+Processing feature set 428/466: ['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728599078128
+--------------------------------------------------------------------------------
+Processing feature set 429/466: ['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731970530387
+--------------------------------------------------------------------------------
+Processing feature set 430/466: ['FamilySize', 'Parch', 'Pclass', 'SibSp']
+Mean score 0.587021120281
+--------------------------------------------------------------------------------
+Processing feature set 431/466: ['FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.720825595597
+--------------------------------------------------------------------------------
+Processing feature set 432/466: ['FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.722979473963
+--------------------------------------------------------------------------------
+Processing feature set 433/466: ['FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Mean score 0.711168024848
+--------------------------------------------------------------------------------
+Processing feature set 434/466: ['FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.71093875121
+--------------------------------------------------------------------------------
+Processing feature set 435/466: ['FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.748835800949
+--------------------------------------------------------------------------------
+Processing feature set 436/466: ['FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.749016212708
+--------------------------------------------------------------------------------
+Processing feature set 437/466: ['FamilySize', 'Parch', 'SibSp']
+Mean score 0.531563989021
+--------------------------------------------------------------------------------
+Processing feature set 438/466: ['FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.742226439933
+--------------------------------------------------------------------------------
+Processing feature set 439/466: ['FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743302955896
+--------------------------------------------------------------------------------
+Processing feature set 440/466: ['FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.704322613511
+--------------------------------------------------------------------------------
+Processing feature set 441/466: ['FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.691621964492
+--------------------------------------------------------------------------------
+Processing feature set 442/466: ['FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.729025756225
+--------------------------------------------------------------------------------
+Processing feature set 443/466: ['FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728920353186
+--------------------------------------------------------------------------------
+Processing feature set 444/466: ['FamilySize', 'Pclass', 'SibSp']
+Mean score 0.591859663547
+--------------------------------------------------------------------------------
+Processing feature set 445/466: ['FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.72015551233
+--------------------------------------------------------------------------------
+Processing feature set 446/466: ['FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.719518425864
+--------------------------------------------------------------------------------
+Processing feature set 447/466: ['FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.710581453537
+--------------------------------------------------------------------------------
+Processing feature set 448/466: ['FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.74740099863
+--------------------------------------------------------------------------------
+Processing feature set 449/466: ['FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.752761962014
+--------------------------------------------------------------------------------
+Processing feature set 450/466: ['FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.7392391958
+--------------------------------------------------------------------------------
+Processing feature set 451/466: ['Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Mean score 0.698076374054
+--------------------------------------------------------------------------------
+Processing feature set 452/466: ['Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.686726552914
+--------------------------------------------------------------------------------
+Processing feature set 453/466: ['Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.725497796047
+--------------------------------------------------------------------------------
+Processing feature set 454/466: ['Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.716935372989
+--------------------------------------------------------------------------------
+Processing feature set 455/466: ['Parch', 'Pclass', 'SibSp']
+Mean score 0.587113381486
+--------------------------------------------------------------------------------
+Processing feature set 456/466: ['Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.717510119387
+--------------------------------------------------------------------------------
+Processing feature set 457/466: ['Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.715720663027
+--------------------------------------------------------------------------------
+Processing feature set 458/466: ['Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.711607085147
+--------------------------------------------------------------------------------
+Processing feature set 459/466: ['Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.750355558948
+--------------------------------------------------------------------------------
+Processing feature set 460/466: ['Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.731599031707
+--------------------------------------------------------------------------------
+Processing feature set 461/466: ['Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.743227679709
+--------------------------------------------------------------------------------
+Processing feature set 462/466: ['Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Mean score 0.693035656699
+--------------------------------------------------------------------------------
+Processing feature set 463/466: ['Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.735480181411
+--------------------------------------------------------------------------------
+Processing feature set 464/466: ['Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.6565120329
+--------------------------------------------------------------------------------
+Processing feature set 465/466: ['Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.728125139816
+--------------------------------------------------------------------------------
+Processing feature set 466/466: ['Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Mean score 0.754976525461
+--------------------------------------------------------------------------------
+Avg f1:	0.366425:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch']
+Avg f1:	0.410143:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'SibSp']
+Avg f1:	0.411773:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize']
+Avg f1:	0.439529:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize']
+Avg f1:	0.441998:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize']
+Avg f1:	0.443336:	['AgeGroup', 'FamilySize', 'Parch']
+Avg f1:	0.443694:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Avg f1:	0.444105:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize']
+Avg f1:	0.444867:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Avg f1:	0.445342:	['AgeGroup', 'FamilySize', 'SibSp']
+Avg f1:	0.446772:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch']
+Avg f1:	0.447166:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Avg f1:	0.447502:	['AgeGroup', 'Parch', 'SibSp']
+Avg f1:	0.448427:	['AgeGroup', 'FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.448890:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.449211:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch']
+Avg f1:	0.453597:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Avg f1:	0.453713:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp']
+Avg f1:	0.454115:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.454342:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Avg f1:	0.455393:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch']
+Avg f1:	0.455431:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp']
+Avg f1:	0.455699:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2']
+Avg f1:	0.456512:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Avg f1:	0.458929:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.465048:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp']
+Avg f1:	0.470517:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp']
+Avg f1:	0.473386:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Avg f1:	0.473845:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp']
+Avg f1:	0.473982:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Avg f1:	0.474432:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch']
+Avg f1:	0.474592:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp']
+Avg f1:	0.474614:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.478487:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch']
+Avg f1:	0.501705:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass']
+Avg f1:	0.505305:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp']
+Avg f1:	0.512292:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.513322:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.513648:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.513746:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.513968:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp']
+Avg f1:	0.514240:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.514453:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.514644:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.515541:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.518541:	['AgeGroup', 'Pclass', 'SibSp']
+Avg f1:	0.519370:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass']
+Avg f1:	0.524956:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass']
+Avg f1:	0.525061:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Avg f1:	0.529383:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp']
+Avg f1:	0.529786:	['AgeGroup', 'Parch', 'Pclass']
+Avg f1:	0.529789:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Avg f1:	0.530328:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.531372:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch']
+Avg f1:	0.531437:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.531509:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.531564:	['FamilySize', 'Parch', 'SibSp']
+Avg f1:	0.531701:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp']
+Avg f1:	0.532041:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Avg f1:	0.532312:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass']
+Avg f1:	0.532579:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp']
+Avg f1:	0.533806:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.534202:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.535481:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.535986:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.536908:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.537407:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Avg f1:	0.538968:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass']
+Avg f1:	0.541316:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.543473:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Avg f1:	0.545229:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass']
+Avg f1:	0.550124:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Avg f1:	0.551685:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass']
+Avg f1:	0.556492:	['AgeGroup', 'FamilySize', 'Pclass']
+Avg f1:	0.557924:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Avg f1:	0.558931:	['AgeGroup', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.559525:	['AgeGroup', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.559744:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.560780:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.561059:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.561488:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.561548:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.562060:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.565957:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Avg f1:	0.583212:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass']
+Avg f1:	0.584549:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass']
+Avg f1:	0.586900:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.587021:	['FamilySize', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.587113:	['Parch', 'Pclass', 'SibSp']
+Avg f1:	0.587280:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass']
+Avg f1:	0.588147:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.588565:	['FamilySize', 'Parch', 'Pclass']
+Avg f1:	0.589510:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp']
+Avg f1:	0.591311:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.591860:	['FamilySize', 'Pclass', 'SibSp']
+Avg f1:	0.595500:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp']
+Avg f1:	0.656512:	['Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.669338:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.671908:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.678122:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.680270:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.684805:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.686727:	['Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.687929:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.691622:	['FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.691716:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.691758:	['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.691782:	['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.692160:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.692679:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.693010:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.693036:	['Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.693206:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.694307:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.695065:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.695560:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.695627:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.696317:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.697759:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.698076:	['Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.698219:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.698839:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.698888:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.698928:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.699068:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.699142:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.700495:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.701464:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.701641:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.702617:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.702649:	['AgeGroup', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.702732:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.703346:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1']
+Avg f1:	0.704265:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.704323:	['FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.704542:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.704723:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.704742:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.704783:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.705275:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.705621:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.705787:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.705838:	['AgeGroup', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.706292:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.706747:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.706865:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.706866:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.706928:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.707179:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.707262:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.707333:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.707355:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.707442:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.707736:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.707778:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.707835:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.708362:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.708380:	['AgeGroup', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.708854:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.708943:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.709130:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.709276:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.709800:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.709831:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.710136:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.710327:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.710377:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.710581:	['FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.710589:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.710716:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.710814:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.710864:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.710939:	['FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.711168:	['FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.711330:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.711477:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.711580:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.711607:	['Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.712332:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.712573:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.712747:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.713630:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.713911:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.713947:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.714179:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.714200:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.714271:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.714865:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715236:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715514:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.715573:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715619:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.715656:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715674:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715721:	['Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715760:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.715874:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.715898:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.716124:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.716187:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.716794:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.716935:	['Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.717053:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.717510:	['Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.717674:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.717707:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.718012:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.718083:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.718252:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.718359:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.718767:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.719091:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.719518:	['FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.719861:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.719906:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720156:	['FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720202:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720407:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720409:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.720538:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.720568:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720669:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1']
+Avg f1:	0.720788:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720813:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720819:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.720826:	['FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.721236:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.721428:	['AgeGroup', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.721576:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.721587:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.721739:	['AgeGroup', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.721924:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722131:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722390:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722410:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722462:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.722615:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722708:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722803:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.722910:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722923:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.722979:	['FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.723120:	['AgeGroup', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.723307:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.724116:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.724477:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.724662:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.724716:	['AgeGroup', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.724716:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.724901:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.725351:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.725498:	['Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.725514:	['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.725580:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.726107:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.726144:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.726365:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.726385:	['AgeGroup', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.726394:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.726726:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727216:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727294:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727426:	['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.727490:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727608:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727658:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727717:	['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.727785:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728125:	['Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728173:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728391:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728507:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728599:	['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728727:	['AgeGroup', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728920:	['FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.728922:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729026:	['FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729129:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729175:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729205:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729235:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729329:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729542:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729743:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729827:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729872:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729904:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729959:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.729998:	['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.730522:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.730696:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.730813:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.730860:	['AgeGroup', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731013:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.731051:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731321:	['AgeGroup', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731372:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731599:	['Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731666:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731755:	['AgeGroup', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.731810:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.731971:	['FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.732110:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.732176:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.732401:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1']
+Avg f1:	0.732488:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.732960:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.733242:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.733305:	['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.733325:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.733426:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.734174:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.734181:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.734407:	['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.734919:	['AgeGroup', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.734977:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.735135:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.735149:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.735231:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.735480:	['Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.736031:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.736079:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.737004:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.737050:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.737315:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.737513:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.737563:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.737673:	['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.737837:	['AgeGroup', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.737964:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.738011:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.739065:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.739239:	['FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.739395:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.739439:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.739676:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.739874:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.740164:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.740207:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.740750:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.740974:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.741398:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.741478:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.741512:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742226:	['FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742237:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742255:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742510:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.742543:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742619:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742649:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.742660:	['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.742900:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.742959:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.743147:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.743166:	['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.743228:	['Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.743303:	['FamilySize', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.743460:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.743514:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.743846:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.743850:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.744194:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.744263:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.744457:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.744483:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.744628:	['AgeGroup', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.744759:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.745102:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.745218:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.745273:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.745306:	['AgeGroup', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.745337:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.746042:	['AgeGroup', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.746080:	['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.746407:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.746437:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.746691:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.747072:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.747271:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.747401:	['FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.747487:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1']
+Avg f1:	0.748100:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.748108:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.748365:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.748836:	['FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.748916:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.748977:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749016:	['FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749088:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749134:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749277:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749433:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749525:	['AgeGroup', 'Embarked-0', 'Embarked-1', 'Embarked-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.749572:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749732:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.749744:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.750131:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.750356:	['Parch', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.750415:	['AgeGroup', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.750893:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilySize', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.751920:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1']
+Avg f1:	0.752039:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.752254:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.752762:	['FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.752794:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.753074:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.753676:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.754222:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.754352:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.754405:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.754977:	['Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.755252:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.755265:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.756462:	['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.758367:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759030:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759073:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759139:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759147:	['Embarked-0', 'Embarked-1', 'Embarked-2', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759184:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759431:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.759833:	['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.760024:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.760404:	['FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.761076:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.761956:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Sex-0', 'Sex-1']
+Avg f1:	0.762168:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.762688:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.763147:	['AgeGroup', 'FamilySize', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.763156:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.763538:	['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.763552:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.763569:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.763610:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.764109:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.764205:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.764406:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.764591:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.765226:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.765326:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.765751:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.765826:	['AgeGroup', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.765861:	['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.765894:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.766282:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.766501:	['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.766698:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.766739:	['AgeGroup', 'FamilySize', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.766889:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.766927:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.767158:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.767213:	['AgeGroup', 'FamilySize', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp']
+Avg f1:	0.767388:	['AgeGroup', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.767856:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'FamilySize', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.768557:	['AgeGroup', 'Pclass', 'Sex-0', 'Sex-1', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.768671:	['AgeGroup', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.769814:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.769818:	['AgeGroup', 'Parch', 'Pclass', 'SibSp', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.774150:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Sex-0', 'Sex-1', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+Avg f1:	0.774358:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1']
+Avg f1:	0.774721:	['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Parch', 'Pclass', 'Title-0', 'Title-1', 'Title-2', 'Title-3', 'Title-4']
+--------------------------------------------------------------------------------
+Evaluation end time: 2016-11-27 14:26:29.258629
+Total evaluation duration: 0:24:50.518518
+--------------------------------------------------------------------------------

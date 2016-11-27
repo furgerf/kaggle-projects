@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 from cross_validation_result import CrossValidationResult
 from titanic_kaggle import TitanicKaggle
-from feature_finder import FeatureFinder
+from feature_finder_2 import FeatureFinder
 
 def experiment():
   print(TitanicKaggle.SEPARATOR)
@@ -40,10 +40,18 @@ def predict_test_data():
   titanic.initialize()
 
   # prepare data for prediction
-  features = ['Parch', 'Pclass', 'Sex', 'AgeGroup', 'FamilyGroup', 'Title']
-  train, predictors, test, ids = titanic.get_prepared_data(features)
+  train, predictors, test, ids = titanic.get_prepared_data(TitanicKaggle.ALL_FEATURES)
 
-  titanic.predict_test_data(train, predictors, test, ids)
+  all_feature_sets = [
+    ['AgeGroup', 'FamilyGroup-0', 'FamilyGroup-1', 'FamilyGroup-2', 'Pclass', 'Sex-0', 'Sex-1'],
+    ]
+
+  # features = ['Parch', 'Pclass', 'Sex', 'AgeGroup', 'FamilyGroup', 'Title']
+  for feature_set in all_feature_sets:
+    current_train = train[feature_set]
+    current_test = test[feature_set]
+    titanic.cross_validate(current_train, predictors).print_results()
+    titanic.predict_test_data(current_train, predictors, current_test, ids)
 
 
 def find_features():
@@ -52,12 +60,14 @@ def find_features():
   print(TitanicKaggle.SEPARATOR)
 
   random_seeds = [7, 42, 123, 6340, 43627]
-  titanics = list(map(lambda seed: TitanicKaggle(lambda: RandomForestClassifier(n_estimators=50, random_state=seed), silent=True), random_seeds))
-  for titanic in titanics:
-    titanic.initialize()
-  finder = FeatureFinder(titanics)
+  classifiers = list(map(lambda seed: RandomForestClassifier(n_estimators=50, random_state=seed), random_seeds))
+  dummy_titanic = TitanicKaggle(None, None)
+  dummy_titanic.initialize()
+  train, predictors, test, ids = dummy_titanic.get_prepared_data(TitanicKaggle.ALL_FEATURES)
+
+  finder = FeatureFinder(classifiers, train, predictors, 'f1', 3, 9)
   finder_results = finder.run_predictions()
-  FeatureFinder.evaluate_feature_finder_results(finder_results)
+  finder.evaluate_feature_finder_results(finder_results)
 
 
 def main():
@@ -71,8 +81,8 @@ def main():
   print(TitanicKaggle.SEPARATOR)
 
 
-  experiment()
-  # predict_test_data()
+  # experiment()
+  predict_test_data()
   # find_features()
 
   end_time = datetime.utcnow()

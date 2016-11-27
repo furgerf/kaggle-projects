@@ -222,6 +222,9 @@ class Kaggle():
     test = test_data[features]
     ids = test_data[self.ID_COLUMN_NAME]
 
+    if not self.silent:
+      print(Kaggle.SEPARATOR)
+
     return train, predictor, test, ids
 
 
