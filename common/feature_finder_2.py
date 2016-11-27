@@ -37,7 +37,7 @@ class FeatureFinder():
     print('Combinations of %d to %d features' % (min_features, max_features))
     self.feature_sets = []
     for list_length in range(min_features, max_features + 1):
-      for subset in itertools.permutations(feature_groups.keys(), list_length):
+      for subset in itertools.combinations(feature_groups.keys(), list_length):
         feature_set = []
         for feature in subset:
           if isinstance(feature_groups[feature], list):
@@ -47,7 +47,6 @@ class FeatureFinder():
         feature_set.sort()
         self.feature_sets.append(feature_set)
 
-    self.feature_sets = np.unique(self.feature_sets)
     print('%d feature groups (%d features) => %d feature sets' % \
         (len(feature_groups), len(all_features), len(self.feature_sets)))
     print(Kaggle.SEPARATOR)
