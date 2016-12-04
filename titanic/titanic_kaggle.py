@@ -1,6 +1,6 @@
 import os
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plot
 import re
 
 from kaggle import Kaggle
@@ -83,7 +83,7 @@ class TitanicKaggle(Kaggle):
 
     if not self.silent:
       print('- Preparing family groups...')
-    self.df['FamilyGroup'] = self.df.FamilySize.map(lambda s: 'singleton' if s == 0 else 'large famliy' if s > 3 else 'small family')
+    self.df['FamilyGroup'] = self.df.FamilySize.map(lambda s: 'singleton' if s == 0 else 'large family' if s > 3 else 'small family')
 
     if not self.silent:
       print('- Preparing titles...')
@@ -175,4 +175,69 @@ class TitanicKaggle(Kaggle):
     if not self.silent:
       print('... done printing statistics!')
       print(self.SEPARATOR)
+
+  def _plot_features(self, feature_1, feature_2, feature_1_map = None, feature_2_map = None):
+    not_survived = self.df.loc[(self.df.Survived == 0)]
+    survived = self.df.loc[(self.df.Survived == 1)]
+
+    if feature_1_map is not None:
+      not_survived[feature_1] = not_survived[feature_1].map(feature_1_map)
+      survived[feature_1] = survived[feature_1].map(feature_1_map)
+      plot.xticks(list(feature_1_map.values()), feature_1_map.keys())
+    else:
+      plot.xticks(not_survived[feature_1].unique())
+
+    if feature_2_map is not None:
+      not_survived[feature_2] = not_survived[feature_2].map(feature_2_map)
+      survived[feature_2] = survived[feature_2].map(feature_2_map)
+      plot.yticks(list(feature_2_map.values()), feature_2_map.keys())
+    else:
+      plot.yticks(not_survived[feature_2].unique())
+
+    not_survived_counted = not_survived.groupby([feature_1, feature_2]).size().reset_index()
+    not_survived_counted['Ratio'] = not_survived_counted[0] / not_survived_counted[0].sum()
+    survived_counted = survived.groupby([feature_1, feature_2]).size().reset_index()
+    survived_counted['Ratio'] = survived_counted[0] / survived_counted[0].sum()
+
+    plot.xlabel(feature_1)
+    plot.ylabel(feature_2)
+    plot.scatter(not_survived_counted[feature_1], not_survived_counted[feature_2], not_survived_counted.Ratio * 10000, c='r', alpha=0.5)
+    plot.scatter(survived_counted[feature_1], survived_counted[feature_2], survived_counted.Ratio * 10000, c='b', alpha=0.5)
+
+  def create_some_plots(self):
+    plot.subplot(5, 3, 1)
+    self._plot_features('FamilySize', 'Pclass')
+    plot.subplot(5, 3, 4)
+    self._plot_features('FamilySize', 'Sex', None, {'male': 0, 'female': 1})
+    plot.subplot(5, 3, 7)
+    self._plot_features('FamilySize', 'Embarked', None, {'S': 0, 'C': 1, 'Q': 2})
+    plot.subplot(5, 3, 10)
+    self._plot_features('FamilySize', 'FamilyGroup', None, {'singleton': 0, 'small family': 1, 'large family': 2})
+    plot.subplot(5, 3, 13)
+    self._plot_features('FamilySize', 'Title', None, {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4})
+
+    plot.subplot(5, 3, 2)
+    self._plot_features('Title', 'Pclass', {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4})
+    plot.subplot(5, 3, 5)
+    self._plot_features('Title', 'Sex', {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4}, {'male': 0, 'female': 1})
+    plot.subplot(5, 3, 8)
+    self._plot_features('Title', 'Embarked', {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4}, {'S': 0, 'C': 1, 'Q': 2})
+    plot.subplot(5, 3, 11)
+    self._plot_features('Title', 'FamilyGroup', {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4}, {'singleton': 0, 'small family': 1, 'large family': 2})
+    plot.subplot(5, 3, 14)
+    self._plot_features('Title', 'FamilyGroup', {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4}, {'singleton': 0, 'small family': 1, 'large family': 2})
+
+    plot.subplot(5, 3, 3)
+    self._plot_features('AgeGroup', 'Pclass')
+    plot.subplot(5, 3, 6)
+    self._plot_features('AgeGroup', 'Sex', None, {'male': 0, 'female': 1})
+    plot.subplot(5, 3, 9)
+    self._plot_features('AgeGroup', 'Embarked', None, {'S': 0, 'C': 1, 'Q': 2})
+    plot.subplot(5, 3, 12)
+    self._plot_features('AgeGroup', 'FamilyGroup', None, {'singleton': 0, 'small family': 1, 'large family': 2})
+    plot.subplot(5, 3, 15)
+    self._plot_features('AgeGroup', 'Title', None, {'Mr': 0, 'Mrs': 1, 'Miss': 2, 'Master': 3, 'Rare title': 4})
+
+    # plot.tight_layout()
+    plot.show()
 
