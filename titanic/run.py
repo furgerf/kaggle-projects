@@ -22,7 +22,8 @@ def experiment():
 
   # analyze
   titanic.print_sample_data()
-  titanic.analyze_data()
+  # titanic.analyze_data()
+  titanic.get_deviation_per_feature()
 
   # prepare data for prediction
   train, predictors, test, ids = titanic.get_prepared_data(TitanicKaggle.ALL_FEATURES)

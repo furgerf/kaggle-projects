@@ -322,3 +322,43 @@ class Kaggle():
     print(pd.concat([self.df.head(3), self.df.tail(3)]))
     print(Kaggle.SEPARATOR)
 
+  def get_deviation_per_feature(self):
+    """
+    Calculates the deviation of the output class of descrete features. It doesn't actually detect
+    which features are discrete. Instead, the number of different values a feature can assume is
+    compared to a maximum value.
+    """
+    MAX_CLASSES_PER_FEATURE = 25
+    data, test = self.split_data(self.df)
+    output_classes = data[self.PREDICTOR_COLUMN_NAME].unique()
+    print('Analyzing prediction deviation per feature')
+
+    for column in data:
+      if column == self.PREDICTOR_COLUMN_NAME:
+        continue
+      classes = data[column].unique()
+      class_count = len(classes)
+      print(Kaggle.SEPARATOR)
+      if class_count > MAX_CLASSES_PER_FEATURE:
+        print('Ignoring feature %s because it has too many classes (%d > %d)' % (column, class_count, MAX_CLASSES_PER_FEATURE))
+        continue
+
+      print('Calculating prediction deviation of feature %s with %d classes' % (column, class_count))
+      column_distribution = []
+      for c in classes:
+        output_distribution = []
+        for o in output_classes:
+          count = len(data.loc[(data[column] == c) & (data[self.PREDICTOR_COLUMN_NAME] == o)])
+          output_distribution.append(count)
+
+        total_count = sum(output_distribution)
+        output_distribution = [od / total_count for od in output_distribution]
+        # print('%s = %s divides like that: %s' % (column, c, output_distribution))
+        column_distribution.append(output_distribution)
+
+      for output in range(0, len(output_classes)):
+        class_probabilities = [c[output] for c in column_distribution]
+        print('* %s = %s by class with average\t%f\t(stdev %f)' % (column.ljust(15), output_classes[output], np.average(class_probabilities), np.std(class_probabilities)))
+
+    print(Kaggle.SEPARATOR)
+
