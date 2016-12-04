@@ -81,7 +81,7 @@ def main():
   print(TitanicKaggle.SEPARATOR)
 
 
-  # experiment()
+  experiment()
   predict_test_data()
   # find_features()
 

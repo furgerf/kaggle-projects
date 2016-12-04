@@ -185,6 +185,8 @@ class Kaggle():
     Returns:
       tuple: training data, training data labels, test data, test data ids.
     """
+    # don't modify input list
+    features = features[:]
     if not self.silent:
       print('Preparing data for prediction with features: %s' % features)
     # initially, we also need the predictor, id, and train columns

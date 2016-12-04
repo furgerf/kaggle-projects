@@ -88,7 +88,7 @@ class CrossValidationResult():
     """
     Prints statistics of the cross validation results.
     """
-    print('Cross-validation results') # TODO: Add stdev
+    print('Cross-validation results')
     print(CrossValidationResult.SEPARATOR)
     print('TP:\tmin=%f\tmean=%f\tmax=%f\tstdev=%f' % (min(self.true_positives),
       sum(self.true_positives)/len(self.true_positives), max(self.true_positives), np.std(self.true_positives)))

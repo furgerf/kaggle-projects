@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import re
@@ -21,7 +22,8 @@ class TitanicKaggle(Kaggle):
       classifier_creator (func): Function that creates a new instance of the desired classifier.
       silent (boolean): Suppresses all output if set to True. Defaults to False.
     """
-    super(TitanicKaggle, self).__init__('data/train.csv', 'data/test.csv', 'prediction.csv', classifier_creator, silent=silent)
+    data_location = os.path.abspath(os.path.join(os.path.dirname(__file__), 'data'))
+    super(TitanicKaggle, self).__init__(os.path.join(data_location, 'train.csv'), os.path.join(data_location, 'test.csv'), 'prediction.csv', classifier_creator, silent=silent)
 
     if not self.silent:
       print(Kaggle.SEPARATOR)
