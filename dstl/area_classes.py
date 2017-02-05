@@ -35,6 +35,7 @@ class AreaClasses:
         continue
       self.classes[area_class].set_areas(shapely.wkt.loads(areas), \
           self._image_size, self._x_scale, self._y_scale)
+    print('done!')
 
-    self.mask = reduce(np.add, list(map(lambda c: c.mask_image, self.classes.values())))
+    self.image_mask = reduce(np.add, list(map(lambda c: c.mask_image, self.classes.values())))
 

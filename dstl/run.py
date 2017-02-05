@@ -1,15 +1,15 @@
 import matplotlib.pyplot as plt
 plt.switch_backend('Qt5Agg')
 
-# from collections import defaultdict
 import csv
 import sys
 
-# from shapely.geometry import MultiPolygon, Polygon
 import numpy as np
 import tifffile as tiff
 
+from utils import Utils
 from area_classes import AreaClasses
+from area_predictor import AreaPredictor
 
 csv.field_size_limit(sys.maxsize)
 
@@ -61,8 +61,24 @@ x_scale, y_scale = get_scale_factors_for_image(x_max, y_min, width, height)
 area_classes = AreaClasses(IMAGE_ID, image_size, x_scale, y_scale)
 area_classes.load()
 
+# plt.imshow(scale_percentile(image))
+# plt.imshow(area_classes.image_mask, alpha=0.9)
+# plt.show()
+
+predictor = AreaPredictor(image, area_classes)
+predictions = predictor.predict(image)
+prediction = predictions['1']
+truth = predictor.area_class_pixel_data['1']['pixel_vector']
+print('Average precision score', predictor.evaluate_prediction(truth, prediction))
+binary_prediction = predictor.prediction_to_binary_prediction(prediction)
+print('Average binary precision score', predictor.evaluate_prediction(truth, binary_prediction.reshape(-1)))
+prediction_polygons = predictor.prediction_mask_to_polygons(binary_prediction)
+prediction_polygon_mask = Utils.multi_polygon_to_pixel_mask(prediction_polygons, image_size)
+prediction_polygon_mask_image = Utils.pixel_mask_to_image(prediction_polygon_mask, 255, 0, 0)
+
+
 plt.imshow(scale_percentile(image))
-plt.imshow(area_classes.mask, alpha=0.9)
+plt.imshow(prediction_polygon_mask_image)
 plt.show()
 
 # if __name__ == '__main__':
