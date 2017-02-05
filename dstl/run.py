@@ -61,24 +61,22 @@ x_scale, y_scale = get_scale_factors_for_image(x_max, y_min, width, height)
 area_classes = AreaClasses(IMAGE_ID, image_size, x_scale, y_scale)
 area_classes.load()
 
-# plt.imshow(scale_percentile(image))
-# plt.imshow(area_classes.image_mask, alpha=0.9)
+plt.imshow(scale_percentile(image))
+plt.imshow(area_classes.image_mask, alpha=0.5)
 # plt.show()
 
 predictor = AreaPredictor(image, area_classes)
 predictions = predictor.predict(image)
-prediction = predictions['1']
-truth = predictor.area_class_pixel_data['1']['pixel_vector']
-print('Average precision score', predictor.evaluate_prediction(truth, prediction))
-binary_prediction = predictor.prediction_to_binary_prediction(prediction)
-print('Average binary precision score', predictor.evaluate_prediction(truth, binary_prediction.reshape(-1)))
-prediction_polygons = predictor.prediction_mask_to_polygons(binary_prediction)
-prediction_polygon_mask = Utils.multi_polygon_to_pixel_mask(prediction_polygons, image_size)
-prediction_polygon_mask_image = Utils.pixel_mask_to_image(prediction_polygon_mask, 255, 0, 0)
 
+for area_class, prediction in predictions.items():
+  binary_prediction = predictor.prediction_to_binary_prediction(prediction)
+  prediction_polygons = predictor.prediction_mask_to_polygons(binary_prediction)
+  predictions[area_class] = prediction_polygons
+area_classes.add_predictions(predictions)
 
+plt.figure()
 plt.imshow(scale_percentile(image))
-plt.imshow(prediction_polygon_mask_image)
+plt.imshow(area_classes.prediction_image_mask, alpha=0.5)
 plt.show()
 
 # if __name__ == '__main__':

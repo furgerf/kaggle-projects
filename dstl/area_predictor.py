@@ -41,19 +41,22 @@ class AreaPredictor:
   def predict(self, test_image):
     test_data = test_image.reshape(-1, 3).astype(np.float32)
     results = {}
+    print('Predicting')
     for key, value in self.area_class_pixel_data.items():
-      print('Predicting class', key)
+      print('%s...' % key, end=' ')
+      sys.stdout.flush()
       if value['pipeline']:
         results[key] = value['pipeline'].predict_proba(test_data)[:, 1]
       else:
         results[key] = np.zeros(test_data.shape[0])
+    print('done!')
     return results
 
   def evaluate_prediction(self, prediction, truth):
     return average_precision_score(prediction, truth)
 
   def prediction_to_binary_prediction(self, prediction, threshold=0.3):
-    return (prediction.reshape(self.area_mask_shape) >= threshold)#.astype(np.uint8)
+    return (prediction.reshape(self.area_mask_shape) >= threshold)
 
   def prediction_mask_to_polygons(self, mask, epsilon=10., min_area=10.):
     # first, find contours with cv2: it's much faster than shapely

@@ -22,3 +22,11 @@ class AreaClass:
 
     self.mask_image = Utils.pixel_mask_to_image(self.area_mask, \
         self.color[0], self.color[1], self.color[2])
+
+  def set_predicted_areas(self, predicted_areas, image_size):
+    self.predicted_areas = predicted_areas
+
+    self.predicted_area_mask = Utils.multi_polygon_to_pixel_mask(self.predicted_areas, image_size)
+    self.predicted_mask_image = Utils.pixel_mask_to_image(self.predicted_area_mask, \
+        self.color[0], self.color[1], self.color[2])
+

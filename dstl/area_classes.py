@@ -39,3 +39,9 @@ class AreaClasses:
 
     self.image_mask = reduce(np.add, list(map(lambda c: c.mask_image, self.classes.values())))
 
+  def add_predictions(self, predictions):
+    print('Adding prediction images')
+    for key in self.classes.keys():
+      self.classes[key].set_predicted_areas(predictions[key], self._image_size)
+    self.prediction_image_mask = reduce(np.add, list(map(lambda c: c.predicted_mask_image, self.classes.values())))
+
