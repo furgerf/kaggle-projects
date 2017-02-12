@@ -16,6 +16,9 @@ class AreaClass:
     sys.stdout.flush()
     self.areas = areas
 
+    self.x_scale = x_scale
+    self.y_scale = y_scale
+
     self.scaled_areas = Utils.scale_multi_polygon(self.areas, x_scale, y_scale)
 
     self.area_mask = Utils.multi_polygon_to_pixel_mask(self.scaled_areas, image_size)
@@ -29,4 +32,6 @@ class AreaClass:
     self.predicted_area_mask = Utils.multi_polygon_to_pixel_mask(self.predicted_areas, image_size)
     self.predicted_mask_image = Utils.pixel_mask_to_image(self.predicted_area_mask, \
         self.color[0], self.color[1], self.color[2])
+
+    self.predicted_submission_polygons = Utils.scale_multi_polygon(self.predicted_areas, 1/self.x_scale, 1/self.y_scale)
 

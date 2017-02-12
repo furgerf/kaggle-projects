@@ -46,6 +46,18 @@ def scale_percentile(matrix):
   matrix = matrix.clip(0, 1)
   return matrix
 
+def compare_area_class(area_class, alpha=0.5):
+  plt.imshow(area_classes.classes[area_class].mask_image, alpha=alpha)
+  plt.imshow(area_classes.classes[area_class].predicted_mask_image, alpha=alpha)
+  plt.show()
+
+def evaluate_jaccard(area_class_index):
+  area_class = area_classes.classes[area_class_index]
+  intersection = area_class.predicted_submission_polygons.intersection(area_class.areas).area
+  union = area_class.predicted_submission_polygons.union(area_class.areas).area
+
+  print('Jaccard for area class {}: {:.3g} ({:.3g}/{:.3g})'.format( \
+      area_class_index, 0 if union == 0 else intersection / union, intersection, union))
 
 # def main():
 IMAGE_ID = '6120_2_2'
@@ -61,8 +73,8 @@ x_scale, y_scale = get_scale_factors_for_image(x_max, y_min, width, height)
 area_classes = AreaClasses(IMAGE_ID, image_size, x_scale, y_scale)
 area_classes.load()
 
-plt.imshow(scale_percentile(image))
-plt.imshow(area_classes.image_mask, alpha=0.5)
+# plt.imshow(scale_percentile(image))
+# plt.imshow(area_classes.image_mask, alpha=0.5)
 # plt.show()
 
 predictor = AreaPredictor(image, area_classes)
@@ -74,10 +86,10 @@ for area_class, prediction in predictions.items():
   predictions[area_class] = prediction_polygons
 area_classes.add_predictions(predictions)
 
-plt.figure()
-plt.imshow(scale_percentile(image))
-plt.imshow(area_classes.prediction_image_mask, alpha=0.5)
-plt.show()
+# plt.figure()
+# plt.imshow(scale_percentile(image))
+# plt.imshow(area_classes.prediction_image_mask, alpha=0.5)
+# plt.show()
 
 # if __name__ == '__main__':
 #   main()
