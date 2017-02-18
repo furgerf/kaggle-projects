@@ -13,11 +13,20 @@ from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import average_precision_score
 
 class AreaPredictor:
-  def __init__(self, labels):
-    self.log = logging.getLogger('dstl')
-    self.log.info('Creating predictor for labels {}'.format(','.join(labels)))
+  def __init__(self, labels=None, predictors=None):
+    if labels is not None and predictors is not None:
+      raise ValueError('Pass either labels or predictors')
 
-    self.predictors = AreaPredictor.get_empty_predictors(labels)
+    self.log = logging.getLogger('dstl')
+
+    if labels is not None:
+      self.log.info('Creating new predictor for labels {}'.format(','.join(labels)))
+      self.predictors = AreaPredictor.get_empty_predictors(labels)
+    elif predictors is not None:
+      self.log.info('Loading existing predictors with labels {}'.format(','.join(predictors.keys())))
+      self.predictors = predictors
+    else:
+      raise ValueError('Pass either labels or predictors')
 
   def train(self, image):
     self.log.warning('Training image {}...'.format(image.image_id))
