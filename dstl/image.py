@@ -25,8 +25,8 @@ class Image:
     height = height * (height / (height + 1))
     return width / grid[0], height / grid[1]
 
-  def load_areas(self):
-    self.log.info('Loading areas for image {}'.format(self.image_id))
+  def load_areas(self, areas):
+    self.log.warning('Loading areas for image {}'.format(self.image_id))
     self.area_classes = AreaClasses(self.image_id, self.image_size, self.x_scale, self.y_scale)
-    self.area_classes.load()
+    self.area_classes.load(areas)
 

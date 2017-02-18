@@ -9,8 +9,6 @@ import shapely.wkt
 from area_class import AreaClass
 
 class AreaClasses:
-  DATA_AREAS_WKT = './data/train_wkt_v4.csv'
-
   def __init__(self, image_id, image_size, x_scale, y_scale):
     self._image_id = image_id
     self._image_size = image_size
@@ -31,12 +29,9 @@ class AreaClasses:
         '10': AreaClass('10', (215, 48, 39))
         }
 
-  def load(self):
-    self.log.warning('Loading areas for image {}...'.format(self._image_id))
+  def load(self, areas):
     start_time = datetime.utcnow()
-    for i, area_class, areas in csv.reader(open(AreaClasses.DATA_AREAS_WKT)):
-      if i != self._image_id:
-        continue
+    for area_class, areas in areas.items():
       self.classes[area_class].set_areas(shapely.wkt.loads(areas), \
           self._image_size, self._x_scale, self._y_scale)
     print()

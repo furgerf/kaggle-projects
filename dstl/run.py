@@ -16,6 +16,7 @@ csv.field_size_limit(sys.maxsize)
 
 DATA_DIRECTORY = './data/'
 DATA_GRIDS_FILE = DATA_DIRECTORY + 'grid_sizes.csv'
+DATA_AREAS_WKT = DATA_DIRECTORY + 'train_wkt_v4.csv'
 
 def get_logger():
   logger = logging.getLogger('dstl')
@@ -73,32 +74,53 @@ def evaluate_jaccard(area_class_index):
   print('Jaccard for area class {}: {:.3g} ({:.3g}/{:.3g})'.format( \
       area_class_index, 0 if union == 0 else intersection / union, intersection, union))
 
+def load_area_data():
+  with open(DATA_AREAS_WKT) as csv_file:
+    data = {}
+    reader = csv.reader(csv_file)
+
+    # skip header
+    next(reader, None)
+    for image_id, area_class, areas in reader:
+      if not image_id in data:
+        data[image_id] = {}
+      data[image_id][area_class] = areas
+    return data
+
 # def main():
 
+# setup
 log = get_logger()
-grid_sizes = load_grid_sizes()
 
-IMAGE_ID = '6120_2_2'
+grid_sizes = load_grid_sizes()
+area_data = load_area_data()
+
 LABELS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 predictor = AreaPredictor(LABELS)
 
+# process single image
+IMAGE_ID = '6120_2_2'
 image = Image(IMAGE_ID, grid_sizes[IMAGE_ID], DATA_DIRECTORY)
+
 image.load_image()
-image.load_areas()
+image.load_areas(area_data[IMAGE_ID])
 
-# plt.imshow(scale_percentile(image.raw_data))
-# plt.imshow(image.area_classes.image_mask, alpha=0.5)
-# plt.show()
-
+# train and predict same image
 predictor.train(image)
-
 predictions = predictor.predict(image)
+
+# visualize prediction
 for area_class, prediction in predictions.items():
   binary_prediction = predictor.prediction_to_binary_prediction(prediction)
   prediction_polygons = predictor.prediction_mask_to_polygons(binary_prediction)
   predictions[area_class] = prediction_polygons
 image.area_classes.add_predictions(predictions)
 
+# plot training mask
+plt.imshow(scale_percentile(image.raw_data))
+plt.imshow(image.area_classes.image_mask, alpha=0.5)
+
+# plot predicted mask
 plt.figure()
 plt.imshow(scale_percentile(image.raw_data))
 plt.imshow(image.area_classes.prediction_image_mask, alpha=0.5)
@@ -108,3 +130,4 @@ plt.show()
 #   main()
 
 logging.shutdown()
+
