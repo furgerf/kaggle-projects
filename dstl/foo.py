@@ -82,9 +82,6 @@ def show_mask(m):
     tiff.imshow(255 * np.stack([m, m, m]));
 show_mask(train_mask)
 
-plt.show()
-sys.exit()
-
 from sklearn.linear_model import SGDClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
@@ -94,6 +91,10 @@ from sklearn.metrics import average_precision_score
 xs = im_rgb.reshape(-1, 3).astype(np.float32)
 ys = train_mask.reshape(-1)
 pipeline = make_pipeline(StandardScaler(), SGDClassifier(loss='log'))
+
+print(xs.shape)
+print(ys.shape)
+print(train_mask.shape)
 
 print('training...')
 # do not care about overfitting here

@@ -1,3 +1,5 @@
+from datetime import datetime
+import logging
 from functools import reduce
 import csv
 
@@ -14,6 +16,7 @@ class AreaClasses:
     self._image_size = image_size
     self._x_scale = x_scale
     self._y_scale = y_scale
+    self.log = logging.getLogger('dstl')
 
     self.classes  = {
         '1': AreaClass('1', (178, 178, 178)),
@@ -29,13 +32,15 @@ class AreaClasses:
         }
 
   def load(self):
-    print('Loading areas for image', self._image_id)
+    self.log.warning('Loading areas for image {}...'.format(self._image_id))
+    start_time = datetime.utcnow()
     for i, area_class, areas in csv.reader(open(AreaClasses.DATA_AREAS_WKT)):
       if i != self._image_id:
         continue
       self.classes[area_class].set_areas(shapely.wkt.loads(areas), \
           self._image_size, self._x_scale, self._y_scale)
-    print('done!')
+    print()
+    self.log.info('... done! ({:.1f}s)'.format((datetime.utcnow() - start_time).total_seconds()))
 
     self.image_mask = reduce(np.add, list(map(lambda c: c.mask_image, self.classes.values())))
 

@@ -1,4 +1,6 @@
 import sys
+import logging
+from datetime import datetime
 
 import numpy as np
 import cv2
@@ -11,52 +13,59 @@ from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import average_precision_score
 
 class AreaPredictor:
-  def __init__(self, train_image, train_area_classes):
-    # TODO: Pass array of data (images)
-    # vector of RGB pixels
-    self.image_pixel_data = train_image.reshape(-1, 3).astype(np.float32)
-    self.area_class_pixel_data = {}
-    self.area_mask_shape = list(train_area_classes.classes.values())[0].area_mask.shape
-    print('Training areas')
-    for key, value in train_area_classes.classes.items():
-      # NOTE: it's possible that an image doesn't have one of the areas, so all
-      # values would be zero. in this case we don't train the classifier and will
-      # predict all zeros
-      pipeline = None
+  def __init__(self, labels):
+    self.log = logging.getLogger('dstl')
+    self.log.info('Creating predictor for labels {}'.format(','.join(labels)))
 
-      if value.area_mask.max() > 0:
-        print('%s...' % key, end=' ')
+    self.predictors = AreaPredictor.get_empty_predictors(labels)
+
+  def train(self, image):
+    self.log.warning('Training image {}...'.format(image.image_id))
+    start_time = datetime.utcnow()
+    image_data = image.raw_data.reshape(-1, 3).astype(np.float)
+    for area_id, predictor in self.predictors.items():
+      area_data = image.area_classes.classes[area_id].area_mask.reshape(-1)
+      if area_data.max() > 0:
+        print('%s...' % area_id, end=' ')
         sys.stdout.flush()
-        pixel_vector = value.area_mask.reshape(-1)
-        pipeline = make_pipeline(StandardScaler(), SGDClassifier(loss='log'))
-        pipeline.fit(self.image_pixel_data, pixel_vector)
+        # NOTE: Maybe should use partial_fit
+        predictor.fit(image_data, area_data)
       else:
-        print('(%s)...' % key, end=' ')
-      self.area_class_pixel_data[key] = {
-          'pixel_vector': pixel_vector,
-          'pipeline': pipeline
-          }
-    print('done!')
+        print('(%s)...' % area_id, end=' ')
+        # NOTE: Skipping fitting of predictor because the area doesn't exist in the image
+        # BUT, this should also be taken into account...
+    print()
+    self.log.info('... done! ({:.1f}s)'.format((datetime.utcnow() - start_time).total_seconds()))
+
+  @staticmethod
+  def get_empty_predictors(keys):
+    predictors = {}
+    for key in keys:
+      predictors[key] = make_pipeline(StandardScaler(), SGDClassifier(loss='log'))
+    return predictors
 
   def predict(self, test_image):
-    test_data = test_image.reshape(-1, 3).astype(np.float32)
+    image_shape = test_image.raw_data.shape[:2]
+    test_data = test_image.raw_data.reshape(-1, 3).astype(np.float32)
     results = {}
-    print('Predicting')
-    for key, value in self.area_class_pixel_data.items():
-      print('%s...' % key, end=' ')
+    self.log.warning('Predicting image {}...'.format(test_image.image_id))
+    start_time = datetime.utcnow()
+    for area_id, predictor in self.predictors.items():
+      print('%s...' % area_id, end=' ')
       sys.stdout.flush()
-      if value['pipeline']:
-        results[key] = value['pipeline'].predict_proba(test_data)[:, 1]
-      else:
-        results[key] = np.zeros(test_data.shape[0])
-    print('done!')
+      try:
+        results[area_id] = predictor.predict_proba(test_data)[:, 1].reshape(image_shape)
+      except AttributeError:
+        print('x', end=' ')
+        results[area_id] = np.zeros(test_data.shape[0]).reshape(image_shape)
+    self.log.info('... done! ({:.1f}s)'.format((datetime.utcnow() - start_time).total_seconds()))
     return results
 
   def evaluate_prediction(self, prediction, truth):
     return average_precision_score(prediction, truth)
 
   def prediction_to_binary_prediction(self, prediction, threshold=0.3):
-    return (prediction.reshape(self.area_mask_shape) >= threshold)
+    return prediction >= threshold
 
   def prediction_mask_to_polygons(self, mask, epsilon=10., min_area=10.):
     # first, find contours with cv2: it's much faster than shapely
