@@ -1,3 +1,4 @@
+import pickle
 import csv
 import logging
 import sys
@@ -87,6 +88,58 @@ def load_area_data():
       data[image_id][area_class] = areas
     return data
 
+def visualize_prediction(predictions, predictor, image):
+  # visualize prediction
+  for area_class, prediction in predictions.items():
+    binary_prediction = predictor.prediction_to_binary_prediction(prediction)
+    prediction_polygons = predictor.prediction_mask_to_polygons(binary_prediction)
+    predictions[area_class] = prediction_polygons
+  image.area_classes.add_predictions(predictions)
+  # plot training mask
+  plt.imshow(scale_percentile(image.raw_data))
+  plt.imshow(image.area_classes.image_mask, alpha=0.5)
+
+  # plot predicted mask
+  plt.figure()
+  plt.imshow(scale_percentile(image.raw_data))
+  plt.imshow(image.area_classes.prediction_image_mask, alpha=0.5)
+  plt.show()
+
+def create_and_train_predictor():
+  LABELS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+  predictor = AreaPredictor(LABELS)
+
+  for image_id in area_data.keys():
+    image = Image(image_id, grid_sizes[image_id], DATA_DIRECTORY)
+
+    image.load_image()
+    image.load_areas(area_data[image_id])
+
+    # train and predict same image
+    predictor.train(image)
+
+  return predictor
+
+def load_trained_predictor(file_name='predictors.p'):
+  with open(file_name, 'rb') as predictors_file:
+    predictor_data = pickle.load(predictors_file)
+    predictor = AreaPredictor(predictors=predictor_data)
+    return predictor
+
+def create_submission(images, file_name='submission.csv'):
+  with open(file_name, 'w') as submission_file:
+    writer = csv.writer(submission_file)
+
+    writer.writerow(['ImageId', 'ClassType', 'MultipolygonWKT'])
+
+    log.warning('Creating submission in {} with {} images...'.format(file_name, len(images)))
+    for image in images:
+      areas = image.area_classes.classes
+      for area_id in areas.keys():
+        writer.writerow([image.image_id, area_id, areas[area_id].predicted_submission_polygons])
+    log.info('... done!')
+
+
 # def main():
 
 # setup
@@ -95,8 +148,8 @@ log = get_logger()
 grid_sizes = load_grid_sizes()
 area_data = load_area_data()
 
-LABELS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-predictor = AreaPredictor(LABELS)
+predictor = load_trained_predictor()
+
 
 # process single image
 IMAGE_ID = '6120_2_2'
@@ -105,6 +158,14 @@ image = Image(IMAGE_ID, grid_sizes[IMAGE_ID], DATA_DIRECTORY)
 image.load_image()
 image.load_areas(area_data[IMAGE_ID])
 
+predictions = predictor.predict(image)
+image.area_classes.add_predictions(predictions)
+
+
+create_submission([image])
+
+
+"""
 # train and predict same image
 predictor.train(image)
 predictions = predictor.predict(image)
@@ -125,6 +186,7 @@ plt.figure()
 plt.imshow(scale_percentile(image.raw_data))
 plt.imshow(image.area_classes.prediction_image_mask, alpha=0.5)
 plt.show()
+"""
 
 # if __name__ == '__main__':
 #   main()
