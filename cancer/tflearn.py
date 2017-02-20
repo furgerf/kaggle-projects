@@ -1,72 +1,83 @@
-# from tensorflow.examples.tutorials.mnist import input_data
-# mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
-
+import os
 import sys
 import numpy as np
-
-"""
-labels = list()
-images = list()
-
-with open('train.csv', 'r') as f:
-  f.readline()
-
-  for line in f:
-    vals = line.split(',')
-    label = int(vals[0])
-    image = [int(v) for v in vals[1:]]
-    labels.append(label)
-    images.append(image)
-
-"""
-import pickle
-
-# pickle.dump((labels, images), open('mnist.p', 'wb'))
-
-labels, images = pickle.load(open('mnist.p', 'rb'))
-labels = np.array(labels)
-oh_labels = np.zeros((len(labels), 10))
-for i,o in enumerate(oh_labels):
-  o[labels[i]] = 1
-
-images = np.array(images)
-
-print('done loading data')
-
 import tensorflow as tf
+import pickle
+from scan import Scan
+from data_manager import DataManager
+from tf_network import TfNetwork
+import csv
 
-x = tf.placeholder(tf.float32, [None, 784])
+def load_training_set():
+  with open('stage1_labels.csv') as csv_file:
+    reader = csv.reader(csv_file)
 
-W = tf.Variable(tf.zeros([784, 10]))
-b = tf.Variable(tf.zeros([10]))
+    # skip header
+    next(reader, None)
+    return np.array([Scan(scan_id, label) for scan_id, label in reader])
 
-y = tf.nn.softmax(tf.matmul(x, W) + b)
+def train(sess, network, train_step, y_, scans, dimensionality):
+  training_set_size = len(scans)
+  training_batch_size = 2
+  epochs = 3
 
-y_ = tf.placeholder(tf.float32, [None, 10])
+  for i in range(epochs):
+    print('Epoch {}/{}'.format(i+1, epochs))
 
-cross_entropy = tf.reduce_mean(tf.reduce_sum((y_ - y) ** 2, reduction_indices=[1]))
+    print('Selecting examples... ', end='')
+    sys.stdout.flush()
+    idx = (np.random.rand(training_batch_size) * training_set_size).astype(np.int)
+    current_training_scans = scans[idx]
 
-cross_entropy_2 = tf.nn.log_poisson_loss(y, y_)
+    print('loading data... ', end='')
+    sys.stdout.flush()
+    current_training_images = [scan.data.reshape(-1)[:dimensionality] for scan in current_training_scans]
+    current_training_labels  = [scan.label for scan in current_training_scans]
 
-train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
+    print('training... ', end='')
+    sys.stdout.flush()
+    sess.run(train_step, feed_dict={network.x: current_training_images, y_: np.transpose([current_training_labels])})
 
-init = tf.global_variables_initializer()
+    print('freeing memory...', end='')
+    sys.stdout.flush()
 
-print('setup done')
+    for scan in current_training_scans:
+      scan._data = None
 
+    print('done!')
+
+    # correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+    # accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+    # print(sess.run(accuracy, feed_dict={x: images[train_length:], y_: oh_labels[train_length:]}))
+
+def store_session(session):
+  saver = tf.train.Saver()
+  saver.save(session, 'hello-world-session.ckpt')
+
+def load_session():
+  saver = tf.train.Saver()
+  session = tf.Session()
+  saver.restore(session,  'hello-world-session.ckpt')
+  return session
+
+print('Setting up network')
+dimensionality = 1234
+network = TfNetwork(dimensionality)
+y_ = tf.placeholder(tf.float32, [None, 1])
+l2_error = tf.reduce_mean(tf.reduce_sum((y_ - network.y) ** 2, reduction_indices=[1]))
+# cross_entropy = tf.nn.log_poisson_loss(y, y_)
+train_step = tf.train.GradientDescentOptimizer(0.1).minimize(l2_error)
+
+print('Setting up session')
 sess = tf.Session()
+init = tf.global_variables_initializer()
 sess.run(init)
 
-train_length = int(0.7 * len(labels))
-print('Training set size', train_length)
-for i in range(1000):
-  # print('Epoch', i)
-  idx = (np.random.rand(int(train_length / 2)) * train_length).astype(np.int)
-  img = images[idx, :]
-  lab = oh_labels[idx, :]
-  sess.run(train_step, feed_dict={x: img, y_: lab})
+print('Loading training set metadata')
+training_set = load_training_set()
+print('Starting training')
+train(sess, network, train_step, y_, training_set, dimensionality)
 
-  correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
-  accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-  print(sess.run(accuracy, feed_dict={x: images[train_length:], y_: oh_labels[train_length:]}))
+print('Storing session')
+store_session(sess)
 
