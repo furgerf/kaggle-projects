@@ -64,6 +64,7 @@ class AreaPredictor:
       except AttributeError:
         print('x', end=' ')
         results[area_id] = np.zeros(test_data.shape[0]).reshape(image_shape)
+    print()
     self.log.info('... done! ({:.1f}s)'.format((datetime.utcnow() - start_time).total_seconds()))
     return results
 

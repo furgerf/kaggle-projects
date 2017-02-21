@@ -30,6 +30,14 @@ class AreaClasses:
         }
 
   def load(self, areas):
+    # NOTE: Unfortunately, have to call `set_areas` even if there are no areas
+    if areas is None:
+      for area_class in self.classes.keys():
+        self.classes[area_class].set_areas(None, \
+            self._image_size, self._x_scale, self._y_scale)
+      print()
+      return
+
     start_time = datetime.utcnow()
     for area_class, areas in areas.items():
       self.classes[area_class].set_areas(shapely.wkt.loads(areas), \
@@ -40,7 +48,7 @@ class AreaClasses:
     self.image_mask = reduce(np.add, list(map(lambda c: c.mask_image, self.classes.values())))
 
   def add_predictions(self, predictions):
-    print('Adding prediction images')
+    self.log.info('Adding prediction images')
     for key in self.classes.keys():
       self.classes[key].set_predictions(predictions[key], self._image_size)
     self.prediction_image_mask = reduce(np.add, list(map(lambda c: c.predicted_mask_image, self.classes.values())))

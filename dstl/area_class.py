@@ -19,6 +19,9 @@ class AreaClass:
     self.x_scale = x_scale
     self.y_scale = y_scale
 
+    if areas is None:
+      return
+
     self.scaled_areas = Utils.scale_multi_polygon(self.areas, x_scale, y_scale)
 
     self.area_mask = Utils.multi_polygon_to_pixel_mask(self.scaled_areas, image_size)

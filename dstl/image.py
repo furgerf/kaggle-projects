@@ -26,7 +26,8 @@ class Image:
     return width / grid[0], height / grid[1]
 
   def load_areas(self, areas):
-    self.log.warning('Loading areas for image {}'.format(self.image_id))
+    self.log.warning('Loading areas for image {}{}'.format(self.image_id, ' WITHOUT AREAS' if areas is None else ''))
     self.area_classes = AreaClasses(self.image_id, self.image_size, self.x_scale, self.y_scale)
+    # NOTE: Unfortunately, have to call `load` even if there are no areas
     self.area_classes.load(areas)
 

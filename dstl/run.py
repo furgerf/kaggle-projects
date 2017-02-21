@@ -1,3 +1,4 @@
+import os
 import pickle
 import csv
 import logging
@@ -16,6 +17,7 @@ plt.switch_backend('Qt5Agg')
 csv.field_size_limit(sys.maxsize)
 
 DATA_DIRECTORY = './data/'
+DATA_THREEBAND = DATA_DIRECTORY + 'three_band/'
 DATA_GRIDS_FILE = DATA_DIRECTORY + 'grid_sizes.csv'
 DATA_AREAS_WKT = DATA_DIRECTORY + 'train_wkt_v4.csv'
 
@@ -126,17 +128,15 @@ def load_trained_predictor(file_name='predictors.p'):
     predictor = AreaPredictor(predictors=predictor_data)
     return predictor
 
-def create_submission(images, file_name='submission.csv'):
+def create_submission(entries, file_name='submission.csv'):
   with open(file_name, 'w') as submission_file:
     writer = csv.writer(submission_file)
 
     writer.writerow(['ImageId', 'ClassType', 'MultipolygonWKT'])
 
-    log.warning('Creating submission in {} with {} images...'.format(file_name, len(images)))
-    for image in images:
-      areas = image.area_classes.classes
-      for area_id in areas.keys():
-        writer.writerow([image.image_id, area_id, areas[area_id].predicted_submission_polygons])
+    log.warning('Creating submission in {} with {} entries...'.format(file_name, len(entries)))
+    for entry in entries:
+      writer.writerow(entry)
     log.info('... done!')
 
 
@@ -150,7 +150,32 @@ area_data = load_area_data()
 
 predictor = load_trained_predictor()
 
+# process all images
+entries = []
+image_ids = []
+training_images_to_predict = []
+with open('./correct-order', 'r') as fh:
+  reader = csv.reader(fh)
+  for row in reader:
+    image_ids.append(row[0])
 
+for i, image_id in enumerate(image_ids):
+  log.debug('Processing image {}/{} ({})'.format(i + 1, len(image_ids), image_id))
+
+  image = Image(image_id, grid_sizes[image_id], DATA_DIRECTORY)
+
+  image.load_image()
+  areas = area_data[image_id] if image_id in area_data else None
+  image.load_areas(areas)
+
+  predictions = predictor.predict(image)
+  image.area_classes.add_predictions(predictions)
+  for area_id, area_class in image.area_classes.classes.items():
+    entries.append((image_id, area_id, area_class.predicted_submission_polygons))
+
+create_submission(entries)
+
+"""
 # process single image
 IMAGE_ID = '6120_2_2'
 image = Image(IMAGE_ID, grid_sizes[IMAGE_ID], DATA_DIRECTORY)
@@ -160,10 +185,8 @@ image.load_areas(area_data[IMAGE_ID])
 
 predictions = predictor.predict(image)
 image.area_classes.add_predictions(predictions)
-
-
 create_submission([image])
-
+"""
 
 """
 # train and predict same image
