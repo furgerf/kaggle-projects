@@ -139,6 +139,11 @@ def create_submission(entries, file_name='submission.csv'):
       writer.writerow(entry)
     log.info('... done!')
 
+def save_entries(entries, file_name='predictions.p'):
+  log.warning('Saving entries to {}...'.format(file_name))
+  with open(file_name, 'wb') as fh:
+    pickle.dump(entries, fh)
+
 
 # def main():
 
@@ -174,6 +179,7 @@ for i, image_id in enumerate(image_ids):
     entries.append((image_id, area_id, area_class.predicted_submission_polygons))
 
 create_submission(entries)
+save_entries(entries)
 
 """
 # process single image
