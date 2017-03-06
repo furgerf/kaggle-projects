@@ -6,6 +6,7 @@ class Scan(object):
     self.scan_id = scan_id
     self.data_index = data_index
     self.label = label
+    self.predicted_label = None
     self._data = None
 
   @property

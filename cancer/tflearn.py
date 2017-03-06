@@ -7,24 +7,37 @@ from scan import Scan
 from data_manager import DataManager
 from tf_network import TfNetwork
 import csv
+from datetime import datetime
 
-def load_training_set():
-  with open('stage1_labels.csv') as csv_file:
+def load_training_set(file_name):
+  with open(file_name) as csv_file:
     reader = csv.reader(csv_file)
 
     # skip header
     next(reader, None)
     return np.array([Scan(scan_id, label) for scan_id, label in reader])
 
+"""
+def load_test_set():
+  with open('stage1_labels.csv') as csv_file:
+    reader = csv.reader(csv_file)
+
+    # skip header
+    next(reader, None)
+
+    training_scans = []
+    return np.array([Scan(scan_id, label) for scan_id, label in reader])
+"""
+
 def train(sess, network, train_step, y_, scans, dimensionality):
   training_set_size = len(scans)
-  training_batch_size = 2
-  epochs = 3
+  training_batch_size = 15
+  epochs = 100
 
   for i in range(epochs):
-    print('Epoch {}/{}'.format(i+1, epochs))
+    print(datetime.utcnow(), 'Epoch {}/{}'.format(i+1, epochs))
 
-    print('Selecting examples... ', end='')
+    print(datetime.utcnow(), 'Selecting examples... ', end='')
     sys.stdout.flush()
     idx = (np.random.rand(training_batch_size) * training_set_size).astype(np.int)
     current_training_scans = scans[idx]
@@ -52,16 +65,34 @@ def train(sess, network, train_step, y_, scans, dimensionality):
 
 def store_session(session):
   saver = tf.train.Saver()
-  saver.save(session, 'hello-world-session.ckpt')
+  saver.save(session, 'hello-world-high-dimensional-session.ckpt')
 
-def load_session():
-  saver = tf.train.Saver()
+def load_session(dimensionality):
+  network = TfNetwork(dimensionality)
+  # saver = tf.train.Saver()
   session = tf.Session()
-  saver.restore(session,  'hello-world-session.ckpt')
-  return session
+  # saver.restore(session, 'hello-world-high-dimensional-session.ckpt')
 
+  init = tf.global_variables_initializer()
+  session.run(init)
+
+  new_saver = tf.train.import_meta_graph('hello-world-high-dimensional-session.ckpt.meta')
+  new_saver.restore(session, tf.train.latest_checkpoint('./'))
+
+  return session, network
+
+def predict(sess, network, scans, dimensionality):
+  for scan in scans:
+    scan_image = scan.data.reshape(-1)[:dimensionality]
+    scan.predicted_label = sess.run(network.y, feed_dict ={network.x: [scan_image]})
+    print("Prediction for {}: {} -> {}".format(scan.scan_id, scan.predicted_label, scan.label))
+    scan._data = None
+
+start_time = datetime.utcnow()
+dimensionality = 15886000
+"""
 print('Setting up network')
-dimensionality = 1234
+# dimensionality = 10000000
 network = TfNetwork(dimensionality)
 y_ = tf.placeholder(tf.float32, [None, 1])
 l2_error = tf.reduce_mean(tf.reduce_sum((y_ - network.y) ** 2, reduction_indices=[1]))
@@ -80,4 +111,14 @@ train(sess, network, train_step, y_, training_set, dimensionality)
 
 print('Storing session')
 store_session(sess)
+"""
+
+print('Loading session')
+sess, network = load_session(dimensionality)
+
+print('Loading training set metadata')
+test_set = load_training_set('last-20-percent-training-set.csv')
+predict(sess, network, test_set, dimensionality)
+
+print('DONE! Started {}, ended {}, took {}'.format(start_time, datetime.utcnow(), datetime.utcnow() - start_time))
 

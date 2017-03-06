@@ -12,10 +12,7 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import dicom
 import os
 import scipy.ndimage
-# import matplotlib
-# matplotlib.use('WX')
-# import matplotlib.pyplot as plt
-# plt.switch_backend('Qt5Agg')
+import matplotlib.pyplot as plt
 import pickle
 
 from skimage import measure, morphology
@@ -28,56 +25,45 @@ def load_scan(path):
         slice_thickness = np.abs(slices[0].ImagePositionPatient[2] - slices[1].ImagePositionPatient[2])
     except:
         slice_thickness = np.abs(slices[0].SliceLocation - slices[1].SliceLocation)
-
+        
     for s in slices:
         s.SliceThickness = slice_thickness
-
+        
     return slices
-
+    
 def get_pixels_hu(scans):
     image = np.stack([s.pixel_array for s in scans])
-    # Convert to int16 (from sometimes int16),
+    # Convert to int16 (from sometimes int16), 
     # should be possible as values should always be low enough (<32k)
     image = image.astype(np.int16)
 
     # Set outside-of-scan pixels to 0
     # The intercept is usually -1024, so air is approximately 0
     image[image == -2000] = 0
-
+    
     # Convert to Hounsfield units (HU)
     intercept = scans[0].RescaleIntercept
     slope = scans[0].RescaleSlope
-
+    
     if slope != 1:
         image = slope * image.astype(np.float64)
         image = image.astype(np.int16)
-
+        
     image += np.int16(intercept)
-
+    
     return np.array(image, dtype=np.int16)
 
-def resample(image, scan, new_spacing=[1,1,1]):
-    # Determine current pixel spacing
-    spacing = map(float, ([scan[0].SliceThickness] + scan[0].PixelSpacing))
-    spacing = np.array(list(spacing))
-
-    resize_factor = spacing / new_spacing
-    new_real_shape = image.shape * resize_factor
-    new_shape = np.round(new_real_shape)
-    real_resize_factor = new_shape / image.shape
-    new_spacing = spacing / real_resize_factor
-
-    image = scipy.ndimage.interpolation.zoom(image, real_resize_factor)
-
-    return image, new_spacing
+def resample(image, new_shape):
+    resize_factor = new_shape / image.shape
+    return scipy.ndimage.interpolation.zoom(image, resize_factor)
 
 def plot_3d(image, threshold=-300, alpha=0.1):
-
-    # Position the scan upright,
+    
+    # Position the scan upright, 
     # so the head of the patient would be at the top facing the camera
     p = image.transpose(2,1,0)
     p = p[:,:,::-1]
-
+    
     verts, faces = measure.marching_cubes(p, threshold)
 
     fig = plt.figure(figsize=(10, 10))
@@ -95,103 +81,10 @@ def plot_3d(image, threshold=-300, alpha=0.1):
 
     plt.show()
 
-def largest_label_volume(im, bg=-1):
-    vals, counts = np.unique(im, return_counts=True)
-
-    counts = counts[vals != bg]
-    vals = vals[vals != bg]
-
-    if len(counts) > 0:
-        return vals[np.argmax(counts)]
-    else:
-        return None
-
-def segment_lung_mask(image, fill_lung_structures=True):
-
-    # not actually binary, but 1 and 2.
-    # 0 is treated as background, which we do not want
-    binary_image = np.array(image > -320, dtype=np.int8)+1
-    labels = measure.label(binary_image)
-
-    # Pick the pixel in the very corner to determine which label is air.
-    #   Improvement: Pick multiple background labels from around the patient
-    #   More resistant to "trays" on which the patient lays cutting the air
-    #   around the person in half
-    background_label = labels[0,0,0]
-
-    #Fill the air around the person
-    binary_image[background_label == labels] = 2
-
-
-    # Method of filling the lung structures (that is superior to something like
-    # morphological closing)
-    if fill_lung_structures:
-        # For every slice we determine the largest solid structure
-        for i, axial_slice in enumerate(binary_image):
-            axial_slice = axial_slice - 1
-            labeling = measure.label(axial_slice)
-            l_max = largest_label_volume(labeling)
-
-            if l_max is not None: #This slice contains some lung
-                binary_image[i][labeling != l_max] = 1
-
-
-    binary_image -= 1 #Make the image actual binary
-    binary_image = 1-binary_image # Invert it, lungs are now 1
-
-    # Remove other air pockets insided body
-    labels = measure.label(binary_image, background=0)
-    l_max = largest_label_volume(labels, bg=-1)
-    if l_max is not None: # There are air pockets
-        binary_image[labels != l_max] = 0
-
-    return binary_image
-
-
-def segment_lung_mask_original(image, fill_lung_structures=True):
-
-    # not actually binary, but 1 and 2.
-    # 0 is treated as background, which we do not want
-    binary_image = np.array(image > -320, dtype=np.int8)+1
-    labels = measure.label(binary_image)
-
-    # Pick the pixel in the very corner to determine which label is air.
-    #   Improvement: Pick multiple background labels from around the patient
-    #   More resistant to "trays" on which the patient lays cutting the air
-    #   around the person in half
-    background_label = labels[0,0,0]
-
-    #Fill the air around the person
-    binary_image[background_label == labels] = 2
-
-
-    # Method of filling the lung structures (that is superior to something like
-    # morphological closing)
-    if fill_lung_structures:
-        # For every slice we determine the largest solid structure
-        for i, axial_slice in enumerate(binary_image):
-            axial_slice = axial_slice - 1
-            labeling = measure.label(axial_slice)
-            l_max = largest_label_volume(labeling, bg=0)
-
-            if l_max is not None: #This slice contains some lung
-                binary_image[i][labeling != l_max] = 1
-
-
-    binary_image -= 1 #Make the image actual binary
-    binary_image = 1-binary_image # Invert it, lungs are now 1
-
-    # Remove other air pockets insided body
-    labels = measure.label(binary_image, background=0)
-    l_max = largest_label_volume(labels, bg=0)
-    if l_max is not None: # There are air pockets
-        binary_image[labels != l_max] = 0
-
-    return binary_image
 
 MIN_BOUND = -1000.0
 MAX_BOUND = 400.0
-
+    
 def normalize(image):
     image = (image - MIN_BOUND) / (MAX_BOUND - MIN_BOUND)
     image[image>1] = 1.
@@ -204,41 +97,93 @@ def zero_center(image):
     image = image - PIXEL_MEAN
     return image
 
-INPUT_FOLDER = 'data/stage1/'
+INPUT_FOLDER = 'data/'
+
+def crop_rip_cage(hu, threshold):
+	x0_mid = hu.shape[0]/2
+	x1_min = None
+	x1_max = None
+	for x1 in range(hu.shape[1]):
+		if (hu[x0_mid:,x1,:]>threshold).any():
+			x1_min = x1
+			break
+	for x1 in range(hu.shape[1]-1,0,-1):
+		if (hu[x0_mid:,x1,:]>threshold).any():
+			x1_max = x1
+			break
+	print 'x1', x1_min, x1_max
+	assert(x1_min<x1_max)
+	x2_min = None
+	x2_max = None
+	for x2 in range(hu.shape[2]):
+		if (hu[x0_mid:,:,x2]>threshold).any():
+			x2_min = x2
+			break
+	for x2 in range(hu.shape[2]-1,0,-1):
+		if (hu[x0_mid:,:,x2]>threshold).any():
+			x2_max = x2
+			break
+	print 'x2', x2_min, x2_max
+	assert(x2_min<x2_max)
+
+	x0_min = None
+	x0_max = None
+	for x0 in range(hu.shape[0]):
+		if (hu[x0,:,:]>threshold).any():
+			x0_min = x0
+			break
+	for x0 in range(hu.shape[0]-1,0,-1):
+		if (hu[x0,:,:]>threshold).any():
+			x0_max = x0
+			break
+	print 'x0', x0_min, x0_max
+	assert(x0_min<x0_max)
+#	x0_mid = (x0_max+x0_min)/2
+#	x1_mid = (x1_max+x1_min)/2
+#	x2_mid = (x2_max+x2_min)/2
+#	plt.figure()
+#	plt.imshow(hu[x0_min + (x0_max-x0_min)/3, x1_min:x1_max, x2_min:x2_max])
+##	plt.figure()
+##	plt.imshow(hu[x0_mid, x1_min:x1_max, x2_min:x2_max])
+#	plt.figure()
+#	plt.imshow(hu[x0_min + (2*(x0_max-x0_min))/3, x1_min:x1_max, x2_min:x2_max])
+#	plt.figure()
+#	plt.imshow(hu[x0_min:x0_max, x1_mid, x2_min:x2_max])
+#	plt.figure()
+#	plt.imshow(hu[x0_min:x0_max, x1_min:x1_max, x2_min + (x2_max-x2_min)/3])
+##	plt.figure()
+##	plt.imshow(hu[x0_min:x0_max, x1_min:x1_max, x2_mid])
+#	plt.figure()
+#	plt.imshow(hu[x0_min:x0_max, x1_min:x1_max, x2_min + ((x2_max - x2_min)*2)/3])
+
+	plt.imshow(resample(hu, [123, 123, 123]))
+	return x0_max-x0_min, x1_max-x1_min,x2_max-x2_min
+
 
 def preprocess(patId):
-  first_patient = load_scan(INPUT_FOLDER + patId)
-  first_patient_pixels = get_pixels_hu(first_patient)
-  #plt.hist(first_patient_pixels.flatten(), bins=80, color='c')
-  #plt.xlabel("Hounsfield Units (HU)")
-  #plt.ylabel("Frequency")
-  #    plt.show()
+	first_patient = load_scan(INPUT_FOLDER + patId)
+	first_patient_pixels = get_pixels_hu(first_patient)
+	
+	cropped_dimensions = crop_rip_cage(first_patient_pixels, 600)
+#	pix_resampled = resample(first_patient_pixels, first_patient, [1,1,1])
+	return cropped_dimensions
 
-  # Show some slice in the middle
-  #plt.imshow(first_patient_pixels[80], cmap=plt.cm.gray)
-  #    plt.show()
-
-  pix_resampled, spacing = resample(first_patient_pixels, first_patient, [1,1,1])
-#  print("Shape before resampling\t", first_patient_pixels.shape)
-#  print("Shape after resampling\t", pix_resampled.shape)
-
-  #    plot_3d(pix_resampled, 400)
-
-  segmented_lungs = segment_lung_mask(pix_resampled, False)
-  segmented_lungs_fill = segment_lung_mask(pix_resampled, True)
-
-  return pix_resampled, segmented_lungs, segmented_lungs_fill
-
-
-# Some constants
-patients = os.listdir(INPUT_FOLDER)
+# Some constants 
+patients = [os.listdir(INPUT_FOLDER)[0]]
 patients.sort()
+data = None
+
+#min_x0, min_x1, min_x2 = 987654321
+#max_x0, max_x1, max_x2 = 0
+
 for i, patId in enumerate(patients):
-  print("processing patient %s %d/%d" % (patId, i+1, len(patients)))
-  data = preprocess(patId)
-  # plt.imshow( data[2][75])
-  with open("preprocessed/{0:s}.pickle".format(patId), "wb") as f:
-    pickle.dump(data, f)
+	print "processing patient {0:s} {1:d}/{2:d}".format(patId, i+1, len(patients))
+	data = preprocess(patId)
+	
+#	min_x0 = min(data[0], min_x0)
+
+#	with open("{0:s}.pickle".format(patId), "w") as f:
+#		pickle.dump(data, f)
 #sick_data = preprocess('0acbebb8d463b4b9ca88cf38431aac69')
 #healthy1_data = main(patients[1])
 
