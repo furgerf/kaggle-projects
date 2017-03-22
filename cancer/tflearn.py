@@ -9,7 +9,7 @@ from tf_network import TfNetwork
 import csv
 from datetime import datetime
 
-def load_training_set(file_name):
+def load_training_set(file_name='last-20-percent-training-set.csv'):
   with open(file_name) as csv_file:
     reader = csv.reader(csv_file)
 
@@ -29,10 +29,11 @@ def load_test_set():
     return np.array([Scan(scan_id, label) for scan_id, label in reader])
 """
 
-def train(sess, network, train_step, y_, scans, dimensionality):
+def train(sess, network, train_step, y_, scans, dimensionality=None):
   training_set_size = len(scans)
-  training_batch_size = 15
-  epochs = 100
+  training_batch_size = 40
+  epochs = 1
+  dimensionality = dimensionality if dimensionality else np.prod(scans[0].data.shape)
 
   for i in range(epochs):
     print(datetime.utcnow(), 'Epoch {}/{}'.format(i+1, epochs))
@@ -63,25 +64,46 @@ def train(sess, network, train_step, y_, scans, dimensionality):
     # accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     # print(sess.run(accuracy, feed_dict={x: images[train_length:], y_: oh_labels[train_length:]}))
 
-def store_session(session):
+def store_session(session, network):
+  # tf.add_to_collection('vars', network.b)
+  # tf.add_to_collection('vars', network.W)
   saver = tf.train.Saver()
-  saver.save(session, 'hello-world-high-dimensional-session.ckpt')
+  saver.save(session, './new-attempt-with-collection')
+
+# def store_partial_session(session, network):
+#   saver = tf.train.Saver({'W': network.W, 'b': network.b})
+#   saver.save(session, 'partial-session.ckpt')
 
 def load_session(dimensionality):
   network = TfNetwork(dimensionality)
-  # saver = tf.train.Saver()
   session = tf.Session()
-  # saver.restore(session, 'hello-world-high-dimensional-session.ckpt')
 
   init = tf.global_variables_initializer()
   session.run(init)
+  saver = tf.train.Saver()
+  saver.restore(session, './new-attempt-with-collection')
 
-  new_saver = tf.train.import_meta_graph('hello-world-high-dimensional-session.ckpt.meta')
-  new_saver.restore(session, tf.train.latest_checkpoint('./'))
+  network.load_variables(session)
 
   return session, network
 
-def predict(sess, network, scans, dimensionality):
+  # new_saver = tf.train.import_meta_graph('partial-session.ckpt.meta')
+  # new_saver.restore(session, tf.train.latest_checkpoint('./'))
+
+  # new_saver = tf.train.import_meta_graph('new-attempt-with-collection.meta')
+  # new_saver.restore(session, tf.train.latest_checkpoint('./'))
+  # all_vars = tf.get_collection('vars')
+  # for v in all_vars:
+  #   v_ = session.run(v)
+  #   print(v.name, v_)
+
+  # new_saver = tf.train.Saver()
+  # new_saver.restore(session, 'partial-session.ckpt.index')
+
+  # return session, network
+
+def predict(sess, network, scans, dimensionality=None):
+  dimensionality = dimensionality if dimensionality else np.prod(scans[0].data.shape)
   for scan in scans:
     scan_image = scan.data.reshape(-1)[:dimensionality]
     scan.predicted_label = sess.run(network.y, feed_dict ={network.x: [scan_image]})
@@ -89,28 +111,31 @@ def predict(sess, network, scans, dimensionality):
     scan._data = None
 
 start_time = datetime.utcnow()
-dimensionality = 15886000
-"""
-print('Setting up network')
-# dimensionality = 10000000
+dimensionality = 93*218*356
+
+print(datetime.utcnow(), 'Setting up network')
 network = TfNetwork(dimensionality)
 y_ = tf.placeholder(tf.float32, [None, 1])
 l2_error = tf.reduce_mean(tf.reduce_sum((y_ - network.y) ** 2, reduction_indices=[1]))
 # cross_entropy = tf.nn.log_poisson_loss(y, y_)
 train_step = tf.train.GradientDescentOptimizer(0.1).minimize(l2_error)
 
-print('Setting up session')
+print(datetime.utcnow(), 'Setting up session')
 sess = tf.Session()
 init = tf.global_variables_initializer()
 sess.run(init)
 
-print('Loading training set metadata')
+print(datetime.utcnow(), 'Loading training set metadata')
 training_set = load_training_set()
-print('Starting training')
-train(sess, network, train_step, y_, training_set, dimensionality)
+print(datetime.utcnow(), 'Starting training')
+train(sess, network, train_step, y_, training_set)
 
-print('Storing session')
-store_session(sess)
+print(datetime.utcnow(), 'Storing session')
+store_session(sess, network)
+# store_partial_session(sess, network)
+
+# test_set = load_training_set('last-20-percent-training-set.csv')
+# predict(sess, network, test_set, dimensionality)
 """
 
 print('Loading session')
@@ -118,7 +143,8 @@ sess, network = load_session(dimensionality)
 
 print('Loading training set metadata')
 test_set = load_training_set('last-20-percent-training-set.csv')
-predict(sess, network, test_set, dimensionality)
+# predict(sess, network, test_set, dimensionality)
 
 print('DONE! Started {}, ended {}, took {}'.format(start_time, datetime.utcnow(), datetime.utcnow() - start_time))
 
+"""

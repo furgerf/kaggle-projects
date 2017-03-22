@@ -1,2 +1,7 @@
 *.p
+*.pickle
 *.csv
+cancer/data
+cancer/old-data
+cancer/preprocessed
+cancer/old-but-working-venv
